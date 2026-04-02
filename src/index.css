@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Source+Sans+3:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* --- ZURICH BLUE (Primary Brand) --- */
+  --color-zurich-950: #041019;
+  --color-zurich-900: #071b2a;
+  --color-zurich-800: #0e3655;
+  --color-zurich-700: #15527f;
+  --color-zurich-600: #1c6daa;
+  --color-zurich-500: #2388d4;
+  --color-zurich-400: #4fa0dd;
+  --color-zurich-300: #7bb8e5;
+  --color-zurich-200: #a7cfee;
+  --color-zurich-100: #d3e7f6;
+  --color-zurich-50: #e5f1fa;
+
+  /* --- MILITANT GREEN (Secondary Brand) --- */
+  --color-militant-950: #05140a;
+  --color-militant-900: #082111;
+  --color-militant-500: #27a357;
+  --color-militant-400: #52b579;
+  --color-militant-300: #7dca9b;
+  --color-militant-200: #a8dfbc;
+  --color-militant-100: #d3f4dd;
+
+  /* --- ACCENT COLORS --- */
+  --color-amber-500: #f59e0b;
+  --color-amber-100: #fef3c7;
+  --color-amber-50: #fffbeb;
+  --color-violet-500: #8b5cf6;
+  --color-violet-100: #f5f3ff;
+  --color-emerald-500: #059669;
+  --color-emerald-100: #ecfdf5;
+  --color-rose-500: #ec4899;
+  --color-rose-100: #fce7f3;
+  --color-sky-500: #0ea5e9;
+  --color-sky-100: #e0f2fe;
+  --color-indigo-500: #6366f1;
+  --color-indigo-100: #eef2ff;
+  --color-orange-500: #f97316;
+  --color-orange-100: #ffedd5;
+  --color-red-500: #dc2626;
+  --color-red-100: #fee2e2;
+
+  /* --- Typography --- */
+  --font-heading: 'Anton', sans-serif;
+  --font-body: 'Source Sans 3', sans-serif;
+}
+
+/* --- CSS VARIABLES (for inline styles) --- */
+:root {
+  /* Surfaces */
+  --surface-a: #ffffff;
+  --surface-b: #f8fafc;
+  
+  /* Text */
+  --text-main: #0a0a0a;
+  --text-muted: #464646;
+  --text-dim: #64748b;
+  
+  /* Navigation */
+  --nav-overlay: rgba(255, 255, 255, 0.92);
+  --nav-stroke: rgba(0, 0, 0, 0.08);
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  
+  /* Brand Colors (for inline styles) */
+  --color-primary: var(--color-zurich-500);
+  --color-secondary: var(--color-militant-500);
+  --color-amber: var(--color-amber-500);
+  --color-violet: var(--color-violet-500);
+  --color-emerald: var(--color-emerald-500);
+  --color-rose: var(--color-rose-500);
+  --color-indigo: var(--color-indigo-500);
+}
+
+/* --- GLOBAL BASE STYLES --- */
+body {
+  font-family: var(--font-body);
+  background-color: var(--surface-a);
+  color: var(--text-main);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+/* --- UTILITIES --- */
+.layout-spine {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 768px) { 
+  .layout-spine { 
+    padding: 0 2rem; 
+  } 
+}
+
+@media (min-width: 1280px) { 
+  .layout-spine { 
+    padding: 0 3rem; 
+  } 
+}
+
+.glass-card {
+  background: var(--nav-overlay);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--nav-stroke);
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow-xl);
+}
+
+.text-gradient-blue {
+  background: linear-gradient(135deg, var(--color-zurich-700) 0%, var(--color-zurich-500) 50%, var(--color-zurich-400) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-green {
+  background: linear-gradient(135deg, var(--color-militant-900) 0%, var(--color-militant-500) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn-premium {
+  @apply relative overflow-hidden transition-all duration-300 transform hover:-translate-y-0.5 active:scale-[0.98];
+  box-shadow: var(--shadow-md);
+}
+
+.btn-premium:hover {
+  box-shadow: var(--shadow-lg);
+}
