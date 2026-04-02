@@ -61,7 +61,7 @@ export default function HomeHero() {
 
       {/* Floating Orbs with Enhanced Animations */}
       <motion.div
-        className="absolute top-1/4 right-[10%] w-[500px] h-[500px] rounded-full pointer-events-none"
+        className="absolute top-1/4 right-[10%] w-125 h-125 rounded-full pointer-events-none"
         style={{
           background: 'radial-gradient(circle, rgba(35, 136, 212, 0.4) 0%, transparent 70%)',
           filter: 'blur(80px)',
@@ -196,8 +196,8 @@ export default function HomeHero() {
 
           {/* Enhanced Headline with 3D Effect */}
           <div className="perspective-1000 mb-8">
-            <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.05]">
-              <div className="flex flex-wrap justify-center gap-x-4 md:gap-x-6" style={{ perspective: '1000px' }}>
+            <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl leading-[1.1]">
+              <div className="flex flex-wrap justify-center gap-x-3 md:gap-x-4" style={{ perspective: '1000px' }}>
                 {headlineWords.map((word, i) => (
                   <motion.span
                     key={i}
