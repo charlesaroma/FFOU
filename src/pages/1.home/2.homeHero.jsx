@@ -158,7 +158,6 @@ export default function HomeHero() {
               whileHover={{ scale: 1.05 }}
             >
               <span className="inline-flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-militant-400 animate-pulse" />
                 Est. 2017 · Uganda
               </span>
             </motion.span>
@@ -262,31 +261,6 @@ export default function HomeHero() {
             </motion.div>
           </motion.div>
 
-          {/* Quick Stats Preview */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.8 }}
-            className="mt-16 grid grid-cols-3 gap-6 max-w-xl mx-auto"
-          >
-            {[
-              { value: '131+', label: 'Associations', icon: 'ph:users-three-bold' },
-              { value: '6', label: 'Regions', icon: 'ph:map-pin-bold' },
-              { value: '2M+', label: 'Fishers', icon: 'ph:fish-bold' },
-            ].map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                className="text-center p-4 rounded-xl backdrop-blur-sm"
-                style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255, 255, 255, 0.1)' }}
-                whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.08)' }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <Icon icon={stat.icon} className="text-2xl text-zurich-400 mx-auto mb-2" />
-                <div className="font-heading text-2xl text-white">{stat.value}</div>
-                <div className="text-xs text-zurich-300">{stat.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
       </motion.div>
 
