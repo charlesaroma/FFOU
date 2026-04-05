@@ -63,9 +63,11 @@ export default function Footer() {
           {/* Brand & Mission Column */}
           <div className="lg:col-span-2">
             <Link to="/" className="inline-flex items-center gap-4 mb-8 group">
-              <div className="w-14 h-14 rounded-2xl bg-marine-500 flex items-center justify-center shadow-xl group-hover:rotate-12 transition-transform duration-500">
-                <Icon icon="ph:fish-duotone" className="text-white text-3xl" />
-              </div>
+              <img 
+                src="/apple-touch-icon.png" 
+                alt="FFOU Logo"
+                className="w-14 h-14 rounded-2xl shadow-xl group-hover:rotate-12 transition-transform duration-500 object-contain bg-marine-500 p-1.5"
+              />
               <div className="flex flex-col">
                 <span className="font-header text-2xl text-white tracking-widest uppercase leading-none mb-1">FFOU</span>
                 <span className="text-[10px] text-marine-300 font-bold tracking-[0.2em] uppercase">FEDERATION OF UGANDA</span>

@@ -74,12 +74,11 @@ export default function Navbar() {
       <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12 relative z-10 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3 group">
-          <div 
-            className="w-10 h-10 rounded-xl flex items-center justify-center shadow-md transition-transform group-hover:scale-105"
-            style={{ background: 'var(--color-marine-500)' }}
-          >
-            <Icon icon="ph:fish-bold" className="text-white text-xl" />
-          </div>
+          <img 
+            src="/apple-touch-icon.png" 
+            alt="FFOU Logo"
+            className="w-10 h-10 rounded-xl shadow-md transition-transform group-hover:scale-105 object-contain bg-marine-500 p-1"
+          />
           <div className="flex flex-col leading-tight">
             <span 
               className="font-header text-lg tracking-wider transition-colors duration-500" 
