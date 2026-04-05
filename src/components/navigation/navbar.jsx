@@ -71,18 +71,18 @@ export default function Navbar() {
           boxShadow: '0 4px 30px rgba(0, 0, 0, 0.03)',
         }}
       />
-      <div className="layout-spine relative z-10 flex items-center justify-between">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12 relative z-10 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3 group">
           <div 
             className="w-10 h-10 rounded-xl flex items-center justify-center shadow-md transition-transform group-hover:scale-105"
-            style={{ background: 'var(--color-zurich-500)' }}
+            style={{ background: 'var(--color-marine-500)' }}
           >
             <Icon icon="ph:fish-bold" className="text-white text-xl" />
           </div>
           <div className="flex flex-col leading-tight">
             <span 
-              className="font-heading text-lg tracking-wider transition-colors duration-500" 
+              className="font-header text-lg tracking-wider transition-colors duration-500" 
               style={{ color: scrolled ? 'var(--text-main)' : '#fff' }}
             >
               FFOU
@@ -103,7 +103,7 @@ export default function Navbar() {
             end
             className={({ isActive }) =>
               `px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                isActive ? 'bg-zurich-500 text-white shadow-sm' : 'hover:text-zurich-600'
+                isActive ? 'bg-marine-500 text-white shadow-sm' : 'hover:text-marine-600'
               }`
             }
             style={({ isActive }) => ({
@@ -119,7 +119,7 @@ export default function Navbar() {
               to="/about/about-us"
               className={({ isActive }) =>
                 `px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1 ${
-                  isActive ? 'bg-zurich-500 text-white shadow-sm' : 'hover:text-zurich-600'
+                  isActive ? 'bg-marine-500 text-white shadow-sm' : 'hover:text-marine-600'
                 }`
               }
               style={({ isActive }) => ({
@@ -148,7 +148,7 @@ export default function Navbar() {
                     <Link
                       key={item.to}
                       to={item.to}
-                      className="block px-4 py-3 hover:bg-zurich-50 transition-colors"
+                      className="block px-4 py-3 hover:bg-marine-100 transition-colors"
                       style={{ borderBottom: '1px solid var(--nav-stroke)' }}
                     >
                       <span className="text-sm font-medium block" style={{ color: 'var(--text-main)' }}>
@@ -170,7 +170,7 @@ export default function Navbar() {
               to="/programs/get-involved"
               className={({ isActive }) =>
                 `px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1 ${
-                  isActive ? 'bg-zurich-500 text-white shadow-sm' : 'hover:text-zurich-600'
+                  isActive ? 'bg-marine-500 text-white shadow-sm' : 'hover:text-marine-600'
                 }`
               }
               style={({ isActive }) => ({
@@ -219,7 +219,7 @@ export default function Navbar() {
             to="/membership"
             className={({ isActive }) =>
               `px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                isActive ? 'bg-zurich-500 text-white shadow-sm' : 'hover:text-zurich-600'
+                isActive ? 'bg-marine-500 text-white shadow-sm' : 'hover:text-marine-600'
               }`
             }
             style={({ isActive }) => ({
@@ -235,7 +235,7 @@ export default function Navbar() {
               to="/media-center/publications"
               className={({ isActive }) =>
                 `px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1 ${
-                  isActive ? 'bg-zurich-500 text-white shadow-sm' : 'hover:text-zurich-600'
+                  isActive ? 'bg-marine-500 text-white shadow-sm' : 'hover:text-marine-600'
                 }`
               }
               style={({ isActive }) => ({
@@ -284,7 +284,7 @@ export default function Navbar() {
             to="/contact-us"
             className={({ isActive }) =>
               `px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                isActive ? 'bg-zurich-500 text-white shadow-sm' : 'hover:text-zurich-600'
+                isActive ? 'bg-marine-500 text-white shadow-sm' : 'hover:text-marine-600'
               }`
             }
             style={({ isActive }) => ({
@@ -301,9 +301,9 @@ export default function Navbar() {
             to="/programs/donate"
             className="hidden lg:flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all hover:scale-105"
             style={{ 
-              background: 'var(--color-militant-500)', 
+              background: 'var(--color-cerulean-500)', 
               color: '#fff',
-              boxShadow: '0 2px 8px rgba(39, 163, 87, 0.3)',
+              boxShadow: '0 2px 8px rgba(0, 102, 204, 0.3)',
             }}
           >
             <Icon icon="ph:heart-bold" className="text-base" />
@@ -314,9 +314,9 @@ export default function Navbar() {
             to="/membership"
             className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all hover:scale-105"
             style={{ 
-              background: 'var(--color-zurich-500)', 
+              background: 'var(--color-marine-500)', 
               color: '#fff',
-              boxShadow: '0 2px 8px rgba(35, 136, 212, 0.3)',
+              boxShadow: '0 2px 8px rgba(0, 51, 141, 0.3)',
             }}
           >
             <Icon icon="ph:users-three-bold" className="text-base" />
@@ -349,14 +349,14 @@ export default function Navbar() {
               borderTop: '1px solid rgba(0, 0, 0, 0.08)',
             }}
           >
-            <div className="layout-spine py-4 flex flex-col gap-1">
+            <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12 py-4 flex flex-col gap-1">
               <NavLink
                 to="/"
                 end
                 onClick={() => setMenuOpen(false)}
                 className={({ isActive }) =>
                   `px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                    isActive ? 'bg-zurich-500 text-white' : ''
+                    isActive ? 'bg-marine-500 text-white' : ''
                   }`
                 }
                 style={({ isActive }) => ({
@@ -407,7 +407,7 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(false)}
                 className={({ isActive }) =>
                   `px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                    isActive ? 'bg-zurich-500 text-white' : ''
+                    isActive ? 'bg-marine-500 text-white' : ''
                   }`
                 }
                 style={({ isActive }) => ({
@@ -440,7 +440,7 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(false)}
                 className={({ isActive }) =>
                   `px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                    isActive ? 'bg-zurich-500 text-white' : ''
+                    isActive ? 'bg-marine-500 text-white' : ''
                   }`
                 }
                 style={({ isActive }) => ({
@@ -455,7 +455,7 @@ export default function Navbar() {
                   to="/programs/donate"
                   onClick={() => setMenuOpen(false)}
                   className="px-4 py-3 rounded-lg text-sm font-semibold text-center text-white"
-                  style={{ background: 'var(--color-militant-500)' }}
+                  style={{ background: 'var(--color-cerulean-500)' }}
                 >
                   Donate
                 </Link>
@@ -463,7 +463,7 @@ export default function Navbar() {
                   to="/membership"
                   onClick={() => setMenuOpen(false)}
                   className="px-4 py-3 rounded-lg text-sm font-semibold text-center text-white"
-                  style={{ background: 'var(--color-zurich-500)' }}
+                  style={{ background: 'var(--color-marine-500)' }}
                 >
                   Join FFOU
                 </Link>

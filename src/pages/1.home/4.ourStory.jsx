@@ -22,7 +22,7 @@ const partners = [
 export default function OurStory() {
   return (
     <section className="py-16" style={{ background: 'var(--surface-a)' }}>
-      <div className="layout-spine">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left - Story Content */}
           <motion.div
@@ -31,16 +31,16 @@ export default function OurStory() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-sm font-bold tracking-widest uppercase text-zurich-500 mb-4 block">Our Impact journey</span>
-            <h2 className="heading-md mb-6" style={{ color: 'var(--text-main)' }}>
-              A Decade of Transforming <span className="text-gradient-blue">Ugandan Fisheries</span>
+            <span className="text-sm font-bold tracking-widest uppercase text-marine-500 mb-4 block">Our Impact journey</span>
+            <h2 className="font-header text-h2 md:text-h1 tracking-tight mb-6" style={{ color: 'var(--text-main)' }}>
+              A Decade of Transforming <span className="bg-linear-to-r from-marine-700 via-marine-500 to-marine-400 bg-clip-text text-transparent">Ugandan Fisheries</span>
             </h2>
             
             <div className="space-y-6 mb-10">
-              <p className="text-body-lg" style={{ color: 'var(--text-muted)' }}>
-                With over a decade of industry experience, <strong className="text-zurich-900">Federation of Fisheries Organizations Uganda</strong> is the leading apex body dedicated to promoting ethical and sustainable fishing practices.
+              <p className="font-body text-content-main md:text-content-lg leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+                With over a decade of industry experience, <strong className="text-marine-700">Federation of Fisheries Organizations Uganda</strong> is the leading apex body dedicated to promoting ethical and sustainable fishing practices.
               </p>
-              <p className="text-body-lg" style={{ color: 'var(--text-muted)' }}>
+              <p className="font-body text-content-main md:text-content-lg leading-relaxed" style={{ color: 'var(--text-muted)' }}>
                 From humble beginnings, we have grown to represent <strong>131 member associations</strong>, coordinating a massive network of fishers to build capacity for a viable, digital-first fisheries sub-sector.
               </p>
             </div>
@@ -61,9 +61,8 @@ export default function OurStory() {
             </div>
 
             <Link
-              to="/about"
-              className="btn-premium inline-flex items-center gap-3 px-8 py-4 rounded-xl text-sm font-bold"
-              style={{ background: 'var(--color-zurich-500)', color: '#fff' }}
+              to="/about/about-us"
+              className="relative overflow-hidden transition-all duration-300 transform hover:-translate-y-0.5 active:scale-[0.98] shadow-md hover:shadow-lg inline-flex items-center gap-3 px-8 py-4 rounded-xl text-sm font-bold bg-marine-500 text-white"
             >
               Learn More About Our Mission <Icon icon="ph:arrow-right-bold" />
             </Link>
@@ -83,7 +82,7 @@ export default function OurStory() {
                 alt="FFOU Community Impact"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
               />
-              <div className="absolute inset-0 bg-linear-to-t from-zurich-950/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-marine-800/80 via-transparent to-transparent" />
             </div>
 
             {/* Overlapping Mission Card */}
@@ -91,24 +90,24 @@ export default function OurStory() {
               initial={{ x: 50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="absolute -bottom-10 -left-10 md:-left-20 max-w-sm glass-card p-8"
-              style={{ background: 'var(--color-zurich-950)', color: 'white' }}
+              className="absolute -bottom-10 -left-10 md:-left-20 max-w-sm bg-marine-800/92 backdrop-blur-[16px] border border-white/10 rounded-[1.5rem] shadow-xl p-8"
+              style={{ color: 'white' }}
             >
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-zurich-500 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-xl bg-marine-500 flex items-center justify-center">
                   <Icon icon="ph:target-bold" className="text-2xl text-white" />
                 </div>
-                <h3 className="font-heading text-xl">Our Mission</h3>
+                <h3 className="font-header text-xl">Our Mission</h3>
               </div>
-              <p className="text-sm leading-relaxed text-zurich-200">
+              <p className="text-sm leading-relaxed text-marine-100">
                 "To promote responsible fishing by guiding our members to comply with an agreed ethical code of conduct, observe national standards, and leverage innovation throughout the value chain."
               </p>
             </motion.div>
 
             {/* Achievement Badge */}
-            <div className="absolute -top-6 -right-6 w-32 h-32 rounded-full bg-white shadow-xl flex flex-col items-center justify-center p-4 border border-zurich-100 animate-bounce-slow">
-              <span className="font-heading text-3xl text-zurich-600">131</span>
-              <span className="text-[10px] font-bold uppercase text-center leading-tight text-zurich-400">Member Associations</span>
+            <div className="absolute -top-6 -right-6 w-32 h-32 rounded-full bg-white shadow-xl flex flex-col items-center justify-center p-4 border border-marine-100 animate-bounce-slow">
+              <span className="font-header text-3xl text-marine-600">131</span>
+              <span className="text-[10px] font-bold uppercase text-center leading-tight text-marine-400">Member Associations</span>
             </div>
           </motion.div>
         </div>

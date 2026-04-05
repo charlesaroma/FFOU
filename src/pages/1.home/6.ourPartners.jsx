@@ -13,10 +13,10 @@ const partners = [
 export default function OurPartners() {
   return (
     <section className="py-20" style={{ background: 'var(--surface-b)' }}>
-      <div className="layout-spine">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12">
         <div className="text-center mb-12">
-          <span className="text-xs font-semibold tracking-widest uppercase text-zurich-500">Collaborators</span>
-          <h2 className="font-heading text-3xl md:text-4xl mt-2" style={{ color: 'var(--text-main)' }}>
+          <span className="text-xs font-semibold tracking-widest uppercase text-marine-500">Collaborators</span>
+          <h2 className="font-header text-3xl md:text-4xl mt-2" style={{ color: 'var(--text-main)' }}>
             Our Partners & Stakeholders
           </h2>
         </div>
@@ -41,8 +41,8 @@ export default function OurPartners() {
                 border: '1px solid var(--nav-stroke)',
               }}
             >
-              <div className="w-10 h-10 rounded-xl bg-zurich-50 flex items-center justify-center mx-auto mb-3 group-hover:bg-zurich-100 transition-colors">
-                <Icon icon={p.icon} className="text-zurich-500 text-lg" />
+              <div className="w-10 h-10 rounded-xl bg-marine-50 flex items-center justify-center mx-auto mb-3 group-hover:bg-marine-100 transition-colors">
+                <Icon icon={p.icon} className="text-marine-500 text-lg" />
               </div>
               <div className="text-xs font-semibold leading-tight" style={{ color: 'var(--text-main)' }}>{p.name}</div>
               <div className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>{p.type}</div>

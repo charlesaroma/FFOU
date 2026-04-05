@@ -12,8 +12,8 @@ const stats = [
 
 export default function StatsSection() {
   return (
-    <section className="py-16" style={{ background: 'var(--color-zurich-950)' }}>
-      <div className="layout-spine">
+    <section className="py-16" style={{ background: 'var(--color-marine-800)' }}>
+      <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {stats.map((stat, i) => (
             <motion.div
@@ -24,11 +24,11 @@ export default function StatsSection() {
               transition={{ delay: i * 0.1 }}
               className="text-center"
             >
-              <Icon icon={stat.icon} className="text-2xl text-zurich-400 mx-auto mb-2" />
-              <div className="font-heading text-3xl md:text-4xl text-white mb-1">
+              <Icon icon={stat.icon} className="text-2xl text-marine-400 mx-auto mb-2" />
+              <div className="font-header text-3xl md:text-4xl text-white mb-1">
                 <AnimatedCounter end={stat.number} duration={2000} />
               </div>
-              <div className="text-xs" style={{ color: 'var(--color-zurich-300)' }}>
+              <div className="text-xs" style={{ color: 'var(--color-marine-300)' }}>
                 {stat.label}
               </div>
             </motion.div>

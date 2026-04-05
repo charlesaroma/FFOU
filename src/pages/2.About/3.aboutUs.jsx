@@ -23,7 +23,7 @@ const strategicAreas = [
 export default function AboutUs() {
   return (
     <section className="py-16" style={{ background: 'var(--surface-a)' }}>
-      <div className="layout-spine">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12">
         {/* Who We Are */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -32,7 +32,7 @@ export default function AboutUs() {
           className="mb-12"
         >
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="font-heading text-3xl md:text-4xl mb-4" style={{ color: 'var(--text-main)' }}>
+            <h2 className="font-header text-3xl md:text-4xl mb-4" style={{ color: 'var(--text-main)' }}>
               Who We Are
             </h2>
             <p className="text-sm leading-relaxed mb-3" style={{ color: 'var(--text-muted)' }}>
@@ -54,15 +54,15 @@ export default function AboutUs() {
               icon: 'ph:eye-bold',
               title: 'Our Vision',
               text: 'To be the leading national Fisheries Federation in coordinating sustainable and ethical fishing practices in Uganda.',
-              color: 'var(--color-zurich-500)',
-              bg: 'var(--color-zurich-50)',
+              color: 'var(--color-marine-500)',
+              bg: 'var(--color-marine-50)',
             },
             {
               icon: 'ph:target-bold',
               title: 'Our Mission',
               text: 'To promote ethical fishing practices and sustainable development of the fisheries sector in Uganda for improved livelihood, the alleviation of poverty and contribution to the food basket.',
-              color: 'var(--color-militant-500)',
-              bg: 'var(--color-militant-100)',
+              color: 'var(--color-cerulean-500)',
+              bg: 'var(--color-cerulean-100)',
             },
           ].map((item, i) => (
             <motion.div
@@ -75,7 +75,7 @@ export default function AboutUs() {
               style={{ background: item.bg }}
             >
               <Icon icon={item.icon} className="text-2xl mb-3" style={{ color: item.color }} />
-              <h3 className="font-heading text-xl mb-2" style={{ color: 'var(--text-main)' }}>{item.title}</h3>
+              <h3 className="font-header text-xl mb-2" style={{ color: 'var(--text-main)' }}>{item.title}</h3>
               <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>{item.text}</p>
             </motion.div>
           ))}
@@ -87,13 +87,13 @@ export default function AboutUs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mb-12 p-8 rounded-2xl"
-          style={{ background: 'var(--color-zurich-950)' }}
+          style={{ background: 'var(--color-marine-800)' }}
         >
           <div className="text-center mb-8">
-            <h3 className="font-heading text-2xl mb-2 text-gradient-blue">
+            <h3 className="font-header text-2xl mb-2 bg-linear-to-r from-marine-700 via-marine-500 to-marine-400 bg-clip-text text-transparent">
               Strategic Focus Areas
             </h3>
-            <p className="text-sm max-w-2xl mx-auto" style={{ color: 'var(--color-zurich-200)' }}>
+            <p className="text-sm max-w-2xl mx-auto" style={{ color: 'var(--color-marine-200)' }}>
               The fundamental and key strategic areas of implementation for FFOU:
             </p>
           </div>
@@ -104,8 +104,8 @@ export default function AboutUs() {
                 className="p-3 rounded-lg flex items-start gap-2"
                 style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}
               >
-                <Icon icon="ph:check-circle-fill" className="text-zurich-400 text-base flex-shrink-0 mt-0.5" />
-                <span className="text-xs" style={{ color: 'var(--color-zurich-100)' }}>{area}</span>
+                <Icon icon="ph:check-circle-fill" className="text-marine-400 text-base flex-shrink-0 mt-0.5" />
+                <span className="text-xs" style={{ color: 'var(--color-marine-100)' }}>{area}</span>
               </div>
             ))}
           </div>
@@ -113,7 +113,7 @@ export default function AboutUs() {
 
         {/* Values */}
         <div>
-          <h2 className="font-heading text-2xl md:text-3xl text-center mb-8" style={{ color: 'var(--text-main)' }}>
+          <h2 className="font-header text-2xl md:text-3xl text-center mb-8" style={{ color: 'var(--text-main)' }}>
             Our Core Values
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -127,8 +127,8 @@ export default function AboutUs() {
                 className="p-4 rounded-xl text-center"
                 style={{ background: 'var(--surface-b)', border: '1px solid var(--nav-stroke)' }}
               >
-                <Icon icon={v.icon} className="text-zurich-500 text-xl mx-auto mb-2" />
-                <div className="font-heading text-sm mb-1" style={{ color: 'var(--text-main)' }}>{v.label}</div>
+                <Icon icon={v.icon} className="text-marine-500 text-xl mx-auto mb-2" />
+                <div className="font-header text-sm mb-1" style={{ color: 'var(--text-main)' }}>{v.label}</div>
                 <div className="text-xs" style={{ color: 'var(--text-muted)' }}>{v.desc}</div>
               </motion.div>
             ))}

@@ -3,17 +3,17 @@ import { Icon } from '@iconify/react'
 
 const StructureNode = ({ label, type, isWide }) => {
   const styles = {
-    governance: 'bg-zurich-100 border-zurich-300 text-zurich-950 font-bold',
-    executive: 'bg-zurich-600 border-zurich-500 text-white font-bold shadow-lg shadow-zurich-500/20',
-    director: 'bg-zurich-800 border-zurich-700 text-white font-semibold',
-    staff: 'bg-white border-slate-200 text-slate-700 text-sm hover:border-zurich-300 hover:shadow-md transition-all',
-    community: 'bg-militant-500 border-militant-600 text-white font-bold shadow-xl shadow-militant-500/20',
+    governance: 'bg-zurich-100 border-zurich-300 text-zurich-950 font-bold text-xs md:text-sm',
+    executive: 'bg-zurich-600 border-zurich-500 text-white font-bold shadow-lg shadow-zurich-500/20 text-sm',
+    director: 'bg-zurich-800 border-zurich-700 text-white font-semibold text-[11px] md:text-xs',
+    staff: 'bg-white border-slate-200 text-slate-700 text-[10px] md:text-[11px] leading-tight hover:border-zurich-300 hover:shadow-md transition-all',
+    community: 'bg-militant-500 border-militant-600 text-white font-bold shadow-xl shadow-militant-500/20 text-xs md:text-sm',
   }
 
   return (
     <motion.div
-      whileHover={{ y: -2, scale: 1.02 }}
-      className={`px-4 py-3 rounded-xl border-2 text-center flex items-center justify-center min-w-[200px] ${isWide ? 'md:min-w-[400px]' : ''} ${styles[type] || styles.staff}`}
+      whileHover={{ y: -1, scale: 1.02 }}
+      className={`px-3 py-2 rounded-lg border flex items-center justify-center min-w-[140px] max-w-[220px] ${isWide ? 'md:min-w-[400px]' : ''} ${styles[type] || styles.staff}`}
     >
       {label}
     </motion.div>

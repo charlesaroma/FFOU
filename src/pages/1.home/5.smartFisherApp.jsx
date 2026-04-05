@@ -15,19 +15,19 @@ export default function SmartFisherApp() {
   return (
     <section
       className="py-16 relative overflow-hidden"
-      style={{ background: 'var(--color-zurich-950)' }}
+      style={{ background: 'var(--color-marine-800)' }}
     >
       {/* Background effect */}
       <div className="absolute inset-0 opacity-5"
         style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, var(--color-zurich-300) 1px, transparent 0)`,
+          backgroundImage: `radial-gradient(circle at 1px 1px, var(--color-marine-300) 1px, transparent 0)`,
           backgroundSize: '32px 32px',
         }}
       />
       <div className="absolute right-0 top-0 bottom-0 w-1/2 opacity-10 blur-3xl"
-        style={{ background: 'linear-gradient(to left, var(--color-militant-500), transparent)' }} />
+        style={{ background: 'linear-gradient(to left, var(--color-cerulean-500), transparent)' }} />
 
-      <div className="layout-spine relative z-10">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* App Mockup with Background Image */}
           <motion.div
@@ -44,30 +44,30 @@ export default function SmartFisherApp() {
                 alt="App in the field"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-linear-to-tr from-zurich-950 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-tr from-marine-800 to-transparent" />
             </div>
 
             {/* Premium Phone Mockup */}
             <div
-              className="w-72 rounded-[3rem] p-6 shadow-2xl relative z-10 border-8 border-zurich-900 bg-black"
+              className="w-72 rounded-[3rem] p-6 shadow-2xl relative z-10 border-8 border-marine-700 bg-black"
               style={{
                 boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(35, 136, 212, 0.2)',
               }}
             >
               {/* Notches/Indicators */}
               <div className="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-6 bg-black rounded-full z-20 flex items-center justify-center">
-                 <div className="w-2 h-2 rounded-full bg-zurich-900 mr-2" />
-                 <div className="w-8 h-1 rounded-full bg-zurich-900" />
+                 <div className="w-2 h-2 rounded-full bg-marine-700 mr-2" />
+                 <div className="w-8 h-1 rounded-full bg-marine-700" />
               </div>
 
               {/* App Content */}
               <div className="mt-6 flex items-center justify-between mb-6">
-                <div className="w-10 h-10 rounded-xl bg-zurich-500 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-marine-500 flex items-center justify-center">
                   <Icon icon="ph:fish-bold" className="text-white text-xl" />
                 </div>
-                <span className="font-heading text-lg text-white tracking-widest">ABAVUBI</span>
+                <span className="font-header text-lg text-white tracking-widest">ABAVUBI</span>
                 <div className="relative">
-                  <Icon icon="ph:bell-bold" className="text-zurich-300 text-xl" />
+                  <Icon icon="ph:bell-bold" className="text-marine-300 text-xl" />
                   <span className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full" />
                 </div>
               </div>
@@ -85,7 +85,7 @@ export default function SmartFisherApp() {
                   >
                     <div>
                       <div className="text-white text-xs font-bold">{item.label}</div>
-                      <div className="text-zurich-300 text-[10px] mt-1">{item.price}</div>
+                      <div className="text-marine-300 text-[10px] mt-1">{item.price}</div>
                     </div>
                     <span
                       className="text-[10px] font-bold px-2 py-1 rounded-lg"
@@ -101,7 +101,7 @@ export default function SmartFisherApp() {
               </div>
 
               {/* Weather widget */}
-              <div className="mt-4 p-4 rounded-2xl bg-linear-to-br from-zurich-600 to-zurich-800">
+              <div className="mt-4 p-4 rounded-2xl bg-linear-to-br from-marine-500 to-marine-700">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center">
                     <Icon icon="ph:sun-bold" className="text-yellow-300 text-xl" />
@@ -135,19 +135,19 @@ export default function SmartFisherApp() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: 'var(--color-militant-400)' }}>
+            <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: 'var(--color-cerulean-400)' }}>
               Smart Fisher Technology
             </span>
-            <h2 className="font-heading text-3xl md:text-4xl mt-2 mb-4 text-white">
+            <h2 className="font-header text-3xl md:text-4xl mt-2 mb-4 text-white">
               The ABAVUBI App
             </h2>
-            <p className="text-sm leading-relaxed mb-4" style={{ color: 'var(--color-zurich-200)' }}>
+            <p className="text-sm leading-relaxed mb-4" style={{ color: 'var(--color-marine-200)' }}>
               Federation of Fisheries Organizations Uganda (FFOU) with support from <strong>GIZ-RFBCP</strong> under the German government developed the <strong>ABAVUBI Fisher Mobile App</strong>. This software application allows fisher folk to easily and securely track, store, and analyze business and fisheries data.
             </p>
-            <p className="text-sm leading-relaxed mb-6" style={{ color: 'var(--color-zurich-200)' }}>
+            <p className="text-sm leading-relaxed mb-6" style={{ color: 'var(--color-marine-200)' }}>
               The app provides access to <strong>weather forecasts</strong>, <strong>market information</strong>, and <strong>navigation data</strong> — all aiming to build stronger fish businesses, improve market access, and strengthen fishing communities' role in co-management of water resources.
             </p>
-            <p className="text-sm leading-relaxed mb-6" style={{ color: 'var(--color-zurich-200)' }}>
+            <p className="text-sm leading-relaxed mb-6" style={{ color: 'var(--color-marine-200)' }}>
               ABAVUBI also facilitates <strong>health service access</strong>, supports end-user enrollment in health and wellness programs, and provides comprehensive health data insights aligned with national <strong>HMIS indicators</strong>.
             </p>
 
@@ -155,21 +155,21 @@ export default function SmartFisherApp() {
               {features.map((f) => (
                 <div key={f.label} className="flex gap-2">
                   <div className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0"
-                    style={{ background: 'rgba(35,136,212,0.15)' }}>
-                    <Icon icon={f.icon} className="text-zurich-400 text-xs" />
+                    style={{ background: 'rgba(0, 102, 204, 0.15)' }}>
+                    <Icon icon={f.icon} className="text-marine-400 text-xs" />
                   </div>
                   <div>
                     <div className="text-white text-xs font-semibold">{f.label}</div>
-                    <div className="text-xs mt-0.5" style={{ color: 'var(--color-zurich-300)' }}>{f.desc}</div>
+                    <div className="text-xs mt-0.5" style={{ color: 'var(--color-marine-300)' }}>{f.desc}</div>
                   </div>
                 </div>
               ))}
             </div>
 
             <Link
-              to="/programs"
+              to="/programs/get-involved"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all hover:scale-105"
-              style={{ background: 'var(--color-militant-500)', color: '#fff' }}
+              style={{ background: 'var(--color-cerulean-500)', color: '#fff' }}
             >
               <Icon icon="ph:device-mobile-bold" className="text-xs" />
               Learn About ABAVUBI

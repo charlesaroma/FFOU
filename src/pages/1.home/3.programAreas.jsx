@@ -5,8 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import AnimatedCounter from '../../components/ui/AnimatedCounter'
 
 const stats = [
-  { number: 6, label: 'Regions Reached', icon: 'ph:map-pin-bold', color: 'var(--color-zurich-500)' },
-  { number: 135, label: 'Associations Served', icon: 'ph:users-three-bold', color: 'var(--color-militant-500)' },
+  { number: 6, label: 'Regions Reached', icon: 'ph:map-pin-bold', color: 'var(--color-marine-500)' },
+  { number: 135, label: 'Associations Served', icon: 'ph:users-three-bold', color: 'var(--color-cerulean-500)' },
   { number: 2102491, label: 'Individuals Served', icon: 'ph:user-bold', color: 'var(--color-amber-500)' },
   { number: 12, label: 'Programs', icon: 'ph:folder-bold', color: 'var(--color-indigo-500)' },
   { number: 15612, label: 'Community Interventions', icon: 'ph:hand-heart-bold', color: 'var(--color-rose-500)' },
@@ -17,16 +17,16 @@ const programs = [
     icon: 'ph:graduation-cap-bold',
     title: 'Capacity Building',
     description: 'Training fishers and community members in leadership, business skills, and financial literacy to strengthen organizational capacity.',
-    color: 'var(--color-zurich-500)',
-    bg: 'var(--color-zurich-50)',
+    color: 'var(--color-marine-500)',
+    bg: 'var(--color-marine-50)',
     image: 'https://images.unsplash.com/photo-1523050853554-15f9b9409893?auto=format&fit=crop&q=80&w=1200',
   },
   {
     icon: 'ph:fish-bold',
     title: 'Aquaculture',
     description: 'Promoting sustainable fish farming and aquaponics to diversify livelihoods and increase fish production in Uganda.',
-    color: 'var(--color-militant-500)',
-    bg: 'var(--color-militant-100)',
+    color: 'var(--color-cerulean-500)',
+    bg: 'var(--color-cerulean-50)',
     image: 'https://images.unsplash.com/photo-1562911791-c7a97b729cc5?auto=format&fit=crop&q=80&w=1200',
   },
   {
@@ -116,11 +116,11 @@ export default function ProgramAreas() {
 
   return (
     <section className="py-16" style={{ background: 'var(--surface-b)' }}>
-      <div className="layout-spine">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12">
         {/* Section Header */}
         <div className="text-center mb-10">
-          <span className="text-xs font-semibold tracking-widest uppercase text-zurich-500">Impact</span>
-          <h2 className="font-heading text-3xl md:text-4xl mt-1" style={{ color: 'var(--text-main)' }}>
+          <span className="text-xs font-semibold tracking-widest uppercase text-marine-500">Impact</span>
+          <h2 className="font-header text-3xl md:text-4xl mt-1" style={{ color: 'var(--text-main)' }}>
             Our Reach & Programs
           </h2>
         </div>
@@ -150,7 +150,7 @@ export default function ProgramAreas() {
               >
                 <Icon icon={stat.icon} className="text-2xl" style={{ color: stat.color }} />
               </motion.div>
-              <div className="font-heading text-2xl md:text-3xl" style={{ color: 'var(--text-main)' }}>
+              <div className="font-header text-2xl md:text-3xl" style={{ color: 'var(--text-main)' }}>
                 <AnimatedCounter end={stat.number} duration={2000} />
               </div>
               <div className="text-xs mt-2 font-medium" style={{ color: 'var(--text-muted)' }}>
@@ -166,7 +166,7 @@ export default function ProgramAreas() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-heading text-3xl md:text-4xl text-center mb-8" 
+            className="font-header text-3xl md:text-4xl text-center mb-8" 
             style={{ color: 'var(--text-main)' }}
           >
             Our Programs
@@ -212,7 +212,7 @@ export default function ProgramAreas() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.2 }}
-                      className="font-heading text-3xl md:text-4xl mb-4" 
+                      className="font-header text-3xl md:text-4xl mb-4" 
                       style={{ color: 'var(--text-main)' }}
                     >
                       {programs[activeIndex].title}
@@ -274,7 +274,7 @@ export default function ProgramAreas() {
                 onClick={() => goToSlide(index)}
                 className="rounded-full transition-all duration-300"
                 style={{
-                  background: index === activeIndex ? 'var(--color-zurich-500)' : 'var(--nav-stroke)',
+                  background: index === activeIndex ? 'var(--color-marine-500)' : 'var(--nav-stroke)',
                   width: index === activeIndex ? '32px' : '10px',
                   height: '10px',
                 }}
@@ -308,9 +308,9 @@ export default function ProgramAreas() {
         {/* CTA */}
         <div className="text-center mt-8">
           <Link
-            to="/programs"
+            to="/programs/get-involved"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-all hover:scale-105"
-            style={{ background: 'var(--color-zurich-500)', color: '#fff' }}
+            style={{ background: 'var(--color-marine-500)', color: '#fff' }}
           >
             Explore All Programs
             <Icon icon="ph:arrow-right-bold" />

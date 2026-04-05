@@ -16,14 +16,14 @@ export default function AboutHero() {
     <section
       ref={sectionRef}
       className="relative pt-28 pb-20 overflow-hidden min-h-[60vh] flex items-center"
-      style={{ background: 'var(--color-zurich-950)' }}
+      style={{ background: 'var(--color-marine-800)' }}
     >
       {/* Animated Background */}
       <div className="absolute inset-0">
         <div
           className="absolute inset-0 opacity-10"
           style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, var(--color-zurich-400) 2px, transparent 0)`,
+            backgroundImage: `radial-gradient(circle at 2px 2px, var(--color-marine-400) 2px, transparent 0)`,
             backgroundSize: '40px 40px',
           }}
         />
@@ -32,7 +32,7 @@ export default function AboutHero() {
         <motion.div
           className="absolute right-1/4 top-1/2 -translate-y-1/2 w-[600px] h-[500px] rounded-full opacity-20"
           style={{ 
-            background: 'radial-gradient(circle, var(--color-militant-500) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, var(--color-cerulean-500) 0%, transparent 70%)',
             filter: 'blur(100px)',
             y,
           }}
@@ -49,7 +49,7 @@ export default function AboutHero() {
         <motion.div
           className="absolute left-1/4 top-1/3 w-[300px] h-[300px] rounded-full opacity-15"
           style={{ 
-            background: 'radial-gradient(circle, var(--color-zurich-500) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, var(--color-marine-500) 0%, transparent 70%)',
             filter: 'blur(80px)',
           }}
           animate={{
@@ -70,10 +70,10 @@ export default function AboutHero() {
         animate={{ rotate: 360 }}
         transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
       >
-        <Icon icon="ph:users-three-bold" className="text-9xl text-zurich-400" />
+        <Icon icon="ph:users-three-bold" className="text-9xl text-marine-400" />
       </motion.div>
 
-      <div className="layout-spine relative z-10 text-center" style={{ opacity }}>
+      <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12 relative z-10 text-center" style={{ opacity }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -98,8 +98,8 @@ export default function AboutHero() {
           initial={{ opacity: 0, y: 30, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ delay: 0.1, duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="font-heading text-3xl md:text-4xl lg:text-5xl mt-3 mb-6 text-gradient-blue"
-          style={{ textShadow: '0 0 60px rgba(35, 136, 212, 0.3)' }}
+          className="font-header text-3xl md:text-4xl lg:text-5xl mt-3 mb-6 bg-linear-to-r from-marine-700 via-marine-500 to-marine-400 bg-clip-text text-transparent"
+          style={{ textShadow: '0 0 60px rgba(0, 51, 141, 0.3)' }}
         >
           Our Story
         </motion.h1>
@@ -109,7 +109,7 @@ export default function AboutHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
           className="text-lg md:text-xl max-w-3xl mx-auto"
-          style={{ color: 'var(--color-zurich-200)' }}
+          style={{ color: 'var(--color-marine-200)' }}
         >
           The Federation of Fisheries Organisations Uganda (FFOU) is a national umbrella body 
           for all non-state actors in the fisheries sub-sector, working with 131 member associations 
@@ -135,14 +135,14 @@ export default function AboutHero() {
               transition={{ delay: 0.6 + i * 0.1 }}
               className="flex items-center gap-3 px-5 py-3 rounded-xl backdrop-blur-sm"
               style={{
-                background: 'rgba(14, 54, 85, 0.4)',
-                border: '1px solid rgba(79, 160, 221, 0.2)',
+                background: 'rgba(0, 20, 56, 0.4)',
+                border: '1px solid rgba(0, 102, 204, 0.2)',
               }}
             >
-              <Icon icon={stat.icon} className="text-xl text-zurich-400" />
+              <Icon icon={stat.icon} className="text-xl text-marine-400" />
               <div className="text-left">
-                <div className="font-heading text-xl text-white">{stat.value}</div>
-                <div className="text-xs text-zurich-300">{stat.label}</div>
+                <div className="font-header text-xl text-white">{stat.value}</div>
+                <div className="text-xs text-marine-300">{stat.label}</div>
               </div>
             </motion.div>
           ))}

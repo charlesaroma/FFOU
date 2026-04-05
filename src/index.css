@@ -1,82 +1,97 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 @theme {
-  /* --- ZURICH BLUE (Primary Brand) --- */
-  --color-zurich-950: #041019;
-  --color-zurich-900: #071b2a;
-  --color-zurich-800: #0e3655;
-  --color-zurich-700: #15527f;
-  --color-zurich-600: #1c6daa;
-  --color-zurich-500: #2388d4;
-  --color-zurich-400: #4fa0dd;
-  --color-zurich-300: #7bb8e5;
-  --color-zurich-200: #a7cfee;
-  --color-zurich-100: #d3e7f6;
-  --color-zurich-50: #e5f1fa;
+  /* --- Colors --- */
+  --color-marine-800: #001438;
+  --color-marine-700: #001F55;
+  --color-marine-600: #002971;
+  --color-marine-500: #00338D;
+  --color-marine-400: #335CA4;
+  --color-marine-300: #6685BB;
+  --color-marine-200: #99ADD1;
+  --color-marine-100: #CCD6E8;
 
-  /* --- MILITANT GREEN (Secondary Brand) --- */
-  --color-militant-950: #05140a;
-  --color-militant-900: #082111;
-  --color-militant-500: #27a357;
-  --color-militant-400: #52b579;
-  --color-militant-300: #7dca9b;
-  --color-militant-200: #a8dfbc;
-  --color-militant-100: #d3f4dd;
+  --color-cerulean-800: #002952;
+  --color-cerulean-700: #003D7A;
+  --color-cerulean-600: #0052A3;
+  --color-cerulean-500: #0066CC;
+  --color-cerulean-400: #3385D6;
+  --color-cerulean-300: #66A3E0;
+  --color-cerulean-200: #99C2EB;
+  --color-cerulean-100: #CCE0F5;
 
-  /* --- ACCENT COLORS --- */
-  --color-amber-500: #f59e0b;
-  --color-amber-100: #fef3c7;
-  --color-amber-50: #fffbeb;
-  --color-violet-500: #8b5cf6;
-  --color-violet-100: #f5f3ff;
-  --color-emerald-500: #059669;
-  --color-emerald-100: #ecfdf5;
-  --color-rose-500: #ec4899;
-  --color-rose-100: #fce7f3;
-  --color-sky-500: #0ea5e9;
-  --color-sky-100: #e0f2fe;
-  --color-indigo-500: #6366f1;
-  --color-indigo-100: #eef2ff;
-  --color-orange-500: #f97316;
-  --color-orange-100: #ffedd5;
-  --color-red-500: #dc2626;
-  --color-red-100: #fee2e2;
+  --color-gold-800: #554616;
+  --color-gold-700: #7F6921;
+  --color-gold-600: #AA8C2C;
+  --color-gold-500: #D4AF37;
+  --color-gold-400: #DDBF5F;
+  --color-gold-300: #E5CF87;
+  --color-gold-200: #EEDFAF;
+  --color-gold-100: #F6EFD7;
+
+  --color-crimson-800: #4F1010;
+  --color-crimson-700: #771818;
+  --color-crimson-600: #9E2020;
+  --color-crimson-500: #C62828;
+  --color-crimson-400: #D15353;
+  --color-crimson-300: #DD7E7E;
+  --color-crimson-200: #E8A9A9;
+  --color-crimson-100: #F4D4D4;
+
+  /* Neutrals */
+  --color-slate-700: #171A20;
+  --color-slate-600: #1E232A;
+  --color-slate-500: #262C35;
+  --color-surface-700: #F0F7FA;
+  --color-surface-600: #F3F9FB;
+  --color-surface-500: #F9FCFD;
 
   /* --- Typography --- */
-  --font-heading: 'Poppins', sans-serif;
-  --font-body: 'Open Sans', sans-serif;
+  --font-header: "Stack Sans Headline", ui-sans-serif, system-ui;
+  --font-body: "Inter", ui-sans-serif, system-ui;
+
+  /* Custom Font Sizes (Mapping specific D/H hierarchy) */
+  --text-d1: 116px;
+  --text-d2: 78px;
+  --text-d3: 96px;
+  --text-d4: 64px;
+  --text-h1: 58px;
+  --text-h2: 48px;
+  --text-h3: 30px;
+  --text-h4: 28px;
+  --text-h5: 24px;
+  --text-h6: 21px;
+  --text-content-lg: 24px;
+  --text-content-main: 18px;
+  --text-content-sm: 16px;
 }
 
 /* --- CSS VARIABLES (for inline styles) --- */
 :root {
   /* Surfaces */
-  --surface-a: #ffffff;
-  --surface-b: #f8fafc;
+  --surface-a: var(--color-surface-500);
+  --surface-b: var(--color-surface-600);
   
   /* Text */
-  --text-main: #0a0a0a;
-  --text-muted: #464646;
-  --text-dim: #64748b;
+  --text-main: var(--color-slate-700);
+  --text-muted: var(--color-slate-600);
+  --text-dim: var(--color-slate-500);
   
   /* Navigation */
   --nav-overlay: rgba(255, 255, 255, 0.92);
-  --nav-stroke: rgba(0, 0, 0, 0.08);
+  --nav-stroke: rgba(0, 0, 14, 0.08); /* Minimal tint */
   
   /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-sm: 0 1px 2px 0 rgb(0 20 56 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 20 56 / 0.1), 0 2px 4px -2px rgb(0 20 56 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 20 56 / 0.1), 0 4px 6px -4px rgb(0 20 56 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 20 56 / 0.1), 0 8px 10px -6px rgb(0 20 56 / 0.1);
   
-  /* Brand Colors (for inline styles) */
-  --color-primary: var(--color-zurich-500);
-  --color-secondary: var(--color-militant-500);
-  --color-amber: var(--color-amber-500);
-  --color-violet: var(--color-violet-500);
-  --color-emerald: var(--color-emerald-500);
-  --color-rose: var(--color-rose-500);
-  --color-indigo: var(--color-indigo-500);
+  /* Semantic Aliases */
+  --color-primary: var(--color-marine-500);
+  --color-secondary: var(--color-cerulean-500);
+  --color-accent: var(--color-gold-500);
+  --color-danger: var(--color-crimson-500);
 }
 
 /* --- GLOBAL BASE STYLES --- */
@@ -90,8 +105,9 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  
+  font-family: var(--font-header);
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 /* --- UTILITIES --- */
@@ -102,15 +118,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (min-width: 768px) { 
-  .layout-spine { 
-    padding: 0 2rem; 
-  } 
+  .layout-spine { padding: 0 2rem; } 
 }
 
 @media (min-width: 1280px) { 
-  .layout-spine { 
-    padding: 0 3rem; 
-  } 
+  .layout-spine { padding: 0 3rem; } 
 }
 
 .glass-card {
@@ -121,15 +133,15 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: var(--shadow-xl);
 }
 
-.text-gradient-blue {
-  background: linear-gradient(135deg, var(--color-zurich-700) 0%, var(--color-zurich-500) 50%, var(--color-zurich-400) 100%);
+.text-gradient-marine {
+  background: linear-gradient(135deg, var(--color-marine-700) 0%, var(--color-marine-500) 50%, var(--color-marine-400) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.text-gradient-green {
-  background: linear-gradient(135deg, var(--color-militant-900) 0%, var(--color-militant-500) 100%);
+.text-gradient-gold {
+  background: linear-gradient(135deg, var(--color-gold-700) 0%, var(--color-gold-500) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -146,11 +158,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* --- IMAGE & OVERLAY UTILITIES --- */
 .img-overlay-dark {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.8) 100%);
+  background: linear-gradient(to bottom, rgba(0, 20, 56, 0.4) 0%, rgba(0, 20, 56, 0.8) 100%);
 }
 
-.img-overlay-blue {
-  background: linear-gradient(135deg, rgba(14, 54, 85, 0.8) 0%, rgba(35, 136, 212, 0.6) 100%);
+.img-overlay-marine {
+  background: linear-gradient(135deg, rgba(0, 20, 56, 0.9) 0%, rgba(0, 51, 141, 0.6) 100%);
 }
 
 .hover-zoom-img {
@@ -166,14 +178,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .heading-lg {
-  @apply text-4xl md:text-6xl font-extrabold tracking-tight;
+  @apply font-header text-h1 md:text-d4 tracking-tight;
 }
 
 .heading-md {
-  @apply text-3xl md:text-5xl font-bold;
+  @apply font-header text-h2 md:text-h1;
 }
 
 .text-body-lg {
-  @apply text-lg md:text-xl leading-relaxed;
+  @apply font-body text-content-main md:text-content-lg leading-relaxed;
 }
 
