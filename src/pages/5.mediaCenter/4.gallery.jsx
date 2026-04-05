@@ -5,15 +5,15 @@ import { Icon } from '@iconify/react'
 const categories = ['All', 'Events', 'Community', 'Lakes', 'Programs']
 
 const galleryItems = [
-  { label: 'Annual Federation Conference 2023', category: 'Events', icon: 'ph:users-three-bold', color: 'var(--color-zurich-500)', span: 'col-span-2' },
-  { label: 'Lake Victoria Landing Site', category: 'Lakes', icon: 'ph:waves-bold', color: 'var(--color-militant-500)' },
+  { label: 'Annual Federation Conference 2023', category: 'Events', icon: 'ph:users-three-bold', color: 'var(--color-marine-500)', span: 'col-span-2' },
+  { label: 'Lake Victoria Landing Site', category: 'Lakes', icon: 'ph:waves-bold', color: 'var(--color-cerulean-500)' },
   { label: 'ABAVUBI App Training Session', category: 'Programs', icon: 'ph:device-mobile-bold', color: 'var(--color-amber-500)' },
   { label: 'Women Fishers Capacity Workshop', category: 'Community', icon: 'ph:woman-bold', color: 'var(--color-rose-500)' },
   { label: 'Fisheries Regulation Training', category: 'Programs', icon: 'ph:graduation-cap-bold', color: 'var(--color-violet-500)' },
-  { label: 'Lake Albert Community Meeting', category: 'Events', icon: 'ph:microphone-bold', color: 'var(--color-zurich-600)' },
+  { label: 'Lake Albert Community Meeting', category: 'Events', icon: 'ph:microphone-bold', color: 'var(--color-marine-600)' },
   { label: 'Aquaculture Demonstration Farm', category: 'Programs', icon: 'ph:leaf-bold', color: 'var(--color-emerald-500)', span: 'col-span-2' },
   { label: 'Youth Fishers Leadership Program', category: 'Community', icon: 'ph:star-bold', color: 'var(--color-amber-500)' },
-  { label: 'Lake Kyoga Fisher Interviews', category: 'Lakes', icon: 'ph:camera-bold', color: 'var(--color-militant-400)' },
+  { label: 'Lake Kyoga Fisher Interviews', category: 'Lakes', icon: 'ph:camera-bold', color: 'var(--color-cerulean-400)' },
 ]
 
 export default function Gallery() {
@@ -26,9 +26,9 @@ export default function Gallery() {
 
   return (
     <section className="py-16" style={{ background: 'var(--surface-b)' }}>
-      <div className="layout-spine">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12">
         <div className="text-center mb-8">
-          <h2 className="font-heading text-2xl md:text-3xl" style={{ color: 'var(--text-main)' }}>
+          <h2 className="font-header text-2xl md:text-3xl" style={{ color: 'var(--text-main)' }}>
             Photo Gallery
           </h2>
           <p className="mt-1 text-sm" style={{ color: 'var(--text-muted)' }}>
@@ -45,7 +45,7 @@ export default function Gallery() {
               className="px-3 py-1.5 rounded-lg text-xs font-medium transition-all"
               style={
                 active === cat
-                  ? { background: 'var(--color-zurich-500)', color: '#fff' }
+                  ? { background: 'var(--color-marine-500)', color: '#fff' }
                   : { background: 'var(--surface-a)', color: 'var(--text-muted)', border: '1px solid var(--nav-stroke)' }
               }
             >
@@ -101,7 +101,7 @@ export default function Gallery() {
                 onClick={(e) => e.stopPropagation()}
               >
                 <Icon icon={lightbox.icon} className="text-5xl mx-auto mb-3" style={{ color: lightbox.color }} />
-                <h3 className="font-heading text-xl mb-1" style={{ color: 'var(--text-main)' }}>
+                <h3 className="font-header text-xl mb-1" style={{ color: 'var(--text-main)' }}>
                   {lightbox.label}
                 </h3>
                 <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: `${lightbox.color}20`, color: lightbox.color }}>

@@ -9,8 +9,8 @@ const involvementOptions = [
     description: 'Join 131+ associations across Uganda\'s fisheries sector and gain access to advocacy, training, and networking.',
     cta: 'Apply Now',
     to: '/membership',
-    color: 'var(--color-zurich-500)',
-    bg: 'var(--color-zurich-50)',
+    color: 'var(--color-marine-500)',
+    bg: 'var(--color-marine-50)',
   },
   {
     icon: 'ph:hand-heart-bold',
@@ -18,8 +18,8 @@ const involvementOptions = [
     description: 'Share your skills with fishing communities in education, health, technology, and community organizing.',
     cta: 'Contact Us',
     to: '/contact-us',
-    color: 'var(--color-militant-500)',
-    bg: 'var(--color-militant-100)',
+    color: 'var(--color-cerulean-500)',
+    bg: 'var(--color-cerulean-100)',
   },
   {
     icon: 'ph:handshake-bold',
@@ -60,9 +60,9 @@ const resourceStrategies = [
 export default function GetInvolved() {
   return (
     <section className="py-16" style={{ background: 'var(--surface-b)' }}>
-      <div className="layout-spine">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12">
         <div className="text-center mb-10">
-          <h2 className="font-heading text-3xl md:text-4xl" style={{ color: 'var(--text-main)' }}>
+          <h2 className="font-header text-3xl md:text-4xl" style={{ color: 'var(--text-main)' }}>
             Get Involved
           </h2>
           <p className="mt-2 text-sm max-w-xl mx-auto" style={{ color: 'var(--text-muted)' }}>
@@ -87,7 +87,7 @@ export default function GetInvolved() {
               >
                 <Icon icon={option.icon} className="text-2xl" style={{ color: option.color }} />
               </div>
-              <h3 className="font-heading text-base mb-2" style={{ color: 'var(--text-main)' }}>
+              <h3 className="font-header text-base mb-2" style={{ color: 'var(--text-main)' }}>
                 {option.title}
               </h3>
               <p className="text-xs leading-relaxed mb-4" style={{ color: 'var(--text-muted)' }}>
@@ -112,7 +112,7 @@ export default function GetInvolved() {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <h3 className="font-heading text-2xl text-center mb-6" style={{ color: 'var(--text-main)' }}>
+          <h3 className="font-header text-2xl text-center mb-6" style={{ color: 'var(--text-main)' }}>
             Resource Mobilization
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -122,7 +122,7 @@ export default function GetInvolved() {
                 className="p-4 rounded-xl"
                 style={{ background: 'var(--surface-a)', border: '1px solid var(--nav-stroke)' }}
               >
-                <Icon icon={strategy.icon} className="text-xl mb-2 text-zurich-500" />
+                <Icon icon={strategy.icon} className="text-xl mb-2 text-marine-500" />
                 <h4 className="font-semibold text-sm mb-1" style={{ color: 'var(--text-main)' }}>
                   {strategy.title}
                 </h4>
@@ -140,21 +140,21 @@ export default function GetInvolved() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="rounded-2xl p-8 text-center"
-          style={{ background: 'var(--color-zurich-950)' }}
+          style={{ background: 'var(--color-marine-800)' }}
         >
-          <h3 className="font-heading text-2xl mb-3 text-gradient-blue">
+          <h3 className="font-header text-2xl mb-3 bg-linear-to-r from-marine-700 via-marine-500 to-marine-400 bg-clip-text text-transparent">
             Our Impact
           </h3>
-          <p className="text-sm max-w-2xl mx-auto mb-8" style={{ color: 'var(--color-zurich-200)' }}>
+          <p className="text-sm max-w-2xl mx-auto mb-8" style={{ color: 'var(--color-marine-200)' }}>
             Together with our members and partners, FFOU is driving sustainable change.
           </p>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {impactStats.map((stat) => (
               <div key={stat.label} className="flex flex-col items-center">
-                <Icon icon={stat.icon} className="text-2xl text-zurich-400 mb-1" />
-                <span className="font-heading text-2xl text-white">{stat.number}</span>
-                <span className="text-xs" style={{ color: 'var(--color-zurich-300)' }}>{stat.label}</span>
+                <Icon icon={stat.icon} className="text-2xl text-marine-400 mb-1" />
+                <span className="font-header text-2xl text-white">{stat.number}</span>
+                <span className="text-xs" style={{ color: 'var(--color-marine-300)' }}>{stat.label}</span>
               </div>
             ))}
           </div>

@@ -90,7 +90,7 @@ export default function OurStory() {
               initial={{ x: 50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="absolute -bottom-10 -left-10 md:-left-20 max-w-sm bg-marine-800/92 backdrop-blur-[16px] border border-white/10 rounded-[1.5rem] shadow-xl p-8"
+              className="absolute -bottom-10 -left-10 md:-left-20 max-w-sm bg-marine-800/92 backdrop-blur-lg border border-white/10 rounded-3xl shadow-xl p-8"
               style={{ color: 'white' }}
             >
               <div className="flex items-center gap-4 mb-4">

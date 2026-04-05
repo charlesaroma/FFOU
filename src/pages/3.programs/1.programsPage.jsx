@@ -17,14 +17,14 @@ function ProgramsHero() {
     <section 
       ref={sectionRef}
       className="relative pt-28 pb-20 overflow-hidden min-h-[55vh] flex items-center" 
-      style={{ background: 'var(--color-zurich-950)' }}
+      style={{ background: 'var(--color-marine-800)' }}
     >
       {/* Animated Background */}
       <div className="absolute inset-0">
         <div
           className="absolute inset-0 opacity-10"
           style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, var(--color-zurich-400) 2px, transparent 0)`,
+            backgroundImage: `radial-gradient(circle at 2px 2px, var(--color-marine-400) 2px, transparent 0)`,
             backgroundSize: '40px 40px',
           }}
         />
@@ -33,7 +33,7 @@ function ProgramsHero() {
         <motion.div
           className="absolute left-1/3 top-1/2 -translate-y-1/2 w-[500px] h-[400px] rounded-full opacity-20"
           style={{ 
-            background: 'radial-gradient(circle, var(--color-zurich-500) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, var(--color-marine-500) 0%, transparent 70%)',
             filter: 'blur(100px)',
             y,
           }}
@@ -50,7 +50,7 @@ function ProgramsHero() {
         <motion.div
           className="absolute right-1/4 bottom-1/4 w-[300px] h-[300px] rounded-full opacity-15"
           style={{ 
-            background: 'radial-gradient(circle, var(--color-militant-500) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, var(--color-cerulean-500) 0%, transparent 70%)',
             filter: 'blur(80px)',
           }}
           animate={{
@@ -71,10 +71,10 @@ function ProgramsHero() {
         animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
         transition={{ duration: 6, repeat: Infinity }}
       >
-        <Icon icon="ph:folders-bold" className="text-8xl text-zurich-400" />
+        <Icon icon="ph:folders-bold" className="text-8xl text-marine-400" />
       </motion.div>
 
-      <div className="layout-spine relative z-10 text-center" style={{ opacity }}>
+      <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12 relative z-10 text-center" style={{ opacity }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -83,9 +83,9 @@ function ProgramsHero() {
           <span
             className="px-4 py-2 rounded-full text-xs font-semibold tracking-widest uppercase backdrop-blur-sm"
             style={{
-              background: 'rgba(79, 160, 221, 0.2)',
-              color: 'var(--color-zurich-300)',
-              border: '1px solid rgba(79, 160, 221, 0.4)',
+              background: 'rgba(0, 102, 204, 0.2)',
+              color: 'var(--color-marine-300)',
+              border: '1px solid rgba(0, 102, 204, 0.4)',
             }}
           >
             <span className="inline-flex items-center gap-2">
@@ -99,8 +99,8 @@ function ProgramsHero() {
           initial={{ opacity: 0, y: 30, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ delay: 0.1, duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="font-heading text-3xl md:text-4xl lg:text-5xl mt-3 mb-6 text-gradient-blue"
-          style={{ textShadow: '0 0 60px rgba(35, 136, 212, 0.3)' }}
+          className="font-header text-3xl md:text-4xl lg:text-5xl mt-3 mb-6 bg-linear-to-r from-marine-700 via-marine-500 to-marine-400 bg-clip-text text-transparent"
+          style={{ textShadow: '0 0 60px rgba(0, 51, 141, 0.3)' }}
         >
           Our Programs
         </motion.h1>
@@ -110,7 +110,7 @@ function ProgramsHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
           className="text-lg md:text-xl max-w-3xl mx-auto"
-          style={{ color: 'var(--color-zurich-200)' }}
+          style={{ color: 'var(--color-marine-200)' }}
         >
           FFOU drives sustainable change across Uganda's fisheries sub-sector through comprehensive programs focused on empowerment, innovation, and community development.
         </motion.p>
@@ -134,14 +134,14 @@ function ProgramsHero() {
               transition={{ delay: 0.6 + i * 0.1 }}
               className="flex items-center gap-3 px-5 py-3 rounded-xl backdrop-blur-sm"
               style={{
-                background: 'rgba(14, 54, 85, 0.4)',
-                border: '1px solid rgba(79, 160, 221, 0.2)',
+                background: 'rgba(0, 20, 56, 0.4)',
+                border: '1px solid rgba(0, 102, 204, 0.2)',
               }}
             >
-              <Icon icon={stat.icon} className="text-xl text-zurich-400" />
+              <Icon icon={stat.icon} className="text-xl text-marine-400" />
               <div className="text-left">
-                <div className="font-heading text-xl text-white">{stat.value}</div>
-                <div className="text-xs text-zurich-300">{stat.label}</div>
+                <div className="font-header text-xl text-white">{stat.value}</div>
+                <div className="text-xs text-marine-300">{stat.label}</div>
               </div>
             </motion.div>
           ))}
@@ -164,8 +164,8 @@ function ProgramsHero() {
 const programs = [
   {
     icon: 'ph:device-mobile-bold',
-    color: 'var(--color-zurich-500)',
-    bg: 'var(--color-zurich-50)',
+    color: 'var(--color-marine-500)',
+    bg: 'var(--color-marine-50)',
     title: 'SMart Fisher Technology (ABAVUBI App)',
     description: 'The ABAVUBI Fisher Mobile App, developed by FFOU with support from GIZ-RFBCP under the German government, has enhanced market linkages and improved access to information relevant to the fisheries business chain.',
     points: [
@@ -182,8 +182,8 @@ const programs = [
   },
   {
     icon: 'ph:users-three-bold',
-    color: 'var(--color-militant-500)',
-    bg: 'var(--color-militant-100)',
+    color: 'var(--color-cerulean-500)',
+    bg: 'var(--color-cerulean-100)',
     title: 'Capacity Building for Women & Youth',
     description: 'FFOU has enhanced the capacity of women and youth within fisher communities for better participation in the fisheries business chain.',
     points: [
@@ -297,9 +297,9 @@ const programs = [
 function ProgramCards() {
   return (
     <section className="py-16" style={{ background: 'var(--surface-a)' }}>
-      <div className="layout-spine">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12">
         <div className="text-center mb-10">
-          <h2 className="font-heading text-3xl md:text-4xl" style={{ color: 'var(--text-main)' }}>
+          <h2 className="font-header text-3xl md:text-4xl" style={{ color: 'var(--text-main)' }}>
             Program Focus Areas
           </h2>
           <p className="mt-2 text-sm max-w-xl mx-auto" style={{ color: 'var(--text-muted)' }}>
@@ -326,7 +326,7 @@ function ProgramCards() {
                   >
                     <Icon icon={p.icon} className="text-2xl" style={{ color: p.color }} />
                   </div>
-                  <h3 className="font-heading text-xl mb-2" style={{ color: 'var(--text-main)' }}>
+                  <h3 className="font-header text-xl mb-2" style={{ color: 'var(--text-main)' }}>
                     {p.title}
                   </h3>
                   <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
@@ -366,7 +366,7 @@ function ProgramCards() {
 function SACCO() {
   return (
     <section className="py-16" style={{ background: 'var(--surface-b)' }}>
-      <div className="layout-spine">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -378,11 +378,11 @@ function SACCO() {
             <div>
               <div
                 className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
-                style={{ background: 'var(--color-zurich-50)' }}
+                style={{ background: 'var(--color-marine-50)' }}
               >
-                <Icon icon="ph:bank-bold" className="text-2xl" style={{ color: 'var(--color-zurich-600)' }} />
+                <Icon icon="ph:bank-bold" className="text-2xl" style={{ color: 'var(--color-marine-600)' }} />
               </div>
-              <h3 className="font-heading text-2xl mb-3" style={{ color: 'var(--text-main)' }}>
+              <h3 className="font-header text-2xl mb-3" style={{ color: 'var(--text-main)' }}>
                 Uganda Fisheries Cooperative SACCO
               </h3>
               <p className="text-sm leading-relaxed mb-4" style={{ color: 'var(--text-muted)' }}>
@@ -396,8 +396,8 @@ function SACCO() {
               </p>
             </div>
 
-            <div className="p-6 rounded-xl" style={{ background: 'var(--color-zurich-50)' }}>
-              <h4 className="font-heading text-lg mb-4" style={{ color: 'var(--text-main)' }}>
+            <div className="p-6 rounded-xl" style={{ background: 'var(--color-marine-50)' }}>
+              <h4 className="font-header text-lg mb-4" style={{ color: 'var(--text-main)' }}>
                 How to Join/Manage Accounts Online
               </h4>
               <div className="space-y-3">
@@ -409,7 +409,7 @@ function SACCO() {
                   <div key={item.step} className="flex items-start gap-3">
                     <div 
                       className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
-                      style={{ background: 'var(--color-zurich-500)', color: '#fff' }}
+                      style={{ background: 'var(--color-marine-500)', color: '#fff' }}
                     >
                       {item.step}
                     </div>
@@ -428,21 +428,21 @@ function SACCO() {
 function MonitoringEvaluation() {
   return (
     <section className="py-16" style={{ background: 'var(--surface-a)' }}>
-      <div className="layout-spine">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="p-8 rounded-2xl"
-          style={{ background: 'var(--color-zurich-950)' }}
+          style={{ background: 'var(--color-marine-800)' }}
         >
           <div className="flex items-center gap-3 mb-6">
-            <Icon icon="ph:chart-line-up-bold" className="text-3xl text-zurich-400" />
-            <h3 className="font-heading text-2xl text-gradient-blue">
+            <Icon icon="ph:chart-line-up-bold" className="text-3xl text-marine-400" />
+            <h3 className="font-header text-2xl bg-linear-to-r from-marine-700 via-marine-500 to-marine-400 bg-clip-text text-transparent">
               Monitoring and Evaluation
             </h3>
           </div>
-          <p className="text-sm leading-relaxed mb-4" style={{ color: 'var(--color-zurich-200)' }}>
+          <p className="text-sm leading-relaxed mb-4" style={{ color: 'var(--color-marine-200)' }}>
             A monitoring and evaluation framework was developed to identify indicators at impact, outcome, and output levels. Projects implemented by FFOU will have their indicators of achievement of results linked to the Strategic plan indicators.
           </p>
           <div className="grid md:grid-cols-3 gap-4">
@@ -453,11 +453,11 @@ function MonitoringEvaluation() {
             ].map((item) => (
               <div key={item.level} className="p-4 rounded-lg" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
                 <h4 className="font-semibold text-sm text-white mb-1">{item.level} Indicators</h4>
-                <p className="text-xs" style={{ color: 'var(--color-zurich-300)' }}>{item.desc}</p>
+                <p className="text-xs" style={{ color: 'var(--color-marine-300)' }}>{item.desc}</p>
               </div>
             ))}
           </div>
-          <p className="text-sm leading-relaxed mt-4" style={{ color: 'var(--color-zurich-200)' }}>
+          <p className="text-sm leading-relaxed mt-4" style={{ color: 'var(--color-marine-200)' }}>
             For learning and adaptive planning, FFOU conducts annual plans and review meetings to assess progress. Monthly reports are submitted to development partners. Quarterly monitoring is considered appropriate, with annual review meetings able to adjust monitoring intervals as needed.
           </p>
         </motion.div>

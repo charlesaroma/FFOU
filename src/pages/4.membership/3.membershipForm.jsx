@@ -32,7 +32,7 @@ const initialValues = {
   agreeTerms: false,
 }
 
-const inputStyles = "w-full px-4 py-3 rounded-xl border text-sm bg-transparent transition-all focus:outline-none focus:ring-2 focus:ring-zurich-500/30"
+const inputStyles = "w-full px-4 py-3 rounded-xl border text-sm bg-transparent transition-all focus:outline-none focus:ring-2 focus:ring-marine-500/30"
 const labelStyles = "block text-sm font-semibold mb-1.5"
 const errorStyles = "text-xs text-red-500 mt-1"
 
@@ -65,10 +65,10 @@ function SuccessMessage() {
       animate={{ opacity: 1, scale: 1 }}
       className="text-center py-12 px-6"
     >
-      <div className="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center" style={{ background: 'var(--color-militant-100)' }}>
-        <Icon icon="ph:check-circle-bold" className="text-4xl text-militant-500" />
+      <div className="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center" style={{ background: 'var(--color-cerulean-100)' }}>
+        <Icon icon="ph:check-circle-bold" className="text-4xl text-cerulean-500" />
       </div>
-      <h3 className="font-heading text-2xl mb-3" style={{ color: 'var(--text-main)' }}>
+      <h3 className="font-header text-2xl mb-3" style={{ color: 'var(--text-main)' }}>
         Application Submitted!
       </h3>
       <p className="text-sm max-w-md mx-auto mb-6" style={{ color: 'var(--text-muted)' }}>
@@ -96,7 +96,7 @@ export default function MembershipForm() {
   if (submitted) {
     return (
       <section id="apply" className="py-16" style={{ background: 'var(--surface-b)' }}>
-        <div className="layout-spine max-w-2xl mx-auto">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12 max-w-2xl mx-auto">
           <SuccessMessage />
         </div>
       </section>
@@ -105,13 +105,13 @@ export default function MembershipForm() {
 
   return (
     <section id="apply" className="py-16" style={{ background: 'var(--surface-b)' }}>
-      <div className="layout-spine">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
-            <span className="text-xs font-semibold tracking-widest uppercase text-zurich-500">
+            <span className="text-xs font-semibold tracking-widest uppercase text-marine-500">
               Join FFOU
             </span>
-            <h2 className="font-heading text-3xl md:text-4xl mt-2" style={{ color: 'var(--text-main)' }}>
+            <h2 className="font-header text-3xl md:text-4xl mt-2" style={{ color: 'var(--text-main)' }}>
               Membership Application
             </h2>
             <p className="mt-3 text-sm" style={{ color: 'var(--text-muted)' }}>
@@ -185,7 +185,7 @@ export default function MembershipForm() {
                     rows={3}
                     placeholder="Describe your organization's mission..."
                     className={inputStyles}
-                    style={{ borderColor: errors.missionStatement && touched.missionStatement ? 'var(--color-zurich-500)' : 'var(--nav-stroke)', color: 'var(--text-main)', resize: 'vertical' }}
+                    style={{ borderColor: errors.missionStatement && touched.missionStatement ? 'var(--color-marine-500)' : 'var(--nav-stroke)', color: 'var(--text-main)', resize: 'vertical' }}
                   />
                   <ErrorMessage name="missionStatement" component="p" className={errorStyles} />
                 </div>
@@ -196,7 +196,7 @@ export default function MembershipForm() {
                       type="checkbox"
                       name="agreeTerms"
                       className="mt-1 w-4 h-4 rounded"
-                      style={{ accentColor: 'var(--color-zurich-500)' }}
+                      style={{ accentColor: 'var(--color-marine-500)' }}
                     />
                     <span className="text-sm" style={{ color: 'var(--text-muted)' }}>
                       I agree to abide by the FFOU Constitution and pay all prescribed fees.
@@ -209,7 +209,7 @@ export default function MembershipForm() {
                   type="submit"
                   disabled={isSubmitting}
                   className="w-full mt-6 py-3 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all hover:scale-[1.01] disabled:opacity-60"
-                  style={{ background: 'var(--color-zurich-500)', color: '#fff' }}
+                  style={{ background: 'var(--color-marine-500)', color: '#fff' }}
                 >
                   {isSubmitting ? (
                     <>

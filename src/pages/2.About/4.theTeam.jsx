@@ -3,11 +3,11 @@ import { Icon } from '@iconify/react'
 
 const StructureNode = ({ label, type, isWide }) => {
   const styles = {
-    governance: 'bg-zurich-100 border-zurich-300 text-zurich-950 font-bold text-xs md:text-sm',
-    executive: 'bg-zurich-600 border-zurich-500 text-white font-bold shadow-lg shadow-zurich-500/20 text-sm',
-    director: 'bg-zurich-800 border-zurich-700 text-white font-semibold text-[11px] md:text-xs',
-    staff: 'bg-white border-slate-200 text-slate-700 text-[10px] md:text-[11px] leading-tight hover:border-zurich-300 hover:shadow-md transition-all',
-    community: 'bg-militant-500 border-militant-600 text-white font-bold shadow-xl shadow-militant-500/20 text-xs md:text-sm',
+    governance: 'bg-marine-100 border-marine-300 text-marine-800 font-bold text-xs md:text-sm',
+    executive: 'bg-marine-600 border-marine-500 text-white font-bold shadow-lg shadow-marine-500/20 text-sm',
+    director: 'bg-marine-800 border-marine-700 text-white font-semibold text-[11px] md:text-xs',
+    staff: 'bg-white border-slate-200 text-slate-700 text-[10px] md:text-[11px] leading-tight hover:border-marine-300 hover:shadow-md transition-all',
+    community: 'bg-cerulean-500 border-cerulean-600 text-white font-bold shadow-xl shadow-cerulean-500/20 text-xs md:text-sm',
   }
 
   return (
@@ -21,8 +21,8 @@ const StructureNode = ({ label, type, isWide }) => {
 }
 
 const Connector = () => (
-  <div className="w-px h-8 bg-zurich-200 shrink-0 relative">
-    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-zurich-200" />
+  <div className="w-px h-8 bg-marine-200 shrink-0 relative">
+    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-marine-200" />
   </div>
 )
 
@@ -114,8 +114,8 @@ export default function TheTeam() {
 
       {/* Leadership Intro */}
       <section className="py-10 bg-white">
-        <div className="layout-spine text-center">
-            <p className="italic text-lg md:text-xl font-medium text-zurich-900">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12 text-center">
+            <p className="italic text-lg md:text-xl font-medium text-marine-700">
                 FFOU is led by a team of qualified and experienced executive
             </p>
         </div>
@@ -123,7 +123,7 @@ export default function TheTeam() {
 
       {/* Board Section */}
       <section className="py-16 bg-[#e5f1fa]">
-        <div className="layout-spine">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12">
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {leadership.map((member, i) => (
               <motion.div
@@ -134,13 +134,13 @@ export default function TheTeam() {
                 transition={{ delay: i * 0.1 }}
                 className="text-center"
               >
-                <div className="bg-zurich-400 p-8 rounded-lg mb-6 shadow-xl aspect-square flex items-center justify-center flex-col">
+                <div className="bg-marine-400 p-8 rounded-lg mb-6 shadow-xl aspect-square flex items-center justify-center flex-col">
                     <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-white mb-6">
                         <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
                     </div>
-                    <h3 className="font-heading text-white text-xl md:text-2xl tracking-tight">{member.name}</h3>
+                    <h3 className="font-header text-white text-xl md:text-2xl tracking-tight">{member.name}</h3>
                 </div>
-                <p className="font-bold text-zurich-950 uppercase tracking-widest text-sm md:text-base">{member.role}</p>
+                <p className="font-bold text-marine-800 uppercase tracking-widest text-sm md:text-base">{member.role}</p>
               </motion.div>
             ))}
           </div>
@@ -149,8 +149,8 @@ export default function TheTeam() {
 
       {/* FFOU STAFF Section */}
       <section className="py-16 bg-white">
-        <div className="layout-spine">
-          <h2 className="font-heading text-3xl md:text-5xl text-center mb-12 text-zurich-900 uppercase">FFOU STAFF</h2>
+        <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12">
+          <h2 className="font-header text-3xl md:text-5xl text-center mb-12 text-marine-700 uppercase">FFOU STAFF</h2>
           
           {/* Main Staff Grid */}
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
@@ -167,11 +167,11 @@ export default function TheTeam() {
                     <div className="aspect-square bg-gray-200">
                         <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
                     </div>
-                    <div className="bg-zurich-800 p-3">
-                        <h4 className="font-heading text-lg text-white tracking-wide">{member.name}</h4>
+                    <div className="bg-marine-800 p-3">
+                        <h4 className="font-header text-lg text-white tracking-wide">{member.name}</h4>
                     </div>
                 </div>
-                <p className="mt-3 font-bold text-zurich-600 text-sm uppercase tracking-wide">{member.role}</p>
+                <p className="mt-3 font-bold text-marine-500 text-sm uppercase tracking-wide">{member.role}</p>
               </motion.div>
             ))}
           </div>
@@ -191,11 +191,11 @@ export default function TheTeam() {
                     <div className="aspect-square bg-gray-200 overflow-hidden">
                         <img src={member.image} alt={member.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                     </div>
-                    <div className="bg-zurich-700 p-2">
-                        <h4 className="font-heading text-sm md:text-base text-white truncate">{member.name}</h4>
+                    <div className="bg-marine-700 p-2">
+                        <h4 className="font-header text-sm md:text-base text-white truncate">{member.name}</h4>
                     </div>
                 </div>
-                <p className="mt-2 font-bold text-zurich-600 text-[10px] md:text-xs uppercase tracking-tight">{member.role}</p>
+                <p className="mt-2 font-bold text-marine-500 text-[10px] md:text-xs uppercase tracking-tight">{member.role}</p>
               </motion.div>
             ))}
           </div>
@@ -204,16 +204,16 @@ export default function TheTeam() {
 
       {/* Structure Chart Section */}
       <section className="py-24 bg-[#f1f5f9] overflow-hidden">
-        <div className="layout-spine text-center">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12 text-center">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 className="mb-16"
             >
-                <h3 className="font-heading text-3xl md:text-5xl text-zurich-950 uppercase tracking-tight mb-4">FFOU Structures</h3>
-                <div className="h-1 w-24 bg-militant-500 mx-auto rounded-full" />
-                <p className="mt-6 text-zurich-600 max-w-2xl mx-auto text-lg leading-relaxed">
+                <h3 className="font-header text-3xl md:text-5xl text-marine-800 uppercase tracking-tight mb-4">FFOU Structures</h3>
+                <div className="h-1 w-24 bg-cerulean-500 mx-auto rounded-full" />
+                <p className="mt-6 text-marine-400 max-w-2xl mx-auto text-lg leading-relaxed">
                     A multi-tiered governance and management framework designed for efficiency, transparency, and community impact.
                 </p>
             </motion.div>
@@ -298,13 +298,13 @@ export default function TheTeam() {
 
                     {/* Shared Bottom Section */}
                     <div className="mt-8 flex flex-col items-center">
-                        <div className="w-[50%] h-px bg-zurich-200 mb-8" />
+                        <div className="w-[50%] h-px bg-marine-200 mb-8" />
                         <StructureNode 
                             label="Fisheries Associations & Local Landing Site Committees" 
                             type="community" 
                             isWide
                         />
-                        <div className="mt-6 flex items-center gap-3 text-zurich-400">
+                        <div className="mt-6 flex items-center gap-3 text-marine-400">
                             <Icon icon="ph:arrow-u-up-left-bold" className="text-xl" />
                             <span className="text-sm font-bold tracking-widest uppercase italic">Represented at Delegate's Conference</span>
                         </div>
@@ -316,8 +316,8 @@ export default function TheTeam() {
 
       {/* NEC Members Section */}
       <section className="py-20 bg-white">
-        <div className="layout-spine">
-            <h2 className="font-heading text-2xl md:text-3xl text-center mb-16 text-zurich-900 max-w-2xl mx-auto leading-relaxed">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12">
+            <h2 className="font-header text-2xl md:text-3xl text-center mb-16 text-marine-700 max-w-2xl mx-auto leading-relaxed">
                 FFOU National Executive Committee (NEC) Members
             </h2>
 
@@ -331,12 +331,12 @@ export default function TheTeam() {
                         transition={{ delay: i * 0.1 }}
                         className="flex gap-6 items-start"
                     >
-                        <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden shrink-0 shadow-lg border-2 border-zurich-100">
+                        <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden shrink-0 shadow-lg border-2 border-marine-100">
                             <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
                         </div>
                         <div className="pt-2">
-                            <h4 className="font-bold text-zurich-900 text-lg mb-2">{member.name}</h4>
-                            <p className="text-sm leading-relaxed text-zurich-600">{member.role}</p>
+                            <h4 className="font-bold text-marine-800 text-lg mb-2">{member.name}</h4>
+                            <p className="text-sm leading-relaxed text-marine-400">{member.role}</p>
                         </div>
                     </motion.div>
                 ))}

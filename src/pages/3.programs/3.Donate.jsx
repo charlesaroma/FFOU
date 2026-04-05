@@ -10,7 +10,7 @@ const bankAccounts = [
     swift: 'CITIGB21',
     iban: 'GB59CITI18500811117874',
     branch: 'Impala House, Kimathi Avenue, Kampala',
-    color: 'var(--color-zurich-500)',
+    color: 'var(--color-marine-500)',
   },
   {
     bank: 'DFCU Bank',
@@ -20,7 +20,7 @@ const bankAccounts = [
     swift: null,
     iban: null,
     branch: 'Impala Branch',
-    color: 'var(--color-militant-500)',
+    color: 'var(--color-cerulean-500)',
   },
   {
     bank: 'Bank of Africa',
@@ -37,12 +37,12 @@ const bankAccounts = [
 export default function Donate() {
   return (
     <section id="donate" className="py-16" style={{ background: 'var(--surface-a)' }}>
-      <div className="layout-spine">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12">
         <div className="text-center mb-10">
-          <span className="text-xs font-semibold tracking-widest uppercase text-militant-500">
+          <span className="text-xs font-semibold tracking-widest uppercase text-cerulean-500">
             Support Our Mission
           </span>
-          <h2 className="font-heading text-3xl md:text-4xl mt-2" style={{ color: 'var(--text-main)' }}>
+          <h2 className="font-header text-3xl md:text-4xl mt-2" style={{ color: 'var(--text-main)' }}>
             Make a Donation
           </h2>
           <p className="mt-2 text-sm max-w-2xl mx-auto" style={{ color: 'var(--text-muted)' }}>
@@ -56,13 +56,13 @@ export default function Donate() {
               icon: 'ph:graduation-cap-bold',
               title: 'Training & Education',
               desc: 'Fund capacity building programs for fishers on sustainable practices.',
-              color: 'var(--color-zurich-500)',
+              color: 'var(--color-marine-500)',
             },
             {
               icon: 'ph:device-mobile-bold',
               title: 'Digital Tools',
               desc: 'Support the ABAVUBI app development for market access.',
-              color: 'var(--color-militant-500)',
+              color: 'var(--color-cerulean-500)',
             },
             {
               icon: 'ph:first-aid-kit-bold',
@@ -86,7 +86,7 @@ export default function Donate() {
               >
                 <Icon icon={impact.icon} className="text-xl" style={{ color: impact.color }} />
               </div>
-              <h3 className="font-heading text-base mb-1" style={{ color: 'var(--text-main)' }}>
+              <h3 className="font-header text-base mb-1" style={{ color: 'var(--text-main)' }}>
                 {impact.title}
               </h3>
               <p className="text-xs leading-relaxed" style={{ color: 'var(--text-muted)' }}>
@@ -101,11 +101,11 @@ export default function Donate() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="rounded-2xl p-6 md:p-8"
-          style={{ background: 'var(--color-militant-950)' }}
+          style={{ background: 'var(--color-marine-800)' }}
         >
           <div className="flex items-center gap-3 mb-6">
-            <Icon icon="ph:bank-bold" className="text-2xl text-militant-300" />
-            <h3 className="font-heading text-xl text-white">
+            <Icon icon="ph:bank-bold" className="text-2xl text-cerulean-400" />
+            <h3 className="font-header text-xl text-white">
               Bank Transfer Details
             </h3>
           </div>
@@ -122,7 +122,7 @@ export default function Donate() {
                   <span className="font-semibold text-sm text-white">{account.bank}</span>
                   <span 
                     className="ml-auto text-xs px-2 py-0.5 rounded-full"
-                    style={{ background: 'rgba(255,255,255,0.1)', color: 'var(--color-militant-200)' }}
+                    style={{ background: 'rgba(255,255,255,0.1)', color: 'var(--color-cerulean-200)' }}
                   >
                     {account.currency}
                   </span>
@@ -130,16 +130,16 @@ export default function Donate() {
 
                 <div className="space-y-2">
                   <div>
-                    <span className="text-xs" style={{ color: 'var(--color-militant-300)' }}>Account</span>
+                    <span className="text-xs" style={{ color: 'var(--color-cerulean-400)' }}>Account</span>
                     <p className="text-sm text-white font-mono">{account.accountNumber}</p>
                   </div>
                   <div>
-                    <span className="text-xs" style={{ color: 'var(--color-militant-300)' }}>Branch</span>
-                    <p className="text-xs" style={{ color: 'var(--color-militant-200)' }}>{account.branch}</p>
+                    <span className="text-xs" style={{ color: 'var(--color-cerulean-400)' }}>Branch</span>
+                    <p className="text-xs" style={{ color: 'var(--color-cerulean-200)' }}>{account.branch}</p>
                   </div>
                   {account.swift && (
                     <div>
-                      <span className="text-xs" style={{ color: 'var(--color-militant-300)' }}>SWIFT</span>
+                      <span className="text-xs" style={{ color: 'var(--color-cerulean-400)' }}>SWIFT</span>
                       <p className="text-sm text-white font-mono">{account.swift}</p>
                     </div>
                   )}
@@ -149,8 +149,8 @@ export default function Donate() {
           </div>
 
           <div className="mt-4 p-3 rounded-lg flex items-center gap-3" style={{ background: 'rgba(255,255,255,0.05)' }}>
-            <Icon icon="ph:info-bold" className="text-base text-militant-300 flex-shrink-0" />
-            <p className="text-xs" style={{ color: 'var(--color-militant-200)' }}>
+            <Icon icon="ph:info-bold" className="text-base text-cerulean-400 shrink-0" />
+            <p className="text-xs" style={{ color: 'var(--color-cerulean-200)' }}>
               For international transfers, use DFCU EUR account (SWIFT: CITIGB21). For local transfers, use DFCU or Bank of Africa UGX accounts.
             </p>
           </div>

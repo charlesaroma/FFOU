@@ -58,14 +58,14 @@ function ContactHero() {
     <section 
       ref={sectionRef}
       className="relative pt-28 pb-20 overflow-hidden min-h-[55vh] flex items-center" 
-      style={{ background: 'var(--color-zurich-950)' }}
+      style={{ background: 'var(--color-marine-800)' }}
     >
       {/* Animated Background */}
       <div className="absolute inset-0">
         <div
           className="absolute inset-0 opacity-10"
           style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, var(--color-zurich-400) 2px, transparent 0)`,
+            backgroundImage: `radial-gradient(circle at 2px 2px, var(--color-marine-400) 2px, transparent 0)`,
             backgroundSize: '40px 40px',
           }}
         />
@@ -74,7 +74,7 @@ function ContactHero() {
         <motion.div
           className="absolute right-1/3 top-1/3 w-[500px] h-[400px] rounded-full opacity-20"
           style={{ 
-            background: 'radial-gradient(circle, var(--color-zurich-500) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, var(--color-marine-500) 0%, transparent 70%)',
             filter: 'blur(100px)',
             y,
           }}
@@ -91,7 +91,7 @@ function ContactHero() {
         <motion.div
           className="absolute left-1/4 bottom-1/4 w-[300px] h-[300px] rounded-full opacity-15"
           style={{ 
-            background: 'radial-gradient(circle, var(--color-militant-500) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, var(--color-cerulean-500) 0%, transparent 70%)',
             filter: 'blur(80px)',
           }}
           animate={{
@@ -112,10 +112,10 @@ function ContactHero() {
         animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
         transition={{ duration: 6, repeat: Infinity }}
       >
-        <Icon icon="ph:envelope-simple-bold" className="text-8xl text-zurich-400" />
+        <Icon icon="ph:envelope-simple-bold" className="text-8xl text-marine-400" />
       </motion.div>
 
-      <div className="layout-spine relative z-10 text-center" style={{ opacity }}>
+      <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12 relative z-10 text-center" style={{ opacity }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -124,9 +124,9 @@ function ContactHero() {
           <span
             className="px-4 py-2 rounded-full text-xs font-semibold tracking-widest uppercase backdrop-blur-sm"
             style={{
-              background: 'rgba(79, 160, 221, 0.2)',
-              color: 'var(--color-zurich-300)',
-              border: '1px solid rgba(79, 160, 221, 0.4)',
+              background: 'rgba(0, 102, 204, 0.2)',
+              color: 'var(--color-marine-300)',
+              border: '1px solid rgba(0, 102, 204, 0.4)',
             }}
           >
             <span className="inline-flex items-center gap-2">
@@ -140,8 +140,8 @@ function ContactHero() {
           initial={{ opacity: 0, y: 30, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ delay: 0.1, duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="font-heading text-3xl md:text-4xl lg:text-5xl mt-3 mb-6 text-gradient-blue"
-          style={{ textShadow: '0 0 60px rgba(35, 136, 212, 0.3)' }}
+          className="font-header text-3xl md:text-4xl lg:text-5xl mt-3 mb-6 bg-linear-to-r from-marine-700 via-marine-500 to-marine-400 bg-clip-text text-transparent"
+          style={{ textShadow: '0 0 60px rgba(0, 51, 141, 0.3)' }}
         >
           Contact Us
         </motion.h1>
@@ -151,7 +151,7 @@ function ContactHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
           className="text-lg md:text-xl max-w-2xl mx-auto"
-          style={{ color: 'var(--color-zurich-200)' }}
+          style={{ color: 'var(--color-marine-200)' }}
         >
           Have questions about membership, programs, or partnerships? We'd love to hear from you.
         </motion.p>
@@ -166,12 +166,12 @@ function ContactHero() {
           <div
             className="inline-flex items-center gap-2 px-5 py-3 rounded-full backdrop-blur-sm"
             style={{
-              background: 'rgba(39, 163, 87, 0.15)',
-              border: '1px solid rgba(39, 163, 87, 0.3)',
+              background: 'rgba(0, 102, 204, 0.15)',
+              border: '1px solid rgba(0, 102, 204, 0.3)',
             }}
           >
-            <Icon icon="ph:clock-bold" className="text-militant-400 text-lg" />
-            <span className="text-sm text-zurich-200">We typically respond within 24 hours</span>
+            <Icon icon="ph:clock-bold" className="text-cerulean-400 text-lg" />
+            <span className="text-sm text-marine-200">We typically respond within 24 hours</span>
           </div>
         </motion.div>
       </div>
@@ -192,7 +192,7 @@ function ContactHero() {
 function ContactDetails() {
   return (
     <section className="py-16" style={{ background: 'var(--surface-b)' }}>
-      <div className="layout-spine">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {contactDetails.map((detail, i) => (
             <motion.div
@@ -211,19 +211,19 @@ function ContactDetails() {
             >
               <motion.div
                 className="w-14 h-14 rounded-xl flex items-center justify-center mb-4"
-                style={{ background: 'var(--color-zurich-100)' }}
+                style={{ background: 'var(--color-marine-100)' }}
                 whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
                 transition={{ duration: 0.4 }}
               >
-                <Icon icon={detail.icon} className="text-2xl" style={{ color: 'var(--color-zurich-500)' }} />
+                <Icon icon={detail.icon} className="text-2xl" style={{ color: 'var(--color-marine-500)' }} />
               </motion.div>
-              <h3 className="font-heading text-lg mb-2" style={{ color: 'var(--text-main)' }}>
+              <h3 className="font-header text-lg mb-2" style={{ color: 'var(--text-main)' }}>
                 {detail.title}
               </h3>
               {detail.link ? (
                 <a 
                   href={detail.link}
-                  className="text-sm hover:text-zurich-500 transition-colors"
+                  className="text-sm hover:text-marine-500 transition-colors"
                   style={{ color: 'var(--text-muted)' }}
                 >
                   {detail.content}
@@ -254,15 +254,15 @@ function ContactForm() {
 
   const inputStyles = (fieldName) => `
     w-full px-4 py-3.5 rounded-xl border text-sm bg-transparent transition-all duration-300
-    focus:outline-none focus:ring-2 focus:ring-zurich-500/30 focus:border-zurich-500
-    ${focusedField === fieldName ? 'border-zurich-500 shadow-sm shadow-zurich-500/10' : ''}
+    focus:outline-none focus:ring-2 focus:ring-marine-500/30 focus:border-marine-500
+    ${focusedField === fieldName ? 'border-marine-500 shadow-sm shadow-marine-500/10' : ''}
   `
   const labelStyles = "block text-sm font-semibold mb-2"
   const errorStyles = "text-xs text-red-500 mt-1.5 flex items-center gap-1"
 
   return (
     <section className="py-20" style={{ background: 'var(--surface-a)' }}>
-      <div className="layout-spine">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12">
         <div className="grid lg:grid-cols-5 gap-12">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -275,7 +275,7 @@ function ContactForm() {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-xs font-semibold tracking-widest uppercase text-zurich-500"
+              className="text-xs font-semibold tracking-widest uppercase text-marine-500"
             >
               Send a Message
             </motion.span>
@@ -284,7 +284,7 @@ function ContactForm() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="font-heading text-3xl md:text-4xl mt-3 mb-5" 
+              className="font-header text-3xl md:text-4xl mt-3 mb-5" 
               style={{ color: 'var(--text-main)' }}
             >
               We'd Love to Hear From You
@@ -303,8 +303,8 @@ function ContactForm() {
 
             <div className="space-y-4">
               {[
-                { icon: 'ph:shield-check-bold', title: 'Registered Organization', desc: 'FFOU is registered with NGO Bureau', color: 'var(--color-militant-500)', bg: 'var(--color-militant-50)' },
-                { icon: 'ph:users-three-bold', title: '131+ Member Associations', desc: 'Representing fishers across Uganda', color: 'var(--color-zurich-500)', bg: 'var(--color-zurich-50)' },
+                { icon: 'ph:shield-check-bold', title: 'Registered Organization', desc: 'FFOU is registered with NGO Bureau', color: 'var(--color-cerulean-500)', bg: 'var(--color-cerulean-50)' },
+                { icon: 'ph:users-three-bold', title: '131+ Member Associations', desc: 'Representing fishers across Uganda', color: 'var(--color-marine-500)', bg: 'var(--color-marine-50)' },
                 { icon: 'ph:headset-bold', title: 'Toll Free Line', desc: '0800 100261', color: 'var(--color-amber-500)', bg: 'var(--color-amber-50)' },
               ].map((item, i) => (
                 <motion.div 
@@ -351,11 +351,11 @@ function ContactForm() {
                   animate={{ scale: 1 }}
                   transition={{ type: 'spring', stiffness: 200, delay: 0.1 }}
                   className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center" 
-                  style={{ background: 'var(--color-militant-100)' }}
+                  style={{ background: 'var(--color-cerulean-100)' }}
                 >
-                  <Icon icon="ph:check-circle-bold" className="text-5xl text-militant-500" />
+                  <Icon icon="ph:check-circle-bold" className="text-5xl text-cerulean-500" />
                 </motion.div>
-                <h3 className="font-heading text-3xl mb-4" style={{ color: 'var(--text-main)' }}>
+                <h3 className="font-header text-3xl mb-4" style={{ color: 'var(--text-main)' }}>
                   Message Sent!
                 </h3>
                 <p className="text-base max-w-md mx-auto mb-8" style={{ color: 'var(--text-muted)' }}>
@@ -366,7 +366,7 @@ function ContactForm() {
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setSubmitted(false)}
                   className="px-6 py-3 rounded-xl font-semibold text-sm"
-                  style={{ background: 'var(--color-zurich-500)', color: '#fff' }}
+                  style={{ background: 'var(--color-marine-500)', color: '#fff' }}
                 >
                   Send Another Message
                 </motion.button>
@@ -484,9 +484,9 @@ function ContactForm() {
                       whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                       className="w-full mt-8 py-4 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all disabled:opacity-60 disabled:cursor-not-allowed shadow-lg"
                       style={{ 
-                        background: 'var(--color-zurich-500)', 
+                        background: 'var(--color-marine-500)', 
                         color: '#fff',
-                        boxShadow: '0 4px 20px rgba(35, 136, 212, 0.3)'
+                        boxShadow: '0 4px 20px rgba(0, 51, 141, 0.3)'
                       }}
                     >
                       {isSubmitting ? (

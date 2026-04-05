@@ -104,7 +104,7 @@ export default function AboutUs() {
                 className="p-3 rounded-lg flex items-start gap-2"
                 style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}
               >
-                <Icon icon="ph:check-circle-fill" className="text-marine-400 text-base flex-shrink-0 mt-0.5" />
+                <Icon icon="ph:check-circle-fill" className="text-marine-400 text-base shrink-0 mt-0.5" />
                 <span className="text-xs" style={{ color: 'var(--color-marine-100)' }}>{area}</span>
               </div>
             ))}

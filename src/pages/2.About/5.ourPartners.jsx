@@ -13,10 +13,10 @@ const partners = [
 export default function AboutOurPartners() {
   return (
     <section className="py-24" style={{ background: 'var(--surface-a)' }}>
-      <div className="layout-spine">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12">
         <div className="text-center mb-14">
-          <span className="text-xs font-semibold tracking-widest uppercase text-zurich-500">Partnerships</span>
-          <h2 className="font-heading text-4xl md:text-5xl mt-2" style={{ color: 'var(--text-main)' }}>
+          <span className="text-xs font-semibold tracking-widest uppercase text-marine-500">Partnerships</span>
+          <h2 className="font-header text-4xl md:text-5xl mt-2" style={{ color: 'var(--text-main)' }}>
             Partners & Stakeholders
           </h2>
           <p className="mt-4 max-w-xl mx-auto text-base" style={{ color: 'var(--text-muted)' }}>
@@ -36,13 +36,13 @@ export default function AboutOurPartners() {
               className="flex items-start gap-4 p-5 rounded-2xl hover:shadow-md transition-shadow"
               style={{ background: 'var(--surface-b)', border: '1px solid var(--nav-stroke)' }}
             >
-              <div className="w-10 h-10 rounded-xl bg-zurich-50 flex items-center justify-center shrink-0">
-                <Icon icon={p.icon} className="text-zurich-500 text-xl" />
+              <div className="w-10 h-10 rounded-xl bg-marine-50 flex items-center justify-center shrink-0">
+                <Icon icon={p.icon} className="text-marine-500 text-xl" />
               </div>
               <div>
                 <div className="font-semibold text-sm" style={{ color: 'var(--text-main)' }}>{p.name}</div>
                 <div className="text-xs mt-1 px-2 py-0.5 rounded-full inline-block"
-                  style={{ background: 'var(--color-zurich-50)', color: 'var(--color-zurich-600)' }}>
+                  style={{ background: 'var(--color-marine-50)', color: 'var(--color-marine-600)' }}>
                   {p.type}
                 </div>
               </div>
