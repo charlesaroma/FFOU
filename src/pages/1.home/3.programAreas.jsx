@@ -19,6 +19,7 @@ const programs = [
     description: 'Training fishers and community members in leadership, business skills, and financial literacy to strengthen organizational capacity.',
     color: 'var(--color-zurich-500)',
     bg: 'var(--color-zurich-50)',
+    image: 'https://images.unsplash.com/photo-1523050853554-15f9b9409893?auto=format&fit=crop&q=80&w=1200',
   },
   {
     icon: 'ph:fish-bold',
@@ -26,6 +27,7 @@ const programs = [
     description: 'Promoting sustainable fish farming and aquaponics to diversify livelihoods and increase fish production in Uganda.',
     color: 'var(--color-militant-500)',
     bg: 'var(--color-militant-100)',
+    image: 'https://images.unsplash.com/photo-1562911791-c7a97b729cc5?auto=format&fit=crop&q=80&w=1200',
   },
   {
     icon: 'ph:tool-bold',
@@ -33,6 +35,7 @@ const programs = [
     description: 'Equipping community members with practical technical skills for sustainable fisheries-related livelihoods.',
     color: 'var(--color-amber-500)',
     bg: 'var(--color-amber-50)',
+    image: 'https://images.unsplash.com/photo-1534067783941-51c9c23ecfd3?auto=format&fit=crop&q=80&w=1200',
   },
   {
     icon: 'ph:first-aid-kit-bold',
@@ -40,6 +43,7 @@ const programs = [
     description: 'Comprehensive health programs targeting fishing communities with testing, education, and support services.',
     color: 'var(--color-red-500)',
     bg: 'var(--color-red-100)',
+    image: 'https://images.unsplash.com/photo-1576091160550-217359f4ecf8?auto=format&fit=crop&q=80&w=1200',
   },
   {
     icon: 'ph:device-mobile-bold',
@@ -47,6 +51,7 @@ const programs = [
     description: 'Leveraging technology and digital solutions to improve market access and information sharing.',
     color: 'var(--color-indigo-500)',
     bg: 'var(--color-indigo-100)',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200',
   },
   {
     icon: 'ph:student-bold',
@@ -54,6 +59,7 @@ const programs = [
     description: 'Empowering young girls through scholarships, health workshops, and vocational training initiatives.',
     color: 'var(--color-rose-500)',
     bg: 'var(--color-rose-100)',
+    image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=1200',
   },
   {
     icon: 'ph:scales-bold',
@@ -61,6 +67,7 @@ const programs = [
     description: 'Advocating for fishing rights, policy compliance, and legal support for fishing communities.',
     color: 'var(--color-violet-500)',
     bg: 'var(--color-violet-100)',
+    image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=1200',
   },
   {
     icon: 'ph:leaf-bold',
@@ -68,6 +75,7 @@ const programs = [
     description: 'Environmental conservation, reforestation, and climate adaptation strategies for lake communities.',
     color: 'var(--color-emerald-500)',
     bg: 'var(--color-emerald-100)',
+    image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200',
   },
   {
     icon: 'ph:smartphone-bold',
@@ -75,6 +83,7 @@ const programs = [
     description: 'The ABAVUBI app providing real-time market prices, weather data, and business management tools.',
     color: 'var(--color-sky-500)',
     bg: 'var(--color-sky-100)',
+    image: 'https://images.unsplash.com/photo-1512428559083-a40516a12ff5?auto=format&fit=crop&q=80&w=1200',
   },
 ]
 
@@ -164,39 +173,46 @@ export default function ProgramAreas() {
           </motion.h3>
 
           <div className="relative max-w-5xl mx-auto">
-            {/* Carousel Container with 3D Effect */}
-            <div className="overflow-hidden rounded-3xl shadow-2xl">
+            {/* Carousel Container with Split Layout */}
+            <div className="overflow-hidden rounded-3xl shadow-2xl bg-white">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeIndex}
-                  initial={{ opacity: 0, x: 100, rotateY: 15 }}
-                  animate={{ opacity: 1, x: 0, rotateY: 0 }}
-                  exit={{ opacity: 0, x: -100, rotateY: -15 }}
-                  transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                  className="w-full p-8 md:p-12 lg:p-16"
-                  style={{ 
-                    background: programs[activeIndex].bg,
-                    minHeight: '320px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                  }}
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -50 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className="w-full flex flex-col md:flex-row min-h-[500px]"
                 >
-                  <div className="max-w-2xl mx-auto text-center">
+                  {/* Image Side */}
+                  <div className="w-full md:w-1/2 relative overflow-hidden h-[300px] md:h-auto">
+                    <motion.img
+                      key={`img-${activeIndex}`}
+                      initial={{ scale: 1.2 }}
+                      animate={{ scale: 1 }}
+                      transition={{ duration: 1.5 }}
+                      src={programs[activeIndex].image}
+                      alt={programs[activeIndex].title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-r from-black/20 to-transparent" />
+                  </div>
+
+                  {/* Content Side */}
+                  <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center" style={{ background: programs[activeIndex].bg }}>
                     <motion.div
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ delay: 0.1, type: 'spring', stiffness: 200 }}
-                      className="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg"
-                      style={{ background: 'var(--surface-a)' }}
+                      className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-md bg-white"
                     >
-                      <Icon icon={programs[activeIndex].icon} className="text-4xl" style={{ color: programs[activeIndex].color }} />
+                      <Icon icon={programs[activeIndex].icon} className="text-3xl" style={{ color: programs[activeIndex].color }} />
                     </motion.div>
                     <motion.h4 
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.2 }}
-                      className="font-heading text-2xl md:text-4xl mb-4" 
+                      className="font-heading text-3xl md:text-4xl mb-4" 
                       style={{ color: 'var(--text-main)' }}
                     >
                       {programs[activeIndex].title}
@@ -205,7 +221,7 @@ export default function ProgramAreas() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.3 }}
-                      className="text-base md:text-lg leading-relaxed" 
+                      className="text-base md:text-lg leading-relaxed mb-8" 
                       style={{ color: 'var(--text-muted)' }}
                     >
                       {programs[activeIndex].description}
@@ -214,18 +230,17 @@ export default function ProgramAreas() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.4 }}
-                      className="mt-6"
                     >
                       <Link
                         to="/programs"
-                        className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-all hover:scale-105"
+                        className="inline-flex items-center gap-2 px-8 py-3 rounded-xl font-semibold text-sm transition-all hover:scale-105"
                         style={{ 
                           background: programs[activeIndex].color, 
                           color: '#fff',
                           boxShadow: `0 4px 20px ${programs[activeIndex].color}40`
                         }}
                       >
-                        Learn More
+                        Explore Program
                         <Icon icon="ph:arrow-right-bold" />
                       </Link>
                     </motion.div>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Source+Sans+3:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -44,8 +44,8 @@
   --color-red-100: #fee2e2;
 
   /* --- Typography --- */
-  --font-heading: 'Anton', sans-serif;
-  --font-body: 'Source Sans 3', sans-serif;
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
 }
 
 /* --- CSS VARIABLES (for inline styles) --- */
@@ -143,3 +143,37 @@ h1, h2, h3, h4, h5, h6 {
 .btn-premium:hover {
   box-shadow: var(--shadow-lg);
 }
+
+/* --- IMAGE & OVERLAY UTILITIES --- */
+.img-overlay-dark {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.img-overlay-blue {
+  background: linear-gradient(135deg, rgba(14, 54, 85, 0.8) 0%, rgba(35, 136, 212, 0.6) 100%);
+}
+
+.hover-zoom-img {
+  @apply transition-transform duration-700 hover:scale-110;
+}
+
+.section-padding {
+  @apply py-16 md:py-24;
+}
+
+.card-image-container {
+  @apply relative overflow-hidden rounded-2xl aspect-[4/3];
+}
+
+.heading-lg {
+  @apply text-4xl md:text-6xl font-extrabold tracking-tight;
+}
+
+.heading-md {
+  @apply text-3xl md:text-5xl font-bold;
+}
+
+.text-body-lg {
+  @apply text-lg md:text-xl leading-relaxed;
+}
+

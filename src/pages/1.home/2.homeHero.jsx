@@ -42,13 +42,20 @@ export default function HomeHero() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{
-        background: 'linear-gradient(180deg, var(--color-zurich-900) 0%, var(--color-zurich-950) 50%, #030b14 100%)',
-      }}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-zurich-950"
     >
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://images.unsplash.com/photo-1580173611369-e705b0c95094?auto=format&fit=crop&q=80&w=2048" 
+          alt="Lake Victoria Sunrise"
+          className="w-full h-full object-cover opacity-60 scale-105"
+        />
+        <div className="absolute inset-0 bg-linear-to-b from-zurich-950/80 via-zurich-950/40 to-zurich-950" />
+      </div>
+
       {/* Animated Grid Pattern */}
-      <div className="absolute inset-0 opacity-[0.05]">
+      <div className="absolute inset-0 opacity-[0.1] z-1">
         <div
           className="absolute inset-0 animate-pulse"
           style={{
@@ -194,8 +201,7 @@ export default function HomeHero() {
           </motion.div>
 
           {/* Enhanced Headline with 3D Effect */}
-          <div className="perspective-1000 mb-8">
-            <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl leading-[1.1]">
+            <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">
               <div className="flex flex-wrap justify-center gap-x-3 md:gap-x-4" style={{ perspective: '1000px' }}>
                 {headlineWords.map((word, i) => (
                   <motion.span
@@ -206,7 +212,7 @@ export default function HomeHero() {
                     animate="visible"
                     className={`inline-block ${i >= 4 ? 'text-gradient-blue' : 'text-white'}`}
                     style={{ 
-                      textShadow: i >= 4 ? '0 0 40px rgba(35, 136, 212, 0.3)' : '0 2px 20px rgba(0, 0, 0, 0.3)',
+                      textShadow: i >= 4 ? '0 0 40px rgba(35, 136, 212, 0.3)' : '0 4px 30px rgba(0, 0, 0, 0.5)',
                     }}
                     whileHover={{ scale: 1.05, rotateX: -10 }}
                   >
@@ -215,7 +221,6 @@ export default function HomeHero() {
                 ))}
               </div>
             </h1>
-          </div>
 
           {/* Enhanced Sub-headline */}
           <motion.p
@@ -241,7 +246,7 @@ export default function HomeHero() {
                 className="group relative overflow-hidden px-8 py-4 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-zurich-500/30"
                 style={{ background: 'var(--color-zurich-500)', color: '#fff' }}
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-zurich-600 to-zurich-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <span className="absolute inset-0 bg-linear-to-r from-zurich-600 to-zurich-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <span className="relative flex items-center gap-2">
                   <Icon icon="ph:users-three-bold" className="text-lg" />
                   Join the Federation

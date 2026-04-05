@@ -1,103 +1,107 @@
 import { Link } from 'react-router-dom'
 import { Icon } from '@iconify/react'
+import { motion } from 'framer-motion'
+import { useState } from 'react'
 
 const footerLinks = {
   Organization: [
-    { label: 'About FFOU', to: '/about' },
-    { label: 'Our Team', to: '/about' },
-    { label: 'Our Story', to: '/about' },
-    { label: 'Partners', to: '/about' },
+    { label: 'About FFOU', to: '/about/about-us' },
+    { label: 'Our Team', to: '/about/the-team' },
+    { label: 'Our Story', to: '/about/about-us#our-story' },
+    { label: 'Partners', to: '/about/our-partners' },
   ],
-  Programs: [
+  Impact: [
     { label: 'Advocacy', to: '/programs' },
     { label: 'ABAVUBI App', to: '/programs' },
     { label: 'Sustainability', to: '/programs' },
-    { label: 'Community Support', to: '/programs' },
+    { label: 'Health Services', to: '/programs' },
   ],
   Resources: [
     { label: 'Media Center', to: '/media-center' },
-    { label: 'Publications', to: '/media-center' },
-    { label: 'Gallery', to: '/media-center' },
+    { label: 'Publications', to: '/media-center/publications' },
+    { label: 'Gallery', to: '/media-center/gallery' },
     { label: 'Membership', to: '/membership' },
   ],
 }
 
 const socials = [
-  { icon: 'ph:facebook-logo-bold', href: '#', label: 'Facebook' },
-  { icon: 'ph:twitter-logo-bold', href: '#', label: 'Twitter' },
-  { icon: 'ph:youtube-logo-bold', href: '#', label: 'YouTube' },
-  { icon: 'ph:whatsapp-logo-bold', href: '#', label: 'WhatsApp' },
+  { icon: 'ph:facebook-logo-duotone', href: '#', label: 'Facebook', color: '#1877F2' },
+  { icon: 'ph:twitter-logo-duotone', href: '#', label: 'Twitter', color: '#1DA1F2' },
+  { icon: 'ph:linkedin-logo-duotone', href: '#', label: 'LinkedIn', color: '#0A66C2' },
+  { icon: 'ph:youtube-logo-duotone', href: '#', label: 'YouTube', color: '#FF0000' },
 ]
 
 export default function Footer() {
-  return (
-    <footer style={{ background: 'var(--color-thamar-950)', color: 'var(--color-smoke-500)' }}>
-      {/* Top CTA Banner */}
-      <div style={{ background: 'var(--color-zurich-600)' }} className="py-10">
-        <div className="layout-spine flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <h3 className="font-heading text-2xl text-white tracking-wide">
-              Join the Federation
-            </h3>
-            <p className="text-zurich-100 text-sm mt-1">
-              Be part of 131+ member associations driving change across Uganda's fisheries.
-            </p>
-          </div>
-          <Link
-            to="/membership"
-            className="px-6 py-3 rounded-xl bg-white text-zurich-700 font-semibold text-sm hover:bg-zurich-50 transition-colors shadow-md whitespace-nowrap"
-          >
-            Become a Member
-          </Link>
-        </div>
-      </div>
+  const [email, setEmail] = useState('')
+  const [subscribed, setSubscribed] = useState(false)
 
-      {/* Main Footer */}
-      <div className="layout-spine py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
-          {/* Brand Column */}
+  const handleSubscribe = (e) => {
+    e.preventDefault()
+    if (email) {
+      setSubscribed(true)
+      setTimeout(() => setSubscribed(false), 3000)
+      setEmail('')
+    }
+  }
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  return (
+    <footer className="relative overflow-hidden bg-zurich-950 text-zurich-100 pt-10">
+      {/* Decorative Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-zurich-500 via-militant-500 to-zurich-600" />
+      <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-zurich-500/10 blur-3xl rounded-full" />
+      <div className="absolute -top-24 -right-24 w-96 h-96 bg-militant-500/5 blur-3xl rounded-full" />
+
+
+      {/* Main Footer Grid */}
+      <div className="layout-spine relative z-10 pt-32 pb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 xl:gap-20">
+          
+          {/* Brand & Mission Column */}
           <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center gap-3 mb-5">
-              <div className="w-11 h-11 rounded-xl bg-zurich-500 flex items-center justify-center">
-                <Icon icon="ph:fish-bold" className="text-white text-xl" />
+            <Link to="/" className="inline-flex items-center gap-4 mb-8 group">
+              <div className="w-14 h-14 rounded-2xl bg-zurich-500 flex items-center justify-center shadow-xl group-hover:rotate-12 transition-transform duration-500">
+                <Icon icon="ph:fish-duotone" className="text-white text-3xl" />
               </div>
-              <div>
-                <div className="font-heading text-xl text-white tracking-wider">FFOU</div>
-                <div className="text-xs text-thamar-300">Federation of Fisheries Organizations Uganda</div>
+              <div className="flex flex-col">
+                <span className="font-heading text-2xl text-white tracking-widest uppercase leading-none mb-1">FFOU</span>
+                <span className="text-[10px] text-zurich-300 font-bold tracking-[0.2em] uppercase">FEDERATION OF UGANDA</span>
               </div>
             </Link>
-            <p className="text-sm leading-relaxed mb-6" style={{ color: 'var(--color-thamar-200)' }}>
-              A national non-profit umbrella body promoting ethical fishing practices and sustainable
-              development for improved livelihoods across Uganda's five great lakes.
+            <p className="text-base leading-relaxed text-zurich-100 mb-8 max-w-sm">
+              The apex umbrella body representing the interests of fishing organizations across Uganda, dedicated to ethical fishing and community prosperity.
             </p>
-            <div className="flex gap-3">
+            <div className="flex gap-4">
               {socials.map((s) => (
                 <a
                   key={s.label}
                   href={s.href}
                   aria-label={s.label}
-                  className="w-9 h-9 rounded-lg bg-thamar-800 flex items-center justify-center hover:bg-zurich-600 transition-colors"
+                  className="w-11 h-11 rounded-xl bg-white/5 flex items-center justify-center border border-white/5 hover:border-white/20 hover:bg-white/10 transition-all group overflow-hidden"
                 >
-                  <Icon icon={s.icon} className="text-thamar-200 text-base" />
+                  <Icon icon={s.icon} className="text-zurich-200 text-xl group-hover:scale-110 transition-transform" style={{ '--hover-color': s.color }} />
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Link Columns */}
+          {/* Dynamic Link Columns */}
           {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title}>
-              <h4 className="text-white font-semibold text-sm tracking-widest uppercase mb-5">
+            <div key={title} className="lg:col-span-1">
+              <h4 className="text-white font-heading text-sm tracking-[0.2em] uppercase mb-8 pb-2 border-b border-white/5">
                 {title}
               </h4>
-              <ul className="flex flex-col gap-3">
+              <ul className="flex flex-col gap-4">
                 {links.map((link) => (
                   <li key={link.label}>
                     <Link
                       to={link.to}
-                      className="text-sm transition-colors hover:text-zurich-400"
-                      style={{ color: 'var(--color-thamar-200)' }}
+                      className="text-sm transition-all text-zurich-100 hover:text-zurich-400 hover:pl-2 flex items-center group"
                     >
+                      <span className="opacity-0 group-hover:opacity-100 transition-opacity mr-2 text-[8px]">▶</span>
                       {link.label}
                     </Link>
                   </li>
@@ -105,31 +109,83 @@ export default function Footer() {
               </ul>
             </div>
           ))}
+
+          {/* Newsletter Column */}
+          <div className="lg:col-span-1">
+            <h4 className="text-white font-heading text-sm tracking-[0.2em] uppercase mb-8 pb-2 border-b border-white/5">
+              Stay Updated
+            </h4>
+            <p className="text-xs text-zurich-200 mb-6 leading-relaxed">
+              Receive the latest fisheries reports and community impact stories.
+            </p>
+            <form onSubmit={handleSubscribe} className="space-y-4">
+              <div className="relative group">
+                <Icon icon="ph:envelope-simple-duotone" className="absolute left-4 top-1/2 -translate-y-1/2 text-zurich-300 group-focus-within:text-zurich-400 transition-colors" />
+                <input 
+                  type="email" 
+                  placeholder="Enter email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full pl-12 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-sm focus:outline-hidden focus:border-zurich-500/50 transition-all placeholder:text-zurich-500"
+                  required
+                />
+              </div>
+              <button 
+                type="submit"
+                className="w-full py-3 bg-white/8 hover:bg-white/15 text-white text-xs font-bold rounded-xl transition-all active:scale-95 border border-white/5"
+              >
+                {subscribed ? 'THANKS FOR JOINING!' : 'SUBSCRIBE NOW'}
+              </button>
+            </form>
+          </div>
         </div>
 
-        {/* Contact Info */}
-        <div
-          className="mt-12 pt-8 flex flex-col md:flex-row gap-4 md:gap-8"
-          style={{ borderTop: '1px solid var(--color-thamar-800)' }}
-        >
-          {[
-            { icon: 'ph:map-pin-bold', text: 'Kampala, Uganda' },
-            { icon: 'ph:envelope-bold', text: 'info@ffou.org' },
-            { icon: 'ph:globe-bold', text: 'www.ffou.org' },
-          ].map((item) => (
-            <div key={item.text} className="flex items-center gap-2 text-sm" style={{ color: 'var(--color-thamar-200)' }}>
-              <Icon icon={item.icon} className="text-zurich-400 text-base shrink-0" />
-              <span>{item.text}</span>
-            </div>
-          ))}
+        {/* Global Impact Contact Strip */}
+        <div className="mt-20 pt-10 border-t border-white/5 flex flex-wrap justify-between items-center gap-10">
+          <div className="flex flex-wrap gap-8">
+            {[
+              { icon: 'ph:map-pin-duotone', label: 'HEAD OFFICE', text: 'Kampala, Uganda' },
+              { icon: 'ph:envelope-duotone', label: 'GENERAL INQUIRIES', text: 'info@ffou.org' },
+              { icon: 'ph:phone-duotone', label: 'SITUATION ROOM', text: '+256 414 555 000' },
+            ].map((item) => (
+              <div key={item.text} className="flex items-center gap-4 group">
+                <div className="w-12 h-12 rounded-full flex items-center justify-center bg-zurich-500/5 border border-zurich-500/10 group-hover:bg-zurich-500 group-hover:border-zurich-500 transition-all shrink-0">
+                  <Icon icon={item.icon} className="text-zurich-400 text-xl group-hover:text-white" />
+                </div>
+                <div>
+                  <div className="text-[10px] font-bold text-zurich-400 tracking-widest">{item.label}</div>
+                  <div className="text-sm text-white group-hover:text-zurich-300 transition-colors">{item.text}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Social / Back to Top Combo */}
+          <button 
+            onClick={scrollToTop}
+            className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-2xl"
+            aria-label="Back to top"
+          >
+            <Icon icon="ph:arrow-up-bold" className="text-white text-xl group-hover:animate-bounce" />
+          </button>
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div style={{ borderTop: '1px solid var(--color-thamar-800)' }}>
-        <div className="layout-spine py-5 flex flex-col md:flex-row items-center justify-between gap-2 text-xs" style={{ color: 'var(--color-thamar-300)' }}>
-          <span>© {new Date().getFullYear()} Federation of Fisheries Organizations Uganda. All rights reserved.</span>
-          <span>Established 2017 · Registered NGO</span>
+      {/* Bottom Bar: Professional & Transparent */}
+      <div className="bg-black/40 border-t border-white/5 py-8">
+        <div className="layout-spine flex flex-col md:flex-row items-center justify-between gap-6 opacity-60">
+          <div className="flex items-center gap-4 text-[10px] font-bold tracking-[0.2em] text-zurich-300">
+            <span>© {new Date().getFullYear()} FFOU UGANDA</span>
+            <span className="w-1 h-1 rounded-full bg-zurich-600" />
+            <span>ESTABLISHED 2017</span>
+            <span className="w-1 h-1 rounded-full bg-zurich-600" />
+            <span>NGO BUREAU REGISTERED</span>
+          </div>
+          <div className="flex gap-8 text-[10px] font-bold tracking-widest uppercase">
+            <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link to="/membership" className="hover:text-white transition-colors">Legal Status</Link>
+          </div>
         </div>
       </div>
     </footer>

@@ -22,8 +22,17 @@ const dropdownItems = {
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState(null)
+  const [scrolled, setScrolled] = useState(false)
   const dropdownRef = useRef(null)
   const location = useLocation()
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   useEffect(() => {
     setActiveDropdown(null)
@@ -47,15 +56,22 @@ export default function Navbar() {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3"
-      style={{
-        background: 'rgba(255, 255, 255, 0.95)',
-        backdropFilter: 'blur(16px)',
-        borderBottom: '1px solid rgba(0, 0, 0, 0.08)',
-        boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)',
-      }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled ? 'py-2' : 'py-5'
+      }`}
     >
-      <div className="layout-spine flex items-center justify-between">
+      <div 
+        className={`absolute inset-0 transition-all duration-500 ${
+          scrolled ? 'opacity-100' : 'opacity-0'
+        }`}
+        style={{
+          background: 'rgba(255, 255, 255, 0.8)',
+          backdropFilter: 'blur(20px)',
+          borderBottom: '1px solid rgba(0, 0, 0, 0.05)',
+          boxShadow: '0 4px 30px rgba(0, 0, 0, 0.03)',
+        }}
+      />
+      <div className="layout-spine relative z-10 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3 group">
           <div 
@@ -65,10 +81,16 @@ export default function Navbar() {
             <Icon icon="ph:fish-bold" className="text-white text-xl" />
           </div>
           <div className="flex flex-col leading-tight">
-            <span className="font-heading text-lg tracking-wider" style={{ color: 'var(--text-main)' }}>
+            <span 
+              className="font-heading text-lg tracking-wider transition-colors duration-500" 
+              style={{ color: scrolled ? 'var(--text-main)' : '#fff' }}
+            >
               FFOU
             </span>
-            <span className="text-xs font-medium" style={{ color: 'var(--text-muted)' }}>
+            <span 
+              className="text-xs font-medium transition-colors duration-500" 
+              style={{ color: scrolled ? 'var(--text-muted)' : 'rgba(255,255,255,0.7)' }}
+            >
               Uganda
             </span>
           </div>
@@ -85,7 +107,7 @@ export default function Navbar() {
               }`
             }
             style={({ isActive }) => ({
-              color: isActive ? '#fff' : 'var(--text-main)',
+              color: isActive ? '#fff' : (scrolled ? 'var(--text-main)' : '#fff'),
             })}
           >
             Home
@@ -101,7 +123,7 @@ export default function Navbar() {
                 }`
               }
               style={({ isActive }) => ({
-                color: isActive ? '#fff' : 'var(--text-main)',
+                color: isActive ? '#fff' : (scrolled ? 'var(--text-main)' : '#fff'),
               })}
               onMouseEnter={() => setActiveDropdown('About')}
             >
@@ -152,7 +174,7 @@ export default function Navbar() {
                 }`
               }
               style={({ isActive }) => ({
-                color: isActive ? '#fff' : 'var(--text-main)',
+                color: isActive ? '#fff' : (scrolled ? 'var(--text-main)' : '#fff'),
               })}
               onMouseEnter={() => setActiveDropdown('Programs')}
             >
@@ -201,7 +223,7 @@ export default function Navbar() {
               }`
             }
             style={({ isActive }) => ({
-              color: isActive ? '#fff' : 'var(--text-main)',
+              color: isActive ? '#fff' : (scrolled ? 'var(--text-main)' : '#fff'),
             })}
           >
             Membership
@@ -217,7 +239,7 @@ export default function Navbar() {
                 }`
               }
               style={({ isActive }) => ({
-                color: isActive ? '#fff' : 'var(--text-main)',
+                color: isActive ? '#fff' : (scrolled ? 'var(--text-main)' : '#fff'),
               })}
               onMouseEnter={() => setActiveDropdown('Media Center')}
             >
@@ -266,7 +288,7 @@ export default function Navbar() {
               }`
             }
             style={({ isActive }) => ({
-              color: isActive ? '#fff' : 'var(--text-main)',
+              color: isActive ? '#fff' : (scrolled ? 'var(--text-main)' : '#fff'),
             })}
           >
             Contact Us
@@ -304,7 +326,7 @@ export default function Navbar() {
           {/* Mobile Menu Toggle */}
           <button
             className="lg:hidden w-9 h-9 rounded-lg flex items-center justify-center transition-colors"
-            style={{ color: 'var(--text-main)' }}
+            style={{ color: scrolled ? 'var(--text-main)' : '#fff' }}
             onClick={() => setMenuOpen(!menuOpen)}
           >
             <Icon icon={menuOpen ? 'ph:x-bold' : 'ph:list-bold'} className="text-xl" />

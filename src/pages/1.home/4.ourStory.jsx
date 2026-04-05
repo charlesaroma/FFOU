@@ -23,125 +23,92 @@ export default function OurStory() {
   return (
     <section className="py-16" style={{ background: 'var(--surface-a)' }}>
       <div className="layout-spine">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left - Story Content */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.6 }}
           >
-            <span className="text-xs font-semibold tracking-widest uppercase text-zurich-500">Our Story</span>
-            <h2 className="font-heading text-3xl md:text-4xl mt-2 mb-5" style={{ color: 'var(--text-main)' }}>
-              A Decade of Impact
+            <span className="text-sm font-bold tracking-widest uppercase text-zurich-500 mb-4 block">Our Impact journey</span>
+            <h2 className="heading-md mb-6" style={{ color: 'var(--text-main)' }}>
+              A Decade of Transforming <span className="text-gradient-blue">Ugandan Fisheries</span>
             </h2>
             
-            <div className="space-y-4 mb-6">
-              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-                With over a decade of industry experience, <strong>Federation of Fisheries Organizations Uganda</strong> is a leading non-profit dedicated to promoting ethical and sustainable fishing practices in Uganda.
+            <div className="space-y-6 mb-10">
+              <p className="text-body-lg" style={{ color: 'var(--text-muted)' }}>
+                With over a decade of industry experience, <strong className="text-zurich-900">Federation of Fisheries Organizations Uganda</strong> is the leading apex body dedicated to promoting ethical and sustainable fishing practices.
               </p>
-              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-                Currently, FFOU has grown to a total number of <strong>131 member associations</strong>. This gives the organization opportunity to coordinate and build capacity of their membership for a viable fisheries sub-sector.
+              <p className="text-body-lg" style={{ color: 'var(--text-muted)' }}>
+                From humble beginnings, we have grown to represent <strong>131 member associations</strong>, coordinating a massive network of fishers to build capacity for a viable, digital-first fisheries sub-sector.
               </p>
             </div>
 
-            {/* Programs */}
-            <div className="mb-6">
-              <h3 className="font-semibold text-sm mb-3" style={{ color: 'var(--text-main)' }}>
-                Our Programmes Include:
+            {/* Strategic Partners Mini-Section */}
+            <div className="mb-10">
+              <h3 className="font-bold text-sm uppercase tracking-wider mb-4" style={{ color: 'var(--text-main)' }}>
+                Strategic Partners
               </h3>
-              <div className="flex flex-wrap gap-2">
-                {programs.map((program) => (
-                  <span
-                    key={program}
-                    className="px-3 py-1 rounded-full text-xs font-medium"
-                    style={{
-                      background: 'var(--color-zurich-50)',
-                      color: 'var(--color-zurich-600)',
-                    }}
-                  >
-                    {program}
-                  </span>
+              <div className="flex flex-wrap gap-6 items-center opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+                {partners.map((partner) => (
+                  <div key={partner.name} className="flex flex-col">
+                    <span className="text-sm font-bold" style={{ color: 'var(--text-main)' }}>{partner.name}</span>
+                    <span className="text-[10px] uppercase tracking-tighter" style={{ color: 'var(--text-muted)' }}>{partner.type}</span>
+                  </div>
                 ))}
               </div>
             </div>
 
             <Link
               to="/about"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all hover:scale-105"
+              className="btn-premium inline-flex items-center gap-3 px-8 py-4 rounded-xl text-sm font-bold"
               style={{ background: 'var(--color-zurich-500)', color: '#fff' }}
             >
-              Learn More About Us <Icon icon="ph:arrow-right-bold" className="text-xs" />
+              Learn More About Our Mission <Icon icon="ph:arrow-right-bold" />
             </Link>
           </motion.div>
 
-          {/* Right - Partners & Ethics */}
+          {/* Right - Visual Impact */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="space-y-6"
+            transition={{ duration: 0.8 }}
+            className="relative"
           >
-            {/* Strategic Partners */}
-            <div className="p-6 rounded-xl" style={{ background: 'var(--surface-b)', border: '1px solid var(--nav-stroke)' }}>
-              <h3 className="font-heading text-lg mb-4" style={{ color: 'var(--text-main)' }}>
-                Strategic Partners
-              </h3>
-              <div className="space-y-3">
-                {partners.map((partner) => (
-                  <div key={partner.name} className="flex items-center gap-3">
-                    <div
-                      className="w-8 h-8 rounded-lg flex items-center justify-center"
-                      style={{ background: 'var(--color-zurich-50)' }}
-                    >
-                      <Icon icon="ph:handshake-bold" className="text-sm text-zurich-500" />
-                    </div>
-                    <div>
-                      <span className="text-sm font-medium block" style={{ color: 'var(--text-main)' }}>
-                        {partner.name}
-                      </span>
-                      <span className="text-xs" style={{ color: 'var(--text-muted)' }}>
-                        {partner.type}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-4/5">
+              <img 
+                src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&q=80&w=1200" 
+                alt="FFOU Community Impact"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-zurich-950/80 via-transparent to-transparent" />
             </div>
 
-            {/* Mission Statement */}
-            <div className="p-6 rounded-xl" style={{ background: 'var(--color-zurich-950)' }}>
-              <div className="flex items-center gap-2 mb-3">
-                <Icon icon="ph:target-bold" className="text-xl text-zurich-400" />
-                <h3 className="font-heading text-lg text-white">Our Mission</h3>
-              </div>
-              <p className="text-sm leading-relaxed" style={{ color: 'var(--color-zurich-200)' }}>
-                To promote responsible fishing by guiding our members to comply with an agreed ethical code of conduct, 
-                observe fishing standards, and national laws throughout the work process.
-              </p>
-            </div>
-
-            {/* Key Achievements */}
-            <div className="grid grid-cols-2 gap-3">
-              {[
-                { number: '131', label: 'Member Associations', icon: 'ph:users-three-bold' },
-                { number: '10+', label: 'Years Experience', icon: 'ph:calendar-bold' },
-              ].map((item) => (
-                <div
-                  key={item.label}
-                  className="p-4 rounded-lg text-center"
-                  style={{ background: 'var(--surface-b)', border: '1px solid var(--nav-stroke)' }}
-                >
-                  <Icon icon={item.icon} className="text-xl text-zurich-400 mx-auto mb-1" />
-                  <div className="font-heading text-2xl" style={{ color: 'var(--text-main)' }}>
-                    {item.number}
-                  </div>
-                  <div className="text-xs" style={{ color: 'var(--text-muted)' }}>
-                    {item.label}
-                  </div>
+            {/* Overlapping Mission Card */}
+            <motion.div 
+              initial={{ x: 50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="absolute -bottom-10 -left-10 md:-left-20 max-w-sm glass-card p-8"
+              style={{ background: 'var(--color-zurich-950)', color: 'white' }}
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 rounded-xl bg-zurich-500 flex items-center justify-center">
+                  <Icon icon="ph:target-bold" className="text-2xl text-white" />
                 </div>
-              ))}
+                <h3 className="font-heading text-xl">Our Mission</h3>
+              </div>
+              <p className="text-sm leading-relaxed text-zurich-200">
+                "To promote responsible fishing by guiding our members to comply with an agreed ethical code of conduct, observe national standards, and leverage innovation throughout the value chain."
+              </p>
+            </motion.div>
+
+            {/* Achievement Badge */}
+            <div className="absolute -top-6 -right-6 w-32 h-32 rounded-full bg-white shadow-xl flex flex-col items-center justify-center p-4 border border-zurich-100 animate-bounce-slow">
+              <span className="font-heading text-3xl text-zurich-600">131</span>
+              <span className="text-[10px] font-bold uppercase text-center leading-tight text-zurich-400">Member Associations</span>
             </div>
           </motion.div>
         </div>
