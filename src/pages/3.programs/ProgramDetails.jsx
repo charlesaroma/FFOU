@@ -24,8 +24,8 @@ export default function ProgramDetails() {
       {/* Dynamic Hero */}
       <section className="relative h-[450px] md:h-[550px] flex items-center justify-center overflow-hidden pt-20">
         <img 
-          src={program.heroImage || program.image} 
-          alt={program.title}
+          src={program.heroImage || program.cardImage} 
+          alt={program.heroTitle}
           className="absolute inset-0 w-full h-full object-cover"
           onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1510672981848-a1c4f1cb5ccf?auto=format&fit=crop&q=80&w=2048' }}
         />
@@ -36,7 +36,7 @@ export default function ProgramDetails() {
             animate={{ opacity: 1, y: 0 }}
             className="text-white text-5xl md:text-6xl font-bold px-4"
           >
-            {program.title}
+            {program.heroTitle}
           </motion.h1>
         </div>
       </section>
@@ -59,7 +59,7 @@ export default function ProgramDetails() {
                       to={`/programs/${p.slug}`}
                       className={`flex items-center justify-between p-5 text-sm font-medium transition-colors hover:bg-slate-50 ${isActive ? 'text-cerulean-600 bg-slate-50' : 'text-slate-500 hover:text-slate-700'}`}
                     >
-                      <span>{p.shortTitle}</span>
+                      <span>{p.cardTitle}</span>
                       <Icon icon="ph:arrow-up-right-bold" className={isActive ? "text-cerulean-500" : "text-slate-300"} />
                     </Link>
                   );
@@ -94,24 +94,24 @@ export default function ProgramDetails() {
               {/* Detail Image */}
               <div className="w-full aspect-[2/1] md:aspect-[21/9] mb-10 overflow-hidden rounded-sm">
                 <img 
-                  src={program.detailImage || program.image} 
-                  alt={`${program.title} presentation`} 
+                  src={program.detailImage || program.cardImage} 
+                  alt={`${program.heroTitle} presentation`} 
                   className="w-full h-full object-cover"
                 />
               </div>
 
               <h2 className="text-[32px] font-bold text-[#1a1a1a] mb-6">What we do?</h2>
               <p className="text-[15px] text-[#4a4a4a] leading-[1.8] mb-12">
-                {program.fullDescription}
+                {program.whatWeDo}
               </p>
 
               <h2 className="text-[32px] font-bold text-[#1a1a1a] mb-6">How we work</h2>
               <p className="text-[15px] text-[#4a4a4a] leading-[1.8] mb-10">
-                Our methodology focuses on building robust infrastructure and ensuring long-term technical autonomy for all users.
+                {program.howWeWorkDescription}
               </p>
 
               <div className="space-y-0">
-                {program.howWeWork.map((item, index) => (
+                {program.howWeWorkAccordions.map((item, index) => (
                   <div key={index} className="border-b border-slate-100 last:border-b-0">
                     <button
                       onClick={() => setActiveAccordion(activeAccordion === index ? -1 : index)}

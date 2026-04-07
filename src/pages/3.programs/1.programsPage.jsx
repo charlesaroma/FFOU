@@ -32,13 +32,13 @@ function ProgramGrid() {
               className="program-card shadow-lg"
             >
               <img 
-                src={p.image} 
+                src={p.cardImage} 
                 className="w-full h-full object-cover" 
-                alt={p.title}
+                alt={p.cardTitle}
                 onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=800' }}
               />
               <div className="program-card-overlay">
-                <h3 className="text-marine-800 font-bold text-lg">{p.shortTitle}</h3>
+                <h3 className="text-marine-800 font-bold text-lg">{p.cardTitle}</h3>
               </div>
             </Link>
           ))}
