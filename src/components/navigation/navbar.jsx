@@ -50,10 +50,9 @@ export default function Navbar() {
         {/* Logo */}
         <Link to="/" className="flex items-center h-full">
           <img 
-            src="/apple-touch-icon.png" 
+            src="/logo.png" 
             alt="FFOU Logo" 
-            className="object-contain"
-            style={{ width: '113px', height: '80px' }}
+            className="w-[110px] md:w-[130px] h-[60px] md:h-[75px] object-contain block transition-all"
           />
         </Link>
 

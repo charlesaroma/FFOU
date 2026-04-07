@@ -1,165 +1,182 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Icon } from '@iconify/react'
+import PartnerSection from './components/PartnerSection'
 
-const involvementOptions = [
+const resourceMobilisation = [
   {
-    icon: 'ph:users-three-bold',
-    title: 'Become a Member',
-    description: 'Join 131+ associations across Uganda\'s fisheries sector and gain access to advocacy, training, and networking.',
-    cta: 'Apply Now',
-    to: '/membership',
-    color: 'var(--color-marine-500)',
-    bg: 'var(--color-marine-50)',
+    opt: "OPTION 1",
+    title: "Identifying and engaging with donors",
+    desc: "Identify potential donors who have an interest in funding policies and campaign strategies. Contact them and maintain a relationship by providing the facts about your work.",
+    img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800"
   },
   {
-    icon: 'ph:hand-heart-bold',
-    title: 'Volunteer',
-    description: 'Share your skills with fishing communities in education, health, technology, and community organizing.',
-    cta: 'Contact Us',
-    to: '/contact-us',
-    color: 'var(--color-cerulean-500)',
-    bg: 'var(--color-cerulean-100)',
+    opt: "OPTION 2",
+    title: "Partnering with local and international NGOs",
+    desc: "Working with international and national NGOs will allow us to form a mutually beneficial partnership to work towards common goals. Forming NGOs or alliances naturally facilitates capacity-building among groups globally focused on rural development strategies.",
+    img: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=800"
   },
   {
-    icon: 'ph:handshake-bold',
-    title: 'Partner With Us',
-    description: 'Collaborate on research, programs, or policy initiatives with NGOs, government bodies, and private sector.',
-    cta: 'Explore',
-    to: '/contact-us',
-    color: 'var(--color-violet-500)',
-    bg: 'var(--color-violet-100)',
+    opt: "OPTION 3",
+    title: "Membership contributions",
+    desc: "This is a key route of mobilizing resources for community-based associations within organizations. Often associations run programs that require funds from their members to run day to day activities and facilitate other resources within.",
+    img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800"
   },
   {
-    icon: 'ph:megaphone-bold',
-    title: 'Advocate',
-    description: 'Support sustainable fisheries policy and amplify the voices of fishing communities.',
-    cta: 'Learn More',
-    to: '/programs',
-    color: 'var(--color-amber-500)',
-    bg: 'var(--color-amber-50)',
-  },
-]
+    opt: "OPTION 4",
+    title: "Organizing events",
+    desc: "Festivals are a large piece of community-based mobilization where organizations raise funds to fuel operations and campaigns. Some common events include community workshops, offering exhibition spaces for agricultural projects, and crafts.",
+    img: "https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&q=80&w=800"
+  }
+];
 
-const impactStats = [
-  { number: '131+', label: 'Member Associations', icon: 'ph:users-three-bold' },
-  { number: '500K+', label: 'Fishers Represented', icon: 'ph:fish-bold' },
-  { number: '5', label: 'Great Lakes Covered', icon: 'ph:waves-bold' },
-  { number: '40+', label: 'Partner Organizations', icon: 'ph:handshake-bold' },
-]
+const actionCards = [
+  {
+    title: "Financial Contributions",
+    desc: "Your financial gifts directly support FFOU educational programs, health campaigns, and structural infrastructure projects across Uganda's landing sites.",
+    icon: "ph:file-text-light"
+  },
+  {
+    title: "Skills & Field Volunteering",
+    desc: "Offer your expertise! We engage IT specialists, community educators, and legal advocates to run workshops and mentor individuals within our focal regions.",
+    icon: "ph:file-text-light"
+  },
+  {
+    title: "Advocacy & Digital Adoption",
+    desc: "Partner with us to amplify the ABAVUBI FISHER app usage across landing sites. Share our stories, or back our advocacy campaigns to secure favorable fisheries policies.",
+    icon: "ph:file-text-light"
+  }
+];
 
-const resourceStrategies = [
-  { icon: 'ph:money-bold', title: 'Donor Engagement', desc: 'Strategically engage with donors for project financing.' },
-  { icon: 'ph:globe-helix-bold', title: 'NGO Partnerships', desc: 'Collaborate with NGOs for joint implementation.' },
-  { icon: 'ph:currency-circle-dollar-bold', title: 'Membership Contributions', desc: 'Leverage member resources and networks.' },
-  { icon: 'ph:calendar-bold', title: 'Events & Festivals', desc: 'Organize events for visibility and fundraising.' },
-  { icon: 'ph:building-bold', title: 'Government Relations', desc: 'Work with government for aligned objectives.' },
-  { icon: 'ph:chart-line-up-bold', title: 'Income Generation', desc: 'Offer consultancy and training services.' },
-]
 
 export default function GetInvolved() {
   return (
-    <section className="py-16" style={{ background: 'var(--surface-b)' }}>
-      <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12">
-        <div className="text-center mb-10">
-          <h2 className="font-header text-3xl md:text-4xl" style={{ color: 'var(--text-main)' }}>
-            Get Involved
+    <main className="min-h-screen bg-white">
+      {/* Hero Section Wrapper */}
+      <section className="relative h-[450px] md:h-[550px] flex items-center justify-center overflow-hidden pt-20">
+        <img 
+          src="https://ik.imagekit.io/sbgenu6wj/FFOU/programs%20page/programsHero.png?updatedAt=1775579643146" 
+          alt="Several Ways to Get Involved and Serve"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        {/* Background Overlay */}
+        <div className="absolute inset-0 bg-marine-800/60" />
+        {/* Content Wrapper */}
+        <div className="relative z-10 text-center">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-white text-4xl md:text-6xl font-bold px-4 max-w-4xl mx-auto leading-tight"
+          >
+            Several Ways to<br/>Get Involved and Serve
+          </motion.h1>
+        </div>
+      </section>
+
+      {/* Core Mobilise Section container */}
+      <section className="max-w-[1000px] mx-auto px-6 py-20">
+        {/* Header Block Group */}
+        <div className="mb-12">
+          {/* Main Category Badge */}
+          <span className="inline-block bg-gold-100 text-gold-600 font-bold px-4 py-1.5 text-xs mb-6">
+            To increase Reach outs
+          </span>
+          {/* Main Content Title */}
+          <h2 className="text-[36px] md:text-[44px] font-bold text-slate-700 mb-6 leading-tight max-w-2xl">
+            How we mobilise resources for sustainable fisheries
           </h2>
-          <p className="mt-2 text-sm max-w-xl mx-auto" style={{ color: 'var(--text-muted)' }}>
-            There are many ways to support Uganda's fisheries communities.
+          {/* Main Content Description */}
+          <p className="text-[15px] text-slate-600 leading-[1.8] max-w-3xl">
+            FFOU has a well-thought-out, broad resource mobilization and strategic direction that matches right and utilization effectively. To address the resources and mobilize the resources needed to implement the strategic plan. It ensures robust resource mobilization and management and utilization generally via various sources.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
-          {involvementOptions.map((option, i) => (
-            <motion.div
-              key={option.title}
-              initial={{ opacity: 0, y: 16 }}
+        {/* Options List Container */}
+        <div className="space-y-6">
+          {resourceMobilisation.map((item, index) => (
+            <motion.div 
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-              className="p-5 rounded-xl text-center"
-              style={{ background: option.bg }}
+              className="flex flex-col md:flex-row bg-white shadow-sm border border-slate-100"
             >
-              <div
-                className="w-10 h-10 rounded-xl mx-auto mb-3 flex items-center justify-center"
-                style={{ background: 'var(--surface-a)' }}
-              >
-                <Icon icon={option.icon} className="text-2xl" style={{ color: option.color }} />
+              {/* Option Image Div */}
+              <div className="md:w-2/5 h-64 md:h-auto">
+                <img src={item.img} alt={item.title} className="w-full h-full object-cover" />
               </div>
-              <h3 className="font-header text-base mb-2" style={{ color: 'var(--text-main)' }}>
-                {option.title}
-              </h3>
-              <p className="text-xs leading-relaxed mb-4" style={{ color: 'var(--text-muted)' }}>
-                {option.description}
-              </p>
-              <Link
-                to={option.to}
-                className="inline-flex items-center gap-1 text-xs font-semibold"
-                style={{ color: option.color }}
-              >
-                {option.cta}
-                <Icon icon="ph:arrow-right-bold" className="text-xs" />
-              </Link>
+              {/* Option Details Div */}
+              <div className="md:w-3/5 p-8 md:p-12 flex flex-col justify-center">
+                <span className="inline-block border border-crimson-500 text-crimson-500 text-[10px] font-bold rounded-full px-4 py-1 w-max mb-4">
+                  {item.opt}
+                </span>
+                <h3 className="text-xl md:text-2xl font-bold text-slate-700 mb-4">
+                  {item.title}
+                </h3>
+                <p className="text-[14px] text-slate-600 leading-[1.8]">
+                  {item.desc}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Resource Mobilization */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-12"
-        >
-          <h3 className="font-header text-2xl text-center mb-6" style={{ color: 'var(--text-main)' }}>
-            Resource Mobilization
-          </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {resourceStrategies.map((strategy, i) => (
-              <div
-                key={strategy.title}
-                className="p-4 rounded-xl"
-                style={{ background: 'var(--surface-a)', border: '1px solid var(--nav-stroke)' }}
-              >
-                <Icon icon={strategy.icon} className="text-xl mb-2 text-marine-500" />
-                <h4 className="font-semibold text-sm mb-1" style={{ color: 'var(--text-main)' }}>
-                  {strategy.title}
-                </h4>
-                <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
-                  {strategy.desc}
+        {/* Action Button Div */}
+        <div className="mt-12 text-center">
+          <button className="border border-slate-300 text-slate-500 px-8 py-2.5 text-sm hover:bg-slate-50 transition-colors">
+            See more...
+          </button>
+        </div>
+      </section>
+
+      {/* Partner Banner Wrapper Component */}
+      <PartnerSection />
+
+      {/* Summary Action Grid Outer Section */}
+      <section className="bg-surface-500 px-6 py-24">
+        <div className="max-w-[1240px] mx-auto">
+          {/* Grid Top Segment */}
+          <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
+            {/* Grid Left Heading */}
+            <div>
+              <span className="inline-block bg-gold-100 text-gold-600 font-bold px-4 py-1.5 text-xs mb-6">
+                Empower Communities
+              </span>
+              <h2 className="text-[36px] md:text-[44px] font-bold text-slate-700 leading-tight">
+                From Planning to Action, Every Contribution Counts
+              </h2>
+            </div>
+            {/* Grid Right Info / CTA */}
+            <div className="lg:pt-14">
+              <p className="text-[15px] text-slate-600 leading-[1.8] mb-6">
+                By contributing today, you ensure that vital resources are channeled to empower vulnerable groups in the fisheries sector. We provide platforms for donations, structural collaborations, and hands on skill building.
+              </p>
+              <button className="bg-gold-500 hover:bg-gold-600 text-white px-8 py-3 font-medium transition-colors text-sm">
+                Enquire now
+              </button>
+            </div>
+          </div>
+
+          {/* Core Feature Grid - Loop */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {actionCards.map((card, idx) => (
+              <div key={idx} className="bg-surface-700 p-10 h-full flex flex-col">
+                {/* Feature Grid Item */}
+                <div className="mb-6">
+                  <Icon icon={card.icon} className="text-4xl text-cerulean-500" />
+                </div>
+                <h3 className="text-content-main font-bold text-slate-700 mb-4">
+                  {card.title}
+                </h3>
+                <p className="text-[14px] text-slate-600 leading-[1.8]">
+                  {card.desc}
                 </p>
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
+      </section>
 
-        {/* Impact Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="rounded-2xl p-8 text-center"
-          style={{ background: 'var(--color-marine-800)' }}
-        >
-          <h3 className="font-header text-2xl mb-3 bg-linear-to-r from-marine-700 via-marine-500 to-marine-400 bg-clip-text text-transparent">
-            Our Impact
-          </h3>
-          <p className="text-sm max-w-2xl mx-auto mb-8" style={{ color: 'var(--color-marine-200)' }}>
-            Together with our members and partners, FFOU is driving sustainable change.
-          </p>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {impactStats.map((stat) => (
-              <div key={stat.label} className="flex flex-col items-center">
-                <Icon icon={stat.icon} className="text-2xl text-marine-400 mb-1" />
-                <span className="font-header text-2xl text-white">{stat.number}</span>
-                <span className="text-xs" style={{ color: 'var(--color-marine-300)' }}>{stat.label}</span>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-      </div>
-    </section>
+    </main>
   )
 }

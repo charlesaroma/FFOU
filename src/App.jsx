@@ -8,6 +8,7 @@ import TheTeam from './pages/2.About/0.theTeamPage'
 import OurPartners from './pages/2.About/0.ourPartnersPage'
 import Programs from './pages/3.programs/1.programsPage'
 import ProgramDetails from './pages/3.programs/ProgramDetails'
+import GetInvolved from './pages/3.programs/2.getInvolved'
 import Membership from './pages/4.membership/1.membershipPage'
 import MediaCenter from './pages/5.mediaCenter/1.mediaCenterPage'
 import Publications from './pages/5.mediaCenter/0.publicationsPage'
@@ -26,6 +27,7 @@ function App () {
           <Route path="/about/the-team" element={<TheTeam />} />
           <Route path="/about/our-partners" element={<OurPartners />} />
           <Route path="/programs" element={<Programs />} />
+          <Route path="/programs/get-involved" element={<GetInvolved />} />
           <Route path="/programs/:slug" element={<ProgramDetails />} />
           <Route path="/membership" element={<Membership />} />
           <Route path="/media-center" element={<MediaCenter />} />
