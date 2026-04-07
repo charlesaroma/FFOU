@@ -1,361 +1,97 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Icon } from '@iconify/react'
+import { programsData } from '../../data/programsData'
 
 function ProgramsHero() {
-  const sectionRef = useRef(null)
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start start', 'end start'],
-  })
-  
-  const y = useTransform(scrollYProgress, [0, 1], [0, 150])
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
-
   return (
-    <section 
-      ref={sectionRef}
-      className="relative pt-28 pb-20 overflow-hidden min-h-[55vh] flex items-center" 
-      style={{ background: 'var(--color-marine-800)' }}
-    >
-      {/* Animated Background */}
-      <div className="absolute inset-0">
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, var(--color-marine-400) 2px, transparent 0)`,
-            backgroundSize: '40px 40px',
-          }}
-        />
-        
-        {/* Floating Orbs */}
-        <motion.div
-          className="absolute left-1/3 top-1/2 -translate-y-1/2 w-[500px] h-[400px] rounded-full opacity-20"
-          style={{ 
-            background: 'radial-gradient(circle, var(--color-marine-500) 0%, transparent 70%)',
-            filter: 'blur(100px)',
-            y,
-          }}
-          animate={{
-            scale: [1, 1.3, 1],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-        
-        <motion.div
-          className="absolute right-1/4 bottom-1/4 w-[300px] h-[300px] rounded-full opacity-15"
-          style={{ 
-            background: 'radial-gradient(circle, var(--color-cerulean-500) 0%, transparent 70%)',
-            filter: 'blur(80px)',
-          }}
-          animate={{
-            y: [0, -30, 0],
-            x: [0, 20, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
+    <section className="relative h-[450px] flex items-center justify-center overflow-hidden">
+      <img 
+        src="https://ik.imagekit.io/sbgenu6wj/FFOU/programs%20page/programsHero.png?updatedAt=1775579643146" 
+        alt="Background" 
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      <div className="absolute inset-0 bg-blue-900/40" />
+      <div className="relative z-10 text-center">
+        <h1 className="text-white text-5xl md:text-6xl font-bold">Our Programs</h1>
       </div>
+    </section>
+  )
+}
 
-      {/* Decorative Elements */}
-      <motion.div
-        className="absolute top-20 left-16 opacity-10"
-        animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
-        transition={{ duration: 6, repeat: Infinity }}
-      >
-        <Icon icon="ph:folders-bold" className="text-8xl text-marine-400" />
-      </motion.div>
+function ProgramGrid() {
+  return (
+    <section className="py-20 bg-white">
+      <div className="max-w-[1240px] mx-auto px-6">
+        <div className="standard-grid">
+          {programsData.map((p) => (
+            <Link 
+              key={p.slug} 
+              to={`/programs/${p.slug}`}
+              className="program-card shadow-lg"
+            >
+              <img 
+                src={p.image} 
+                className="w-full h-full object-cover" 
+                alt={p.title}
+                onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=800' }}
+              />
+              <div className="program-card-overlay">
+                <h3 className="text-marine-800 font-bold text-lg">{p.shortTitle}</h3>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
 
-      <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12 relative z-10 text-center" style={{ opacity }}>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="flex items-center justify-center gap-2 mb-6"
-        >
-          <span
-            className="px-4 py-2 rounded-full text-xs font-semibold tracking-widest uppercase backdrop-blur-sm"
-            style={{
-              background: 'rgba(0, 102, 204, 0.2)',
-              color: 'var(--color-marine-300)',
-              border: '1px solid rgba(0, 102, 204, 0.4)',
-            }}
-          >
-            <span className="inline-flex items-center gap-2">
-              <Icon icon="ph:target-bold" className="text-sm" />
-              What We Do
-            </span>
-          </span>
-        </motion.div>
+function MonitoringSection() {
+  return (
+    <section className="py-24 bg-white border-t border-slate-100">
+      <div className="max-w-[1240px] mx-auto px-6">
+        <div className="flex flex-col md:flex-row gap-16 mb-20">
+          <div className="max-w-xl">
+            <span className="bg-[#fef3c7] text-[#92400e] text-[10px] font-bold px-3 py-1 uppercase rounded-sm mb-6 inline-block">Performance Benchmarks</span>
+            <h2 className="text-4xl font-bold text-slate-900 mb-8 leading-tight">Systemic Monitoring<br />& Evaluation</h2>
+          </div>
+          <div className="flex-1">
+            <p className="text-slate-600 leading-relaxed mb-6">
+              Our operational framework integrates tools to track performance across three critical levels: impact, outcome, and output. Every milestone within the FFOU portfolio is benchmarked against specific outcomes of achievement, ensuring direct alignment with our National Strategic Plan.
+            </p>
+            <p className="text-slate-600 leading-relaxed">
+              To drive continuous improvement and data-based planning, we implement a rigorous review cycle.
+            </p>
+          </div>
+        </div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ delay: 0.1, duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="font-header text-3xl md:text-4xl lg:text-5xl mt-3 mb-6 bg-linear-to-r from-marine-700 via-marine-500 to-marine-400 bg-clip-text text-transparent"
-          style={{ textShadow: '0 0 60px rgba(0, 51, 141, 0.3)' }}
-        >
-          Our Programs
-        </motion.h1>
-        
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="text-lg md:text-xl max-w-3xl mx-auto"
-          style={{ color: 'var(--color-marine-200)' }}
-        >
-          FFOU drives sustainable change across Uganda's fisheries sub-sector through comprehensive programs focused on empowerment, innovation, and community development.
-        </motion.p>
-
-        {/* Program Count Pills */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="mt-8 flex flex-wrap justify-center gap-4"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
-            { value: '8', label: 'Core Programs', icon: 'ph:star-bold' },
-            { value: '12', label: 'Focus Areas', icon: 'ph:crosshair-bold' },
-            { value: '5', label: 'Regions', icon: 'ph:map-pin-bold' },
-          ].map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.6 + i * 0.1 }}
-              className="flex items-center gap-3 px-5 py-3 rounded-xl backdrop-blur-sm"
-              style={{
-                background: 'rgba(0, 20, 56, 0.4)',
-                border: '1px solid rgba(0, 102, 204, 0.2)',
-              }}
-            >
-              <Icon icon={stat.icon} className="text-xl text-marine-400" />
-              <div className="text-left">
-                <div className="font-header text-xl text-white">{stat.value}</div>
-                <div className="text-xs text-marine-300">{stat.label}</div>
+            { 
+              title: 'Quarterly Audits', 
+              desc: 'This process takes a deep dive assessment of the strategy performance, ensuring that all our programs are reaching our defined operational strategy.', 
+              icon: 'ph:clipboard-text-bold' 
+            },
+            { 
+              title: 'Monthly Reporting', 
+              desc: 'Communication is paramount, our process of routine monthly reporting ensures our partners are updated on our achievements and milestones.', 
+              icon: 'ph:file-text-bold' 
+            },
+            { 
+              title: 'Annual Reviews', 
+              desc: 'Reflective and mandatory we find it extremely useful to gauge our impact and adjustment for our National Strategic Plan based on the causes of our project.', 
+              icon: 'ph:calendar-check-bold' 
+            }
+          ].map((item, i) => (
+            <div key={i} className="bg-[#f0f9ff] p-10 rounded-sm text-center flex flex-col items-center">
+              <div className="w-16 h-16 rounded-full border-2 border-marine-500/20 flex items-center justify-center mb-8">
+                <Icon icon={item.icon} className="text-3xl text-marine-600" />
               </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-
-      {/* Bottom Wave */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 120" className="w-full" preserveAspectRatio="none" style={{ height: '60px' }}>
-          <path
-            fill="var(--surface-a)"
-            d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,58.7C960,64,1056,64,1152,58.7C1248,53,1344,43,1392,37.3L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"
-          />
-        </svg>
-      </div>
-    </section>
-  )
-}
-
-const programs = [
-  {
-    icon: 'ph:device-mobile-bold',
-    color: 'var(--color-marine-500)',
-    bg: 'var(--color-marine-50)',
-    title: 'SMart Fisher Technology (ABAVUBI App)',
-    description: 'The ABAVUBI Fisher Mobile App, developed by FFOU with support from GIZ-RFBCP under the German government, has enhanced market linkages and improved access to information relevant to the fisheries business chain.',
-    points: [
-      'Develop the ABAVUBI mobile application with modules that provide solutions to intended users\' current challenges',
-      'Build the capacity of fisheries business chain stakeholders on the use of the app',
-      'Sensitize fisheries groups to appreciate the ABAVUBI Mobile App services',
-      'Train IT administrators within fishing communities to extend technical assistance',
-      'Set up a call center with a toll-free helpline and digital forums',
-      'Conduct campaigns on safety on the lake and market linkages',
-      'Carry out surveys on consumer satisfaction and app service appreciation',
-      'Constantly upgrade the mobile app to suit user needs',
-      'Provide comprehensive health data insights aligned with national HMIS indicators',
-    ],
-  },
-  {
-    icon: 'ph:users-three-bold',
-    color: 'var(--color-cerulean-500)',
-    bg: 'var(--color-cerulean-100)',
-    title: 'Capacity Building for Women & Youth',
-    description: 'FFOU has enhanced the capacity of women and youth within fisher communities for better participation in the fisheries business chain.',
-    points: [
-      'Enhance the capacity of women and youth to participate in the leadership of associations',
-      'Train in leadership, business, and other skills as well as financial literacy',
-      'Source for low-interest loans to train folks to start or boost their businesses',
-      'Encourage and train them in aquaculture fish farming as diversity from catch fisheries for better livelihood',
-      'Empower their contribution to the decision-making mechanism within the fisheries business chains',
-      'Mobilize and organize more of them into DBOs, associations, and Sacco\'s',
-    ],
-  },
-  {
-    icon: 'ph:scales-bold',
-    color: 'var(--color-amber-500)',
-    bg: 'var(--color-amber-50)',
-    title: 'Legislation, Policies & Human Rights',
-    description: 'To inform fisheries communities on related fisheries policies, regulations, and human rights, FFOU has comprehensive interventions.',
-    points: [
-      'Sensitize communities on existing policies and regulations and the benefits of being compliant',
-      'Promote human rights and fishing rights of the fisher folk through awareness campaigns',
-      'Collaborate with government and fisheries co-management bodies',
-      'Train trainers and community counselors on compliance',
-      'Conduct legal clinics in partnership with law and human rights CBOs',
-      'Partner with research institutions for awareness of non-compliance implications',
-      'Carry out stakeholder\'s dialogue on current issues in the subsector',
-    ],
-  },
-  {
-    icon: 'ph:fish-bold',
-    color: 'var(--color-violet-500)',
-    bg: 'var(--color-violet-100)',
-    title: 'Sustainable Aquaculture',
-    description: 'FFOU increased fish production and sustainable development of aquaculture and aquaponics among fish farming communities.',
-    points: [
-      'Provide fish farming training for 200 interested groups within our membership',
-      'Set up an FFOU Centre for technical training, research, and demonstration in fish hatching and breeding',
-      'Encourage and promote co-operatives among aquaculture fish farmers for easy access to information and financial resources',
-      'Sensitize and encourage fisher folks to diversify towards aquaculture and aquaponics through fish cages',
-      'Promote aquaculture activities within fishing communities',
-      'Provide technical support for the establishment of fishponds and cages',
-    ],
-  },
-  {
-    icon: 'ph:leaf-bold',
-    color: 'var(--color-emerald-500)',
-    bg: 'var(--color-emerald-100)',
-    title: 'Climate Change Action',
-    description: 'FFOU has enhanced the participation of fishers and lake users in the protection of the ecosystem within the fisheries industry environment.',
-    points: [
-      'Engage in awareness campaigns on proper waste and garbage disposal',
-      'Promote reforestation in depleted districts around the lakes',
-      'Mobilize resources for climate change action and protection of the ecosystem',
-      'Encourage community participation in regulating water hyacinth on lake boundaries',
-      'Ensure improved sanitization and hygiene through WASH programs and eco-friendly toilets',
-      'Encourage reusable and cost-effective sources of energy for production and preservation',
-      'Tree planting initiatives',
-    ],
-  },
-  {
-    icon: 'ph:student-bold',
-    color: 'var(--color-rose-500)',
-    bg: 'var(--color-rose-100)',
-    title: 'Girl Child Support',
-    description: 'The "Girl Child Support" program is dedicated to empowering marginalized young girls to reach their full potential through comprehensive education, health, and economic empowerment initiatives.',
-    points: [
-      'Scholarships and educational support',
-      'Health and hygiene workshops',
-      'Life skills training',
-      'Vocational training for girls aged 5-18 from disadvantaged communities',
-      'Increase school enrollment and retention',
-      'Improve health and well-being',
-      'Enhance economic opportunities',
-      'Community advocacy and sensitization',
-    ],
-  },
-  {
-    icon: 'ph:tool-bold',
-    color: 'var(--color-indigo-500)',
-    bg: 'var(--color-indigo-100)',
-    title: 'Vocational Training',
-    description: 'Vocational training is a key initiative to empower fisheries communities with practical skills for sustainable livelihoods.',
-    points: [
-      'Advanced fishing techniques and sustainable fish farming practices',
-      'Fish processing, storage, and market readiness',
-      'Equipment maintenance skills',
-      'Business management and entrepreneurship training',
-      'Value addition techniques',
-      'Practical hands-on training and expert-led workshops',
-      'Enable participants to maximize profits and improve food security',
-    ],
-  },
-  {
-    icon: 'ph:first-aid-kit-bold',
-    color: 'var(--color-red-500)',
-    bg: 'var(--color-red-100)',
-    title: 'HIV Prevention & Care',
-    description: 'FFOU\'s HIV Prevention and Care program targets fisheries communities, addressing the unique HIV/AIDS challenges they face.',
-    points: [
-      'HIV testing and counseling',
-      'Peer education and outreach',
-      'Condom distribution and promotion',
-      'STI treatment and management',
-      'Care and support for PLHIV (People Living with HIV)',
-      'Economic empowerment for vulnerable groups',
-      'Protecting and supporting sex workers',
-      'Reduce HIV transmission and promote healthy behaviors',
-    ],
-  },
-]
-
-function ProgramCards() {
-  return (
-    <section className="py-16" style={{ background: 'var(--surface-a)' }}>
-      <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12">
-        <div className="text-center mb-10">
-          <h2 className="font-header text-3xl md:text-4xl" style={{ color: 'var(--text-main)' }}>
-            Program Focus Areas
-          </h2>
-          <p className="mt-2 text-sm max-w-xl mx-auto" style={{ color: 'var(--text-muted)' }}>
-            FFOU implements comprehensive programs addressing the needs of fishing communities across Uganda.
-          </p>
-        </div>
-
-        <div className="space-y-8">
-          {programs.map((p, i) => (
-            <motion.div
-              key={p.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              className="p-6 rounded-xl"
-              style={{ background: 'var(--surface-b)', border: '1px solid var(--nav-stroke)' }}
-            >
-              <div className="flex flex-col md:flex-row gap-6">
-                <div className="md:w-1/3">
-                  <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
-                    style={{ background: p.bg }}
-                  >
-                    <Icon icon={p.icon} className="text-2xl" style={{ color: p.color }} />
-                  </div>
-                  <h3 className="font-header text-xl mb-2" style={{ color: 'var(--text-main)' }}>
-                    {p.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-                    {p.description}
-                  </p>
-                </div>
-                <div className="md:w-2/3">
-                  <h4 className="text-sm font-semibold mb-3" style={{ color: 'var(--text-main)' }}>
-                    Key Interventions:
-                  </h4>
-                  <ul className="grid md:grid-cols-2 gap-2">
-                    {p.points.map((pt) => (
-                      <li
-                        key={pt}
-                        className="flex items-start gap-2 text-sm"
-                        style={{ color: 'var(--text-muted)' }}
-                      >
-                        <Icon
-                          icon="ph:check-circle-fill"
-                          className="text-base flex-shrink-0 mt-0.5"
-                          style={{ color: p.color }}
-                        />
-                        {pt}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </motion.div>
+              <h4 className="text-xl font-bold text-slate-900 mb-4">{item.title}</h4>
+              <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
+            </div>
           ))}
         </div>
       </div>
@@ -363,123 +99,37 @@ function ProgramCards() {
   )
 }
 
-function SACCO() {
+function PartnerSection() {
   return (
-    <section className="py-16" style={{ background: 'var(--surface-b)' }}>
-      <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="p-8 rounded-2xl"
-          style={{ background: 'var(--surface-a)', border: '1px solid var(--nav-stroke)' }}
+    <section className="relative py-32 bg-[#00338D] overflow-hidden">
+      <img 
+        src="https://ik.imagekit.io/sbgenu6wj/FFOU/programs%20page/programsHero.png?updatedAt=1775579643146" 
+        className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay"
+        alt="Partner background"
+      />
+      <div className="relative z-10 max-w-4xl mx-auto text-center px-6">
+        <h2 className="text-white text-5xl font-bold mb-8">Partner with Us...</h2>
+        <p className="text-white/80 text-lg mb-12">
+          FFOU is always seeking strategic partnerships with associations, businesses, and institutions that share our vision. Through collaboration, we can extend our programs and impact more communities.
+        </p>
+        <Link 
+          to="/contact-us" 
+          className="inline-block border-2 border-white text-white font-bold px-10 py-4 hover:bg-white hover:text-marine-900 transition-all text-sm tracking-widest"
         >
-          <div className="grid lg:grid-cols-2 gap-8 items-start">
-            <div>
-              <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
-                style={{ background: 'var(--color-marine-50)' }}
-              >
-                <Icon icon="ph:bank-bold" className="text-2xl" style={{ color: 'var(--color-marine-600)' }} />
-              </div>
-              <h3 className="font-header text-2xl mb-3" style={{ color: 'var(--text-main)' }}>
-                Uganda Fisheries Cooperative SACCO
-              </h3>
-              <p className="text-sm leading-relaxed mb-4" style={{ color: 'var(--text-muted)' }}>
-                This is a member-only forum for discussing development issues concerning the cooperative society. The SACCO is committed to being transparent, compliant, and accountable to its members.
-              </p>
-              <p className="text-sm leading-relaxed mb-4" style={{ color: 'var(--text-muted)' }}>
-                <strong>Current Compliance Focus:</strong> The leadership is actively working on recovering all original documents to comply with cooperative laws. This action is necessary because the SACCO was previously closed by the authority due to issues with the old leadership.
-              </p>
-              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-                <strong>Membership & Eligibility:</strong> Membership is open to everyone who is connected to fisheries activities or involved in promoting the sector.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-xl" style={{ background: 'var(--color-marine-50)' }}>
-              <h4 className="font-header text-lg mb-4" style={{ color: 'var(--text-main)' }}>
-                How to Join/Manage Accounts Online
-              </h4>
-              <div className="space-y-3">
-                {[
-                  { step: '1', text: 'Download the ABAVUBI FISHER MOBILE SOFTWARE APPLICATION' },
-                  { step: '2', text: 'Select "business" and proceed with "Uganda fisheries SACCO membership"' },
-                  { step: '3', text: 'Open your own mobile wallet account for savings and account management' },
-                ].map((item) => (
-                  <div key={item.step} className="flex items-start gap-3">
-                    <div 
-                      className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
-                      style={{ background: 'var(--color-marine-500)', color: '#fff' }}
-                    >
-                      {item.step}
-                    </div>
-                    <p className="text-sm pt-0.5" style={{ color: 'var(--text-muted)' }}>{item.text}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </motion.div>
+          CONTACT US NOW
+        </Link>
       </div>
     </section>
   )
 }
-
-function MonitoringEvaluation() {
-  return (
-    <section className="py-16" style={{ background: 'var(--surface-a)' }}>
-      <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="p-8 rounded-2xl"
-          style={{ background: 'var(--color-marine-800)' }}
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <Icon icon="ph:chart-line-up-bold" className="text-3xl text-marine-400" />
-            <h3 className="font-header text-2xl bg-linear-to-r from-marine-700 via-marine-500 to-marine-400 bg-clip-text text-transparent">
-              Monitoring and Evaluation
-            </h3>
-          </div>
-          <p className="text-sm leading-relaxed mb-4" style={{ color: 'var(--color-marine-200)' }}>
-            A monitoring and evaluation framework was developed to identify indicators at impact, outcome, and output levels. Projects implemented by FFOU will have their indicators of achievement of results linked to the Strategic plan indicators.
-          </p>
-          <div className="grid md:grid-cols-3 gap-4">
-            {[
-              { level: 'Impact', desc: 'Long-term outcomes and societal changes' },
-              { level: 'Outcome', desc: 'Medium-term changes in behavior and capacity' },
-              { level: 'Output', desc: 'Direct products and deliverables' },
-            ].map((item) => (
-              <div key={item.level} className="p-4 rounded-lg" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
-                <h4 className="font-semibold text-sm text-white mb-1">{item.level} Indicators</h4>
-                <p className="text-xs" style={{ color: 'var(--color-marine-300)' }}>{item.desc}</p>
-              </div>
-            ))}
-          </div>
-          <p className="text-sm leading-relaxed mt-4" style={{ color: 'var(--color-marine-200)' }}>
-            For learning and adaptive planning, FFOU conducts annual plans and review meetings to assess progress. Monthly reports are submitted to development partners. Quarterly monitoring is considered appropriate, with annual review meetings able to adjust monitoring intervals as needed.
-          </p>
-        </motion.div>
-      </div>
-    </section>
-  )
-}
-
-export { ProgramsHero, ProgramCards, SACCO, MonitoringEvaluation }
-
-import GetInvolved from './2.getInvolved'
-import Donate from './3.Donate'
 
 export default function ProgramsPage() {
   return (
     <main>
       <ProgramsHero />
-      <ProgramCards />
-      <SACCO />
-      <MonitoringEvaluation />
-      <GetInvolved />
-      <Donate />
+      <ProgramGrid />
+      <MonitoringSection />
+      <PartnerSection />
     </main>
   )
 }

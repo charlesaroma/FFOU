@@ -2,37 +2,30 @@ import { useState, useRef, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Icon } from '@iconify/react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { programsData } from '../../data/programsData'
 
 const dropdownItems = {
   About: [
-    { label: 'About Us', to: '/about/about-us', desc: 'Who we are' },
-    { label: 'The Team', to: '/about/the-team', desc: 'Leadership' },
-    { label: 'Our Partners', to: '/about/our-partners', desc: 'Partners' },
+    { label: 'About Us', to: '/about/about-us' },
+    { label: 'The Team', to: '/about/the-team' },
+    { label: 'Our Partners', to: '/about/our-partners' },
   ],
   Programs: [
-    { label: 'Get Involved', to: '/programs/get-involved', desc: 'Join our cause' },
-    { label: 'Donate', to: '/programs/donate', desc: 'Support our work' },
+    { label: 'Programs', to: '/programs' },
+    { label: 'Get Involved', to: '/programs/get-involved' },
+    { label: 'Donate', to: '/programs/donate' },
   ],
-  'Media Center': [
-    { label: 'Publications', to: '/media-center/publications', desc: 'Reports & docs' },
-    { label: 'Gallery', to: '/media-center/gallery', desc: 'Photos' },
+  'Media Centre': [
+    { label: 'Publications', to: '/media-center/publications' },
+    { label: 'Gallery', to: '/media-center/gallery' },
   ],
 }
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState(null)
-  const [scrolled, setScrolled] = useState(false)
-  const dropdownRef = useRef(null)
   const location = useLocation()
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  const dropdownRef = useRef(null)
 
   useEffect(() => {
     setActiveDropdown(null)
@@ -49,113 +42,47 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
-  const isActive = (path) => {
-    if (path === '/') return location.pathname === '/'
-    return location.pathname.startsWith(path)
-  }
-
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'py-2' : 'py-5'
-      }`}
-    >
-      <div 
-        className={`absolute inset-0 transition-all duration-500 ${
-          scrolled ? 'opacity-100' : 'opacity-0'
-        }`}
-        style={{
-          background: 'rgba(255, 255, 255, 0.8)',
-          backdropFilter: 'blur(20px)',
-          borderBottom: '1px solid rgba(0, 0, 0, 0.05)',
-          boxShadow: '0 4px 30px rgba(0, 0, 0, 0.03)',
-        }}
-      />
-      <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12 relative z-10 flex items-center justify-between">
+    <div className="absolute top-6 left-0 right-0 z-50 flex justify-center w-full px-4 md:px-8">
+      <header className="w-full max-w-[1380px] bg-cerulean-500 shadow-2xl h-[95px] rounded-sm">
+        <div className="w-full px-6 lg:px-12 h-full flex items-center justify-between">
+        
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3 group">
+        <Link to="/" className="flex items-center h-full">
           <img 
             src="/apple-touch-icon.png" 
-            alt="FFOU Logo"
-            className="w-10 h-10 rounded-xl shadow-md transition-transform group-hover:scale-105 object-contain bg-marine-500 p-1"
+            alt="FFOU Logo" 
+            className="object-contain"
+            style={{ width: '113px', height: '80px' }}
           />
-          <div className="flex flex-col leading-tight">
-            <span 
-              className="font-header text-lg tracking-wider transition-colors duration-500" 
-              style={{ color: scrolled ? 'var(--text-main)' : '#fff' }}
-            >
-              FFOU
-            </span>
-            <span 
-              className="text-xs font-medium transition-colors duration-500" 
-              style={{ color: scrolled ? 'var(--text-muted)' : 'rgba(255,255,255,0.7)' }}
-            >
-              Uganda
-            </span>
-          </div>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-1" ref={dropdownRef}>
-          <NavLink
-            to="/"
-            end
-            className={({ isActive }) =>
-              `px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                isActive ? 'bg-marine-500 text-white shadow-sm' : 'hover:text-marine-600'
-              }`
-            }
-            style={({ isActive }) => ({
-              color: isActive ? '#fff' : (scrolled ? 'var(--text-main)' : '#fff'),
-            })}
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-10 h-full" ref={dropdownRef}>
+          <NavLink 
+            to="/" 
+            className={({ isActive }) => `h-full flex items-center text-white text-[13px] font-bold uppercase tracking-wider transition-colors border-t-4 ${isActive ? 'border-gold-400' : 'border-transparent hover:text-blue-200'}`}
           >
-            Home
+            HOME
           </NavLink>
-
-          {/* About Dropdown */}
-          <div className="relative">
-            <NavLink
-              to="/about/about-us"
-              className={({ isActive }) =>
-                `px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1 ${
-                  isActive ? 'bg-marine-500 text-white shadow-sm' : 'hover:text-marine-600'
-                }`
-              }
-              style={({ isActive }) => ({
-                color: isActive ? '#fff' : (scrolled ? 'var(--text-main)' : '#fff'),
-              })}
+          
+          <div className="relative group h-full flex items-center">
+            <button 
               onMouseEnter={() => setActiveDropdown('About')}
+              className={`h-full flex items-center text-white text-[13px] font-bold uppercase tracking-wider transition-colors border-t-4 ${activeDropdown === 'About' || location.pathname.includes('/about') ? 'border-gold-400' : 'border-transparent hover:text-blue-200'}`}
             >
-              About <Icon icon="ph:caret-down-bold" className="text-xs" />
-            </NavLink>
+              ABOUT
+            </button>
             <AnimatePresence>
               {activeDropdown === 'About' && (
-                <motion.div
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 8 }}
-                  transition={{ duration: 0.15 }}
-                  className="absolute top-full left-0 mt-2 w-48 rounded-xl overflow-hidden"
-                  style={{ 
-                    background: 'var(--surface-a)', 
-                    border: '1px solid var(--nav-stroke)',
-                    boxShadow: 'var(--shadow-lg)'
-                  }}
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }}
+                  className="absolute top-full left-0 mt-0 w-48 bg-cerulean-500 shadow-xl rounded-sm overflow-hidden border-t-2 border-gold-400"
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  {dropdownItems.About.map((item) => (
-                    <Link
-                      key={item.to}
-                      to={item.to}
-                      className="block px-4 py-3 hover:bg-marine-100 transition-colors"
-                      style={{ borderBottom: '1px solid var(--nav-stroke)' }}
-                    >
-                      <span className="text-sm font-medium block" style={{ color: 'var(--text-main)' }}>
-                        {item.label}
-                      </span>
-                      <span className="text-xs" style={{ color: 'var(--text-muted)' }}>
-                        {item.desc}
-                      </span>
+                  {dropdownItems.About.map(link => (
+                    <Link key={link.to} to={link.to} className="block px-6 py-4 text-sm font-bold text-white hover:bg-cerulean-600 transition-all">
+                      {link.label}
                     </Link>
                   ))}
                 </motion.div>
@@ -163,50 +90,23 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
-          {/* Programs Dropdown */}
-          <div className="relative">
-            <NavLink
-              to="/programs/get-involved"
-              className={({ isActive }) =>
-                `px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1 ${
-                  isActive ? 'bg-marine-500 text-white shadow-sm' : 'hover:text-marine-600'
-                }`
-              }
-              style={({ isActive }) => ({
-                color: isActive ? '#fff' : (scrolled ? 'var(--text-main)' : '#fff'),
-              })}
+          <div className="relative group h-full flex items-center">
+            <button 
               onMouseEnter={() => setActiveDropdown('Programs')}
+              className={`h-full flex items-center text-white text-[13px] font-bold uppercase tracking-wider transition-colors border-t-4 ${(activeDropdown === 'Programs' || location.pathname.includes('/programs')) ? 'border-gold-400' : 'border-transparent hover:text-blue-200'}`}
             >
-              Programs <Icon icon="ph:caret-down-bold" className="text-xs" />
-            </NavLink>
+              PROGRAMS
+            </button>
             <AnimatePresence>
               {activeDropdown === 'Programs' && (
-                <motion.div
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 8 }}
-                  transition={{ duration: 0.15 }}
-                  className="absolute top-full left-0 mt-2 w-48 rounded-xl overflow-hidden"
-                  style={{ 
-                    background: 'var(--surface-a)', 
-                    border: '1px solid var(--nav-stroke)',
-                    boxShadow: 'var(--shadow-lg)'
-                  }}
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }}
+                  className="absolute top-full left-0 mt-0 w-48 bg-cerulean-500 shadow-xl rounded-sm overflow-hidden border-t-2 border-gold-400"
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  {dropdownItems.Programs.map((item) => (
-                    <Link
-                      key={item.to}
-                      to={item.to}
-                      className="block px-4 py-3 hover:bg-zurich-50 transition-colors"
-                      style={{ borderBottom: '1px solid var(--nav-stroke)' }}
-                    >
-                      <span className="text-sm font-medium block" style={{ color: 'var(--text-main)' }}>
-                        {item.label}
-                      </span>
-                      <span className="text-xs" style={{ color: 'var(--text-muted)' }}>
-                        {item.desc}
-                      </span>
+                  {dropdownItems.Programs.map(link => (
+                    <Link key={link.to} to={link.to} className="block px-6 py-4 text-sm font-bold text-white hover:bg-cerulean-600 transition-all">
+                      {link.label}
                     </Link>
                   ))}
                 </motion.div>
@@ -214,263 +114,79 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
-          <NavLink
-            to="/membership"
-            className={({ isActive }) =>
-              `px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                isActive ? 'bg-marine-500 text-white shadow-sm' : 'hover:text-marine-600'
-              }`
-            }
-            style={({ isActive }) => ({
-              color: isActive ? '#fff' : (scrolled ? 'var(--text-main)' : '#fff'),
-            })}
+          <NavLink 
+            to="/membership" 
+            className={`h-full flex items-center text-white text-[13px] font-bold uppercase tracking-wider transition-colors border-t-4 ${location.pathname.includes('/membership') ? 'border-gold-400' : 'border-transparent hover:text-blue-200'}`}
           >
-            Membership
+            MEMBERSHIP
           </NavLink>
-
-          {/* Media Center Dropdown */}
-          <div className="relative">
-            <NavLink
-              to="/media-center/publications"
-              className={({ isActive }) =>
-                `px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1 ${
-                  isActive ? 'bg-marine-500 text-white shadow-sm' : 'hover:text-marine-600'
-                }`
-              }
-              style={({ isActive }) => ({
-                color: isActive ? '#fff' : (scrolled ? 'var(--text-main)' : '#fff'),
-              })}
-              onMouseEnter={() => setActiveDropdown('Media Center')}
+          
+          <div className="relative group h-full flex items-center">
+            <button 
+              onMouseEnter={() => setActiveDropdown('Media Centre')}
+              className={`h-full flex items-center text-white text-[13px] font-bold uppercase tracking-wider transition-colors border-t-4 ${(activeDropdown === 'Media Centre' || location.pathname.includes('/media-center')) ? 'border-gold-400' : 'border-transparent hover:text-blue-200'}`}
             >
-              Media Center <Icon icon="ph:caret-down-bold" className="text-xs" />
-            </NavLink>
+              MEDIA CENTRE
+            </button>
             <AnimatePresence>
-              {activeDropdown === 'Media Center' && (
-                <motion.div
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 8 }}
-                  transition={{ duration: 0.15 }}
-                  className="absolute top-full left-0 mt-2 w-48 rounded-xl overflow-hidden"
-                  style={{ 
-                    background: 'var(--surface-a)', 
-                    border: '1px solid var(--nav-stroke)',
-                    boxShadow: 'var(--shadow-lg)'
-                  }}
+              {activeDropdown === 'Media Centre' && (
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }}
+                  className="absolute top-full left-0 mt-0 w-48 bg-cerulean-500 shadow-xl rounded-sm overflow-hidden border-t-2 border-gold-400"
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  {dropdownItems['Media Center'].map((item) => (
-                    <Link
-                      key={item.to}
-                      to={item.to}
-                      className="block px-4 py-3 hover:bg-zurich-50 transition-colors"
-                      style={{ borderBottom: '1px solid var(--nav-stroke)' }}
-                    >
-                      <span className="text-sm font-medium block" style={{ color: 'var(--text-main)' }}>
-                        {item.label}
-                      </span>
-                      <span className="text-xs" style={{ color: 'var(--text-muted)' }}>
-                        {item.desc}
-                      </span>
+                  {dropdownItems['Media Centre'].map(link => (
+                    <Link key={link.to} to={link.to} className="block px-6 py-4 text-sm font-bold text-white hover:bg-cerulean-600 transition-all">
+                      {link.label}
                     </Link>
                   ))}
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
-
-          <NavLink
-            to="/contact-us"
-            className={({ isActive }) =>
-              `px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                isActive ? 'bg-marine-500 text-white shadow-sm' : 'hover:text-marine-600'
-              }`
-            }
-            style={({ isActive }) => ({
-              color: isActive ? '#fff' : (scrolled ? 'var(--text-main)' : '#fff'),
-            })}
-          >
-            Contact Us
-          </NavLink>
         </nav>
 
-        {/* Right Actions */}
-        <div className="flex items-center gap-3">
-          <Link
-            to="/programs/donate"
-            className="hidden lg:flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all hover:scale-105"
-            style={{ 
-              background: 'var(--color-cerulean-500)', 
-              color: '#fff',
-              boxShadow: '0 2px 8px rgba(0, 102, 204, 0.3)',
-            }}
-          >
-            <Icon icon="ph:heart-bold" className="text-base" />
-            Donate
+        {/* Action Button */}
+        <div className="flex items-center h-full gap-4">
+          <Link to="/programs/donate" className="bg-gold-500 text-white font-bold px-8 py-4 text-[13px] uppercase hover:bg-gold-400 transition-all rounded-sm hidden lg:flex items-center">
+            DONATE
           </Link>
-
-          <Link
-            to="/membership"
-            className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all hover:scale-105"
-            style={{ 
-              background: 'var(--color-marine-500)', 
-              color: '#fff',
-              boxShadow: '0 2px 8px rgba(0, 51, 141, 0.3)',
-            }}
-          >
-            <Icon icon="ph:users-three-bold" className="text-base" />
-            Join FFOU
-          </Link>
-
-          {/* Mobile Menu Toggle */}
-          <button
-            className="lg:hidden w-9 h-9 rounded-lg flex items-center justify-center transition-colors"
-            style={{ color: scrolled ? 'var(--text-main)' : '#fff' }}
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            <Icon icon={menuOpen ? 'ph:x-bold' : 'ph:list-bold'} className="text-xl" />
+          <button className="lg:hidden text-white text-2xl" onClick={() => setMenuOpen(!menuOpen)}>
+            <Icon icon={menuOpen ? 'ph:x-bold' : 'ph:list-bold'} />
           </button>
         </div>
       </div>
-
+      </header>
+      
       {/* Mobile Menu */}
       <AnimatePresence>
         {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+          <motion.div 
+            initial={{ opacity: 0, height: 0 }} 
+            animate={{ opacity: 1, height: 'auto' }} 
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
-            className="lg:hidden overflow-hidden"
-            style={{
-              background: 'rgba(255, 255, 255, 0.98)',
-              backdropFilter: 'blur(16px)',
-              borderTop: '1px solid rgba(0, 0, 0, 0.08)',
-            }}
+            className="absolute top-full left-4 right-4 md:left-8 md:right-8 bg-cerulean-600 rounded-b-md shadow-2xl overflow-hidden mt-1"
           >
-            <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12 py-4 flex flex-col gap-1">
-              <NavLink
-                to="/"
-                end
-                onClick={() => setMenuOpen(false)}
-                className={({ isActive }) =>
-                  `px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                    isActive ? 'bg-marine-500 text-white' : ''
-                  }`
-                }
-                style={({ isActive }) => ({
-                  color: isActive ? '#fff' : 'var(--text-main)',
-                })}
-              >
-                Home
-              </NavLink>
-
-              {/* Mobile About Links */}
-              <div className="px-4 py-2">
-                <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
-                  About
-                </span>
+            <div className="px-6 py-6 flex flex-col gap-5">
+              <Link to="/" onClick={() => setMenuOpen(false)} className="text-white font-bold text-sm">HOME</Link>
+              <div className="space-y-4">
+                <span className="text-cerulean-200 text-[10px] font-bold uppercase tracking-widest">About</span>
+                {dropdownItems.About.map(link => (
+                  <Link key={link.to} to={link.to} onClick={() => setMenuOpen(false)} className="block text-white font-bold text-sm pl-4">{link.label.toUpperCase()}</Link>
+                ))}
               </div>
-              {dropdownItems.About.map((item) => (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  onClick={() => setMenuOpen(false)}
-                  className="pl-8 pr-4 py-2.5 text-sm"
-                  style={{ color: 'var(--text-main)' }}
-                >
-                  {item.label}
-                </Link>
-              ))}
-
-              {/* Mobile Programs Links */}
-              <div className="px-4 py-2 mt-2">
-                <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
-                  Programs
-                </span>
+              <div className="space-y-4">
+                <span className="text-cerulean-200 text-[10px] font-bold uppercase tracking-widest">Programs</span>
+                {dropdownItems.Programs.map(link => (
+                  <Link key={link.to} to={link.to} onClick={() => setMenuOpen(false)} className="block text-white font-bold text-sm pl-4 leading-tight">{link.label.toUpperCase()}</Link>
+                ))}
               </div>
-              {dropdownItems.Programs.map((item) => (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  onClick={() => setMenuOpen(false)}
-                  className="pl-8 pr-4 py-2.5 text-sm"
-                  style={{ color: 'var(--text-main)' }}
-                >
-                  {item.label}
-                </Link>
-              ))}
-
-              <NavLink
-                to="/membership"
-                onClick={() => setMenuOpen(false)}
-                className={({ isActive }) =>
-                  `px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                    isActive ? 'bg-marine-500 text-white' : ''
-                  }`
-                }
-                style={({ isActive }) => ({
-                  color: isActive ? '#fff' : 'var(--text-main)',
-                })}
-              >
-                Membership
-              </NavLink>
-
-              {/* Mobile Media Center Links */}
-              <div className="px-4 py-2 mt-2">
-                <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
-                  Media Center
-                </span>
-              </div>
-              {dropdownItems['Media Center'].map((item) => (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  onClick={() => setMenuOpen(false)}
-                  className="pl-8 pr-4 py-2.5 text-sm"
-                  style={{ color: 'var(--text-main)' }}
-                >
-                  {item.label}
-                </Link>
-              ))}
-
-              <NavLink
-                to="/contact-us"
-                onClick={() => setMenuOpen(false)}
-                className={({ isActive }) =>
-                  `px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                    isActive ? 'bg-marine-500 text-white' : ''
-                  }`
-                }
-                style={({ isActive }) => ({
-                  color: isActive ? '#fff' : 'var(--text-main)',
-                })}
-              >
-                Contact Us
-              </NavLink>
-
-              <div className="flex flex-col gap-2 mt-3">
-                <Link
-                  to="/programs/donate"
-                  onClick={() => setMenuOpen(false)}
-                  className="px-4 py-3 rounded-lg text-sm font-semibold text-center text-white"
-                  style={{ background: 'var(--color-cerulean-500)' }}
-                >
-                  Donate
-                </Link>
-                <Link
-                  to="/membership"
-                  onClick={() => setMenuOpen(false)}
-                  className="px-4 py-3 rounded-lg text-sm font-semibold text-center text-white"
-                  style={{ background: 'var(--color-marine-500)' }}
-                >
-                  Join FFOU
-                </Link>
-              </div>
+              <Link to="/membership" onClick={() => setMenuOpen(false)} className="text-white font-bold text-sm">MEMBERSHIP</Link>
+              <Link to="/media-center" onClick={() => setMenuOpen(false)} className="text-white font-bold text-sm">MEDIA CENTRE</Link>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </div>
   )
 }
