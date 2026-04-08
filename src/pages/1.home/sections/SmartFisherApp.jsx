@@ -52,7 +52,7 @@ export default function ActionAreas() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-white p-12 shadow-sm border border-slate-100 flex flex-col group hover:border-amber-400 transition-colors"
+              className="bg-white p-12 shadow-sm border border-slate-100 flex flex-col group hover:border-amber-400 transition-colors rounded-2xl"
             >
               <div className="w-16 h-16 rounded-full bg-slate-50 flex items-center justify-center mb-8 group-hover:bg-amber-50 transition-colors">
                 <Icon icon={item.icon} className="text-3xl text-slate-400 group-hover:text-amber-500" />

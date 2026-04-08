@@ -55,7 +55,7 @@ export default function Navbar() {
     <>
       <header 
         className={`fixed top-0 left-0 right-0 z-100 transition-all duration-500 ${
-          scrolled ? 'py-0' : 'py-3'
+          scrolled ? 'py-0' : 'py-4'
         }`}
       >
         <div 
@@ -65,7 +65,7 @@ export default function Navbar() {
         >
           <div 
             className={`w-full bg-cerulean-600 shadow-2xl transition-all duration-500 overflow-visible ${
-              scrolled ? 'rounded-none h-[60px]' : 'rounded-sm h-[80px]'
+              scrolled ? 'rounded-none h-[65px]' : 'rounded-2xl h-[85px]'
             }`}
           >
             <div className="w-full px-6 lg:px-12 h-full flex items-center justify-between">
@@ -113,7 +113,7 @@ export default function Navbar() {
                           initial={{ opacity: 0, y: 10 }} 
                           animate={{ opacity: 1, y: 0 }} 
                           exit={{ opacity: 0, y: 10 }}
-                          className="absolute top-full left-0 mt-0 w-56 bg-cerulean-600 shadow-xl rounded-b-sm overflow-hidden border-t-2 border-amber-400 z-50"
+                          className="absolute top-full left-0 mt-0 w-60 bg-cerulean-600 shadow-2xl rounded-b-2xl overflow-hidden border-t-2 border-amber-400 z-200"
                         >
                           {dropdownItems[item].map(link => (
                             <Link 
@@ -140,7 +140,7 @@ export default function Navbar() {
 
               {/* Action Button */}
               <div className="flex items-center h-full gap-4">
-                <Link to="/programs/donate" className="bg-amber-500 text-white font-bold px-6 py-2.5 text-[11px] uppercase hover:bg-amber-600 transition-all rounded-sm hidden lg:flex items-center shadow-lg">
+                <Link to="/programs/donate" className="bg-amber-500 text-white font-bold px-7 py-3 text-[11px] uppercase hover:bg-amber-600 transition-all rounded-xl hidden lg:flex items-center shadow-lg">
                   DONATE
                 </Link>
                 <button 

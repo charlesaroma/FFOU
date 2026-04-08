@@ -47,7 +47,7 @@ export default function InitiativesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-white border border-slate-100 flex flex-col group overflow-hidden"
+              className="bg-white border border-slate-100 flex flex-col group overflow-hidden rounded-2xl"
             >
               <div className="p-8 border-b border-slate-50">
                  <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center mb-6">

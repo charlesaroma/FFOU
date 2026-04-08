@@ -13,7 +13,7 @@ export default function Footer() {
                 <img
                   src="/logo.png"
                   alt="FFOU Logo"
-                  className="w-[140px] h-[80px] object-contain block"
+                  className="w-[140px] h-[80px] object-contain object-left block"
                 />
               </div>
             </Link>

@@ -64,7 +64,7 @@ export default function HomeHero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 + (i * 0.1) }}
-                className="bg-white/10 backdrop-blur-md p-8 border border-white/10 hover:bg-white hover:border-white transition-all group group cursor-pointer"
+                className="bg-white/10 backdrop-blur-md p-8 border border-white/10 hover:bg-white hover:border-white transition-all group group cursor-pointer rounded-2xl"
               >
                 <Icon icon={card.icon} className="text-amber-400 text-3xl mb-6 group-hover:text-amber-500" />
                 <h3 className="text-white font-bold text-lg mb-3 tracking-tighter uppercase group-hover:text-slate-800">{card.title}</h3>
@@ -73,7 +73,7 @@ export default function HomeHero() {
                 </p>
                 <Link 
                   to={card.to}
-                  className="inline-block py-2 px-4 border border-white/20 text-[10px] font-bold text-white uppercase tracking-widest group-hover:border-slate-800 group-hover:text-slate-800 transition-colors"
+                  className="inline-block py-2 px-4 border border-white/20 text-[10px] font-bold text-white uppercase tracking-widest group-hover:border-slate-800 group-hover:text-slate-800 transition-colors rounded-xl"
                 >
                   Read more
                 </Link>

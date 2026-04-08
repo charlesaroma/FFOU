@@ -27,7 +27,7 @@ export default function ActionSection() {
                 { label: 'ASSOCIATIONS', val: '135', icon: 'ph:users-three-bold' },
                 { label: 'FISHERFOLKS', val: '2.1 M', icon: 'ph:user-bold' },
               ].map((s, i) => (
-                <div key={s.label} className="bg-[#f8fafc] p-6 text-center border border-slate-100 flex flex-col items-center">
+                <div key={s.label} className="bg-[#f8fafc] p-6 text-center border border-slate-100 flex flex-col items-center rounded-2xl">
                   <Icon icon={s.icon} className="text-xl text-slate-400 mb-4" />
                   <div className="text-3xl font-bold text-slate-800 mb-1">{s.val}</div>
                   <div className="text-[9px] font-bold text-slate-400 tracking-widest uppercase">{s.label}</div>
