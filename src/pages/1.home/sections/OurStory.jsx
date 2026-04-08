@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 
 export default function OurStory() {
   return (
-    <section className="py-24 bg-white border-t border-slate-50">
-      <div className="layout-spine">
+    <section className="py-24 bg-white">
+      <div className="max-w-[1240px] mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

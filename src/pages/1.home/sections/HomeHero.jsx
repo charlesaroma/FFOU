@@ -4,81 +4,82 @@ import { Link } from 'react-router-dom'
 
 export default function HomeHero() {
   return (
-    <section className="relative pt-32 pb-20 bg-[#f8fafc] overflow-hidden min-h-screen flex items-center">
-      <div className="layout-spine relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          {/* Left - Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h4 className="text-slate-900 font-bold text-lg mb-6 leading-tight">
-              Welcome to the Federation of <br />
-              Fisheries Organizations Uganda
-            </h4>
-            <h1 className="text-slate-800 text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
-              2,102,491 Fisherfolks <br /> 
-              empowered...
-            </h1>
-          </motion.div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src="/home/charlie/.gemini/antigravity/brain/3837ba27-8e02-4625-a3f9-953e02340a06/ugandan_fishermen_hero_1775643656715.png" 
+          alt="UG Fisheries" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-marine-900/40" />
+      </div>
 
-          {/* Right - Image Placeholder */}
+      <div className="relative z-10 w-full max-w-[1240px] mx-auto px-6">
+        <div className="max-w-3xl">
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="aspect-square lg:aspect-4/5 bg-[#cbd5e1] rounded-4xl overflow-hidden shadow-2xl relative group"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            <img 
-              src="/home/charlie/.gemini/antigravity/brain/3837ba27-8e02-4625-a3f9-953e02340a06/ugandan_fishermen_hero_1775643656715.png" 
-              alt="Community Empowerment"
-              className="w-full h-full object-cover grayscale opacity-80 mix-blend-multiply"
-            />
+            <h4 className="text-white font-bold text-lg mb-6 leading-tight flex items-center gap-3">
+              <span className="w-8 h-[2px] bg-amber-400"></span>
+              Welcome to the Federation
+            </h4>
+            <h1 className="text-white text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8 tracking-tighter">
+              2,102,491 <br /> 
+              <span className="text-amber-400">Fisherfolks</span> empowered
+            </h1>
+            <p className="text-white/80 text-lg mb-12 max-w-xl leading-relaxed font-medium">
+              We are a national umbrella body representing non-state actors in the fisheries sub-sector, working across Uganda's five major lakes.
+            </p>
           </motion.div>
         </div>
 
-        {/* Floating Action Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {[
-            { 
-              title: 'DONATE NOW', 
-              text: 'Your support fuels 12 active programs and amplifies our impact across 131 member associations. Every contribution builds a sustainable future.',
-              icon: 'ph:heart-bold',
-              to: '/donate'
-            },
-            { 
-              title: 'GET INVOLVED', 
-              text: 'Partner with the national apex body to drive innovation. We seek strategic alliances with businesses and institutions to empower communities.',
-              icon: 'ph:hand-heart-bold',
-              to: '/programs/get-involved'
-            },
-            { 
-              title: 'JOIN FEDERATION', 
-              text: 'Access technical training, microfinance through our SACCO, and policy advocacy. Join over 2 million fishers in our unified network.',
-              icon: 'ph:users-three-bold',
-              to: '/membership'
-            },
-          ].map((card, i) => (
-            <motion.div
-              key={card.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 + (i * 0.1) }}
-              className="bg-white p-8 border border-slate-100 shadow-sm hover:shadow-md transition-shadow group"
-            >
-              <h3 className="text-slate-800 font-bold text-lg mb-4 tracking-tighter uppercase">{card.title}</h3>
-              <p className="text-slate-500 text-sm leading-relaxed mb-6 font-medium">
-                {card.text}
-              </p>
-              <Link 
-                to={card.to}
-                className="inline-block py-2 px-4 border border-slate-200 text-[11px] font-bold text-slate-400 uppercase tracking-widest hover:border-marine-500 hover:text-marine-600 transition-colors"
+        {/* Floating Action Cards at bottom */}
+        <div className="mt-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { 
+                title: 'DONATE NOW', 
+                text: 'Support 12 active programs and empower 131 associations.',
+                icon: 'ph:heart-bold',
+                to: '/donate'
+              },
+              { 
+                title: 'GET INVOLVED', 
+                text: 'Partner with us to drive sustainable innovation.',
+                icon: 'ph:hand-heart-bold',
+                to: '/programs/get-involved'
+              },
+              { 
+                title: 'JOIN FEDERATION', 
+                text: 'Access technical training and policy advocacy.',
+                icon: 'ph:users-three-bold',
+                to: '/membership'
+              },
+            ].map((card, i) => (
+              <motion.div
+                key={card.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 + (i * 0.1) }}
+                className="bg-white/10 backdrop-blur-md p-8 border border-white/10 hover:bg-white hover:border-white transition-all group group cursor-pointer"
               >
-                Read more
-              </Link>
-            </motion.div>
-          ))}
+                <Icon icon={card.icon} className="text-amber-400 text-3xl mb-6 group-hover:text-amber-500" />
+                <h3 className="text-white font-bold text-lg mb-3 tracking-tighter uppercase group-hover:text-slate-800">{card.title}</h3>
+                <p className="text-white/60 text-xs leading-relaxed mb-6 font-medium group-hover:text-slate-500">
+                  {card.text}
+                </p>
+                <Link 
+                  to={card.to}
+                  className="inline-block py-2 px-4 border border-white/20 text-[10px] font-bold text-white uppercase tracking-widest group-hover:border-slate-800 group-hover:text-slate-800 transition-colors"
+                >
+                  Read more
+                </Link>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

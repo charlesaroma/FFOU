@@ -3,9 +3,9 @@ import { Icon } from '@iconify/react'
 
 export default function ActionSection() {
   return (
-    <section className="py-24 bg-white overflow-hidden">
-      <div className="layout-spine">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section className="py-24 bg-[#f8fafc]">
+      <div className="max-w-[1240px] mx-auto px-6">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
           {/* Left - Content & Stats */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}

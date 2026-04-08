@@ -26,7 +26,7 @@ const initiatives = [
 export default function InitiativesSection() {
   return (
     <section className="py-24 bg-white">
-      <div className="layout-spine">
+      <div className="max-w-[1240px] mx-auto px-6">
         <div className="mb-16">
           <span className="text-[10px] font-bold tracking-[0.3em] text-slate-400 uppercase mb-4 block">
             ACTION AREAS
