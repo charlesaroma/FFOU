@@ -5,11 +5,11 @@ export default function Footer() {
   return (
     <footer className="bg-surface-600 pt-20">
       <div className="max-w-[1240px] mx-auto px-6 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {/* Brand */}
-          <div className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
+          {/* Brand - Span 2 units for better width */}
+          <div className="lg:col-span-2 space-y-10">
             <Link to="/">
-              <div className="w-[140px] h-[80px] flex items-center justify-start">
+              <div className="w-[140px] h-[80px] flex items-start justify-start">
                 <img
                   src="/logo.png"
                   alt="FFOU Logo"
@@ -17,7 +17,7 @@ export default function Footer() {
                 />
               </div>
             </Link>
-            <p className="text-[14px] text-slate-500 leading-relaxed font-semibold">
+            <p className="text-[14px] text-slate-500 pt-6 leading-relaxed font-semibold max-w-[440px]">
               FFOU is a national non-profit umbrella body representing non-state
               actors in the fisheries sub-sector. Established in 2011, the
               federation serves as a unified voice for 131 member associations
@@ -27,7 +27,7 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="lg:col-span-1">
             <h4 className="text-marine-600 font-bold text-content-sm mb-6">
               Quick Links
             </h4>
@@ -52,7 +52,7 @@ export default function Footer() {
           </div>
 
           {/* Our Programs */}
-          <div>
+          <div className="lg:col-span-1">
             <h4 className="text-marine-600 font-bold text-content-sm mb-6">
               Our Programs
             </h4>
@@ -83,7 +83,7 @@ export default function Footer() {
           </div>
 
           {/* Location & Socials */}
-          <div className="flex flex-col">
+          <div className="lg:col-span-1 flex flex-col">
             <div className="mb-6">
               <h4 className="text-marine-600 font-bold text-content-sm mb-6">
                 Our Location
@@ -125,10 +125,10 @@ export default function Footer() {
       {/* Info Bar with Top Horizontal Divider */}
       <div className="bg-surface-700 py-10 mb-0 relative border-t border-marine-200/40">
         <div className="max-w-[1240px] mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-12">
             
-            {/* Col 1: Aligned under Logo */}
-            <div className="flex items-center gap-4">
+            {/* Col 1: Aligned under Brand */}
+            <div className="lg:col-span-2 flex items-center gap-4">
               <div className="w-14 h-14 rounded-full bg-surface-500 flex items-center justify-center shadow-sm">
                 <Icon
                   icon="ph:envelope-simple-light"
@@ -146,7 +146,7 @@ export default function Footer() {
             </div>
 
             {/* Col 2: Aligned under Quick Links */}
-            <div className="flex items-center gap-4">
+            <div className="lg:col-span-1 flex items-center gap-4">
               <div className="w-14 h-14 rounded-full bg-surface-500 flex items-center justify-center shadow-sm">
                 <Icon
                   icon="ph:phone-light"
@@ -164,7 +164,7 @@ export default function Footer() {
             </div>
 
             {/* Col 3: Aligned under Programs */}
-            <div className="flex items-center gap-4">
+            <div className="lg:col-span-1 flex items-center gap-4">
               <div className="w-14 h-14 rounded-full bg-surface-500 flex items-center justify-center shadow-sm">
                 <Icon
                   icon="ph:device-mobile-light"
@@ -184,8 +184,8 @@ export default function Footer() {
               </div>
             </div>
             
-            {/* Col 4: Empty to maintain structural grid spacing under Location */}
-            <div className="hidden lg:block"></div>
+            {/* Col 4: Empty (Under Location) */}
+            <div className="hidden lg:block lg:col-span-1"></div>
           </div>
         </div>
       </div>

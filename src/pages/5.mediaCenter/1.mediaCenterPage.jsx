@@ -2,8 +2,6 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Icon } from '@iconify/react'
 import MediaCenterHero from './2.mediaCenterHero'
-import Publications from './3.publications'
-import Gallery from './4.gallery'
 
 const news = [
   {
@@ -57,11 +55,18 @@ function NewsSection() {
   return (
     <section className="py-24" style={{ background: 'var(--surface-a)' }}>
       <div className="layout-spine">
-        <div className="text-center mb-14">
-          <span className="text-xs font-semibold tracking-widest uppercase text-zurich-500">Latest</span>
-          <h2 className="font-heading text-4xl md:text-5xl mt-2" style={{ color: 'var(--text-main)' }}>
-            News & Updates
-          </h2>
+        <div className="flex flex-col md:flex-row gap-16 md:gap-24 mb-16 items-end">
+          <div className="max-w-xl">
+            <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-zurich-500 mb-4 block">Latest Intelligence</span>
+            <h2 className="font-header text-4xl md:text-5xl" style={{ color: 'var(--text-main)' }}>
+              News & Updates
+            </h2>
+          </div>
+          <div className="flex-1">
+             <p className="text-slate-500 text-sm leading-relaxed max-w-lg">
+                Stay informed with the latest developments, conference updates, and strategic announcements from the Federation.
+             </p>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-5">
@@ -114,8 +119,7 @@ export default function MediaCenterPage() {
     <main>
       <MediaCenterHero />
       <NewsSection />
-      <Publications />
-      <Gallery />
+      {/* Publications and Gallery are now handled in their own dedicated dynamic routes */}
     </main>
   )
 }

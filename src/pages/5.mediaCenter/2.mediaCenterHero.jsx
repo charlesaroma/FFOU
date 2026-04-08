@@ -15,7 +15,7 @@ export default function MediaCenterHero() {
   return (
     <section
       ref={sectionRef}
-      className="relative pt-28 pb-20 overflow-hidden min-h-[55vh] flex items-center"
+      className="relative pt-28 pb-20 overflow-hidden min-h-screen flex items-center"
       style={{ background: 'var(--color-zurich-950)' }}
     >
       {/* Animated Background */}

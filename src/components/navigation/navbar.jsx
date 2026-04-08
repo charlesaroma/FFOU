@@ -16,6 +16,7 @@ const dropdownItems = {
     { label: 'Donate', to: '/programs/donate' },
   ],
   'Media Centre': [
+    { label: 'News & Updates', to: '/media-center' },
     { label: 'Publications', to: '/media-center/publications' },
     { label: 'Gallery', to: '/media-center/gallery' },
   ],
@@ -60,7 +61,7 @@ export default function Navbar() {
         <nav className="hidden lg:flex items-center gap-6 xl:gap-10 h-full" ref={dropdownRef}>
           <NavLink 
             to="/" 
-            className={({ isActive }) => `h-full flex items-center text-white text-[13px] font-bold uppercase tracking-wider transition-colors border-t-4 ${isActive ? 'border-gold-400' : 'border-transparent hover:text-blue-200'}`}
+            className={({ isActive }) => `h-full flex items-center text-white text-[13px] font-bold uppercase tracking-wider transition-colors border-t-4 cursor-pointer ${isActive ? 'border-gold-400' : 'border-transparent hover:text-blue-200'}`}
           >
             HOME
           </NavLink>
@@ -68,7 +69,7 @@ export default function Navbar() {
           <div className="relative group h-full flex items-center">
             <button 
               onMouseEnter={() => setActiveDropdown('About')}
-              className={`h-full flex items-center text-white text-[13px] font-bold uppercase tracking-wider transition-colors border-t-4 ${activeDropdown === 'About' || location.pathname.includes('/about') ? 'border-gold-400' : 'border-transparent hover:text-blue-200'}`}
+              className={`h-full flex items-center text-white text-[13px] font-bold uppercase tracking-wider transition-colors border-t-4 cursor-pointer ${location.pathname.includes('/about') ? 'border-gold-400' : 'border-transparent hover:text-blue-200'}`}
             >
               ABOUT
             </button>
@@ -92,7 +93,7 @@ export default function Navbar() {
           <div className="relative group h-full flex items-center">
             <button 
               onMouseEnter={() => setActiveDropdown('Programs')}
-              className={`h-full flex items-center text-white text-[13px] font-bold uppercase tracking-wider transition-colors border-t-4 ${(activeDropdown === 'Programs' || location.pathname.includes('/programs')) ? 'border-gold-400' : 'border-transparent hover:text-blue-200'}`}
+              className={`h-full flex items-center text-white text-[13px] font-bold uppercase tracking-wider transition-colors border-t-4 cursor-pointer ${location.pathname.includes('/programs') ? 'border-gold-400' : 'border-transparent hover:text-blue-200'}`}
             >
               PROGRAMS
             </button>
@@ -123,7 +124,7 @@ export default function Navbar() {
           <div className="relative group h-full flex items-center">
             <button 
               onMouseEnter={() => setActiveDropdown('Media Centre')}
-              className={`h-full flex items-center text-white text-[13px] font-bold uppercase tracking-wider transition-colors border-t-4 ${(activeDropdown === 'Media Centre' || location.pathname.includes('/media-center')) ? 'border-gold-400' : 'border-transparent hover:text-blue-200'}`}
+              className={`h-full flex items-center text-white text-[13px] font-bold uppercase tracking-wider transition-colors border-t-4 cursor-pointer ${location.pathname.includes('/media-center') ? 'border-gold-400' : 'border-transparent hover:text-blue-200'}`}
             >
               MEDIA CENTRE
             </button>
