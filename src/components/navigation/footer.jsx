@@ -103,17 +103,19 @@ export default function Footer() {
               </h4>
               <div className="flex gap-4">
                 {[
-                  "ph:facebook-logo-bold",
-                  "ph:twitter-logo-bold",
-                  "ph:linkedin-logo-bold",
-                  "ph:youtube-logo-bold",
-                ].map((icon, i) => (
+                  { icon: "ph:instagram-logo-bold", url: "https://www.instagram.com/ffo.uganda/" },
+                  { icon: "ph:x-logo-bold", url: "https://x.com/FFOU353277" },
+                  { icon: "ph:linkedin-logo-bold", url: "https://www.linkedin.com/in/federation-of-fisheries-organisations-uganda-1457732b5/" },
+                  { icon: "ph:youtube-logo-bold", url: "https://www.youtube.com/@ffo.uganda" },
+                ].map((social, i) => (
                   <a
                     key={i}
-                    href="#"
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-marine-500 hover:text-cerulean-500 transition-all"
                   >
-                    <Icon icon={icon} className="text-xl" />
+                    <Icon icon={social.icon} className="text-xl" />
                   </a>
                 ))}
               </div>
