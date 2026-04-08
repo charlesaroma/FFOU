@@ -8,24 +8,14 @@ export default function GetInvolvedForm() {
         
         {/* Top Section: Staggered Images and Text */}
         <section className="flex flex-col lg:flex-row gap-16 mb-24 items-center">
-          {/* Decorative Images */}
-          <div className="relative w-full lg:w-1/2 h-[500px]">
-            <div className="absolute top-0 left-0 w-3/4 h-3/4 z-10 shadow-2xl overflow-hidden rounded-sm border-8 border-white">
-              <img 
-                src="https://ik.imagekit.io/sbgenu6wj/FFOU/get-involved/volunteer1.png?updatedAt=1775581530471" 
-                alt="Volunteer Training" 
-                className="w-full h-full object-cover"
-                onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1521791136064-7986c2923216?auto=format&fit=crop&q=80&w=800' }}
-              />
-            </div>
-            <div className="absolute bottom-0 right-0 w-2/3 h-2/3 shadow-2xl overflow-hidden rounded-sm border-8 border-white">
-              <img 
-                src="https://ik.imagekit.io/sbgenu6wj/FFOU/get-involved/volunteer2.png?updatedAt=1775581530472" 
-                alt="Volunteer Action" 
-                className="w-full h-full object-cover"
-                onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1593113503873-e4f4929ad02a?auto=format&fit=crop&q=80&w=800' }}
-              />
-            </div>
+          {/* Decorative Image */}
+          <div className="w-full lg:w-1/2">
+            <img 
+              src="https://ik.imagekit.io/sbgenu6wj/FFOU/programs%20page/images.png" 
+              alt="FFOU Community Action" 
+              className="w-full h-auto block"
+              onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1521791136064-7986c2923216?auto=format&fit=crop&q=80&w=800' }}
+            />
           </div>
 
           {/* Heading and Lead Text */}
@@ -58,8 +48,13 @@ export default function GetInvolvedForm() {
                 <div className="relative">
                   <select className="w-full bg-white border border-slate-200 p-4 rounded-sm text-sm focus:outline-none focus:ring-2 focus:ring-marine-500/10 appearance-none cursor-pointer">
                     <option>Select Option</option>
-                    <option>Individual</option>
-                    <option>Organization</option>
+                    <option>Legal Counsel (Human Rights & Compliance)</option>
+                    <option>Environmental Consultant (Aquaculture & Climate)</option>
+                    <option>Field Officer (Community Mobilization)</option>
+                    <option>Business & Financial Literacy Trainer</option>
+                    <option>Health Resource Specialist (HIV & WASH)</option>
+                    <option>Policy Advocate & Communications</option>
+                    <option>Research & Data Analyst</option>
                   </select>
                   <Icon icon="ph:caret-down-bold" className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400" />
                 </div>
