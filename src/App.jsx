@@ -21,30 +21,33 @@ import ContactUs from './pages/6.contactUs/ContactUsPage'
 
 function App () {
   return (
-      <Router>
-        <ScrollToTop />
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/about/about-us" element={<AboutUs />} />
-          <Route path="/about/the-team" element={<TheTeam />} />
-          <Route path="/about/our-partners" element={<OurPartners />} />
-          <Route path="/programs" element={<Programs />} />
-          <Route path="/programs/get-involved" element={<GetInvolved />} />
-          <Route path="/programs/get-involved/form" element={<GetInvolvedForm />} />
-          <Route path="/programs/donate" element={<DonatePage />} />
-          <Route path="/programs/:slug" element={<ProgramDetails />} />
-          <Route path="/membership" element={<Membership />} />
-          <Route path="/media-center" element={<MediaCenter />} />
-          <Route path="/media-center/publications/:category?" element={<Publications />} />
-          <Route path="/media-center/gallery" element={<Gallery />} />
-          <Route path="/contact-us" element={<ContactUs />} />
-        </Routes>
-        <Footer />
-      </Router>
+      <div className="overflow-x-hidden w-full min-h-screen flex flex-col">
+        <Router>
+          <ScrollToTop />
+          <Navbar />
+          <div className="flex-1">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/about/about-us" element={<AboutUs />} />
+              <Route path="/about/the-team" element={<TheTeam />} />
+              <Route path="/about/our-partners" element={<OurPartners />} />
+              <Route path="/programs" element={<Programs />} />
+              <Route path="/programs/get-involved" element={<GetInvolved />} />
+              <Route path="/programs/get-involved/form" element={<GetInvolvedForm />} />
+              <Route path="/programs/donate" element={<DonatePage />} />
+              <Route path="/programs/:slug" element={<ProgramDetails />} />
+              <Route path="/membership" element={<Membership />} />
+              <Route path="/media-center" element={<MediaCenter />} />
+              <Route path="/media-center/publications/:category?" element={<Publications />} />
+              <Route path="/media-center/gallery" element={<Gallery />} />
+              <Route path="/contact-us" element={<ContactUs />} />
+            </Routes>
+          </div>
+          <Footer />
+        </Router>
+      </div>
   )
-
 }
 
 

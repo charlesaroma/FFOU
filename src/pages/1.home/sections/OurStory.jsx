@@ -39,10 +39,6 @@ export default function OurStory() {
               <div className="text-white/70 text-xs leading-relaxed">Over two decades of championing Uganda's fishing communities.</div>
             </div>
 
-            {/* Floating accent — top left */}
-            <div className="absolute -top-4 -left-4 md:-left-8 w-24 h-24 bg-amber-400 rounded-[4px] flex items-center justify-center shadow-xl">
-              <Icon icon="ph:fish-bold" className="text-marine-900 text-4xl" />
-            </div>
           </motion.div>
 
           {/* Right — Content */}

@@ -52,17 +52,17 @@ export default function HomeHero() {
 
 
       {/* Main Content */}
-      <div className="relative z-10 flex-1 flex items-center pt-28 pb-0">
+      <div className="relative z-10 flex-1 flex items-center pt-28 pb-16 md:pb-0">
         <div className="w-full max-w-[1240px] mx-auto px-6">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl flex flex-col items-center md:items-start text-center md:text-left mt-8 md:mt-0">
             {/* Eyebrow */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="flex items-center gap-3 mb-8"
+              className="flex items-center gap-3 mb-6 md:mb-8"
             >
-              <span className="text-amber-400 text-[11px] font-bold uppercase tracking-[0.35em]">
+              <span className="text-amber-400 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.35em]">
                 Federation of Fisheries Organisations Uganda
               </span>
             </motion.div>
@@ -95,7 +95,7 @@ export default function HomeHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-wrap gap-4"
+              className="flex flex-col sm:flex-row flex-wrap items-center justify-center md:justify-start gap-4 w-full sm:w-auto"
             >
               <Link
                 to="/about/about-us"
@@ -132,14 +132,14 @@ export default function HomeHero() {
             ].map((stat, i) => (
               <div
                 key={stat.label}
-                className="py-6 px-6 border-r border-white/10 last:border-r-0 flex items-center gap-4 group"
+                className="py-6 px-4 md:px-6 border-r border-b md:border-b-0 border-white/10 group flex flex-col md:flex-row items-center md:items-start gap-3 md:gap-4 text-center md:text-left [&:nth-child(even)]:border-r-0 md:[&:nth-child(even)]:border-r md:last:border-r-0"
               >
                 <div className="w-10 h-10 rounded-[4px] bg-amber-400/10 border border-amber-400/20 flex items-center justify-center shrink-0 group-hover:bg-amber-400/20 transition-colors">
                   <Icon icon={stat.icon} className="text-amber-400 text-lg" />
                 </div>
                 <div>
-                  <div className="text-white text-2xl font-bold leading-none">{stat.val}</div>
-                  <div className="text-white/50 text-[11px] font-medium mt-1">{stat.label}</div>
+                  <div className="text-white text-xl md:text-2xl font-bold leading-tight">{stat.val}</div>
+                  <div className="text-white/50 text-[10px] md:text-[11px] font-medium mt-1 leading-tight">{stat.label}</div>
                 </div>
               </div>
             ))}

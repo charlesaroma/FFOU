@@ -36,19 +36,19 @@ function StatCard({ stat, index, inView }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.12, duration: 0.6 }}
-      className="relative p-8 md:p-10 border-r border-b border-white/10 last:border-r-0 group overflow-hidden"
+      className="relative p-8 border-b md:border-r md:border-b border-white/10 group overflow-hidden md:last:border-r-0 flex flex-col items-center text-center lg:items-start lg:text-left"
     >
       {/* Hover glow */}
       <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5 transition-colors duration-300" />
 
-      <div className="relative z-10">
-        <div className="w-12 h-12 rounded-[4px] bg-amber-400/15 border border-amber-400/20 flex items-center justify-center mb-6 group-hover:bg-amber-400/25 transition-colors">
+      <div className="relative z-10 w-full flex flex-col items-center lg:items-start">
+        <div className="w-12 h-12 rounded-[4px] bg-amber-400/15 border border-amber-400/20 flex items-center justify-center mb-5 group-hover:bg-amber-400/25 transition-colors">
           <Icon icon={stat.icon} className="text-amber-400 text-xl" />
         </div>
-        <div className="text-4xl md:text-5xl font-bold text-white mb-2 leading-none tracking-tight">
+        <div className="text-4xl md:text-4xl lg:text-5xl font-bold text-white mb-2 leading-none tracking-tight break-words max-w-full">
           {inView ? counted : '0'}{stat.suffix}
         </div>
-        <div className="text-white/50 text-sm font-medium">{stat.label}</div>
+        <div className="text-white/60 text-sm font-medium">{stat.label}</div>
       </div>
     </motion.div>
   )
@@ -71,11 +71,12 @@ export default function StatsSection() {
     <section ref={ref} className="bg-marine-800">
       {/* Top editorial bar */}
       <div className="max-w-[1240px] mx-auto px-6">
-        <div className="py-16 flex flex-col md:flex-row gap-8 md:gap-0 items-start md:items-center justify-between border-b border-white/10">
+        <div className="py-16 flex flex-col md:flex-row gap-8 md:gap-0 items-start md:items-center justify-between border-b border-white/10 text-center md:text-left">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            className="w-full flex flex-col items-center md:items-start"
           >
             <span className="text-[10px] font-bold tracking-[0.35em] text-amber-400 uppercase mb-3 block">
               Impact at a Glance
@@ -90,7 +91,7 @@ export default function StatsSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
-            className="text-white/60 max-w-sm text-sm leading-relaxed md:text-right"
+            className="text-white/60 w-full max-w-sm mx-auto md:mx-0 text-sm leading-relaxed md:text-right text-center"
           >
             Every number represents a fishing family, a community, a future shaped by collective action and sustained advocacy.
           </motion.p>
@@ -99,7 +100,7 @@ export default function StatsSection() {
 
       {/* Stats Grid */}
       <div className="max-w-[1240px] mx-auto px-6">
-        <div className="grid grid-cols-2 lg:grid-cols-4 border-l border-t border-white/10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-l border-t border-white/10">
           {stats.map((stat, i) => (
             <StatCard key={stat.label} stat={stat} index={i} inView={inView} />
           ))}
@@ -114,8 +115,8 @@ export default function StatsSection() {
           className="w-full h-full object-cover opacity-30"
         />
         <div className="absolute inset-0 bg-marine-800/40" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-white/40 text-[10px] font-bold tracking-[0.5em] uppercase">
+        <div className="absolute inset-0 flex items-center justify-center p-6">
+          <span className="text-white/40 text-[9px] sm:text-[10px] font-bold tracking-[0.2em] md:tracking-[0.5em] uppercase text-center leading-loose">
             Lake Victoria · Lake Albert · Lake Kyoga · Lake Edward · Lake George
           </span>
         </div>
