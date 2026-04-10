@@ -187,23 +187,23 @@ export default function Navbar() {
                 <Link
                   to="/"
                   onClick={() => setMenuOpen(false)}
-                  className="flex items-center justify-between text-white font-bold text-2xl py-6 border-b border-white/10 active:bg-white/5 transition-colors px-2 rounded-[4px]"
+                  className="flex items-center justify-between text-white font-bold text-[17px] tracking-wide py-4 border-b border-white/10 active:bg-white/5 transition-colors px-2 rounded-[4px]"
                 >
                   HOME
-                  <Icon icon="mdi:chevron-right" className="text-white/30 text-xl" />
+                  <Icon icon="mdi:chevron-right" className="text-white/30 text-lg" />
                 </Link>
 
                 {Object.entries(dropdownItems).map(([key, items]) => (
                   <div key={key} className="border-b border-white/10">
                     <button
                       onClick={() => setOpenSection(openSection === key ? null : key)}
-                      className="w-full flex items-center justify-between text-white font-bold text-2xl py-6 cursor-pointer active:bg-white/5 transition-colors px-2 rounded-[4px]"
+                      className="w-full flex items-center justify-between text-white font-bold text-[17px] tracking-wide py-4 cursor-pointer active:bg-white/5 transition-colors px-2 rounded-[4px]"
                     >
                       <span className="uppercase">{key}</span>
-                      <div className="w-10 h-10 bg-white/10 rounded-[4px] flex items-center justify-center">
+                      <div className="w-8 h-8 rounded-[4px] flex items-center justify-end">
                         <Icon 
                           icon={openSection === key ? "mdi:minus-thick" : "mdi:plus-thick"} 
-                          className={`text-2xl transition-transform ${openSection === key ? 'text-amber-400' : 'text-white'}`} 
+                          className={`text-lg transition-transform ${openSection === key ? 'text-amber-400' : 'text-white'}`} 
                         />
                       </div>
                     </button>
@@ -216,16 +216,16 @@ export default function Navbar() {
                           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                           className="overflow-hidden"
                         >
-                          <div className="flex flex-col pb-4 mb-2">
+                          <div className="flex flex-col pb-3">
                             {items.map((link) => (
                               <Link
                                 key={link.to}
                                 to={link.to}
                                 onClick={() => setMenuOpen(false)}
-                                className="text-white/90 font-semibold text-lg py-5 px-6 border-l-2 border-amber-400/50 bg-white/5 mb-1 flex items-center justify-between hover:bg-white/10 active:bg-white/20 transition-colors ml-2 mr-2 rounded-r-[4px]"
+                                className="text-white/70 font-semibold text-sm py-3 px-4 flex items-center justify-between hover:text-white hover:bg-white/5 active:bg-white/10 transition-colors ml-4 mr-2 rounded-[4px]"
                               >
                                 {link.label}
-                                <Icon icon="mdi:arrow-right-thin" className="text-amber-400" />
+                                <Icon icon="mdi:arrow-right-thin" className="text-amber-400/50" />
                               </Link>
                             ))}
                           </div>
@@ -238,19 +238,19 @@ export default function Navbar() {
                 <Link
                   to="/membership"
                   onClick={() => setMenuOpen(false)}
-                  className="flex items-center justify-between text-white font-bold text-2xl py-6 border-b border-white/10 active:bg-white/5 transition-colors px-2 rounded-[4px]"
+                  className="flex items-center justify-between text-white font-bold text-[17px] tracking-wide py-4 border-b border-white/10 active:bg-white/5 transition-colors px-2 rounded-[4px]"
                 >
                   MEMBERSHIP
-                  <Icon icon="mdi:chevron-right" className="text-white/30 text-xl" />
+                  <Icon icon="mdi:chevron-right" className="text-white/30 text-lg" />
                 </Link>
 
-                <div className="mt-12">
+                <div className="mt-8">
                   <Link
                     to="/programs/donate"
                     onClick={() => setMenuOpen(false)}
-                    className="w-full bg-amber-500 text-cerulean-900 font-bold py-6 text-xl uppercase flex items-center justify-center gap-3 rounded-[4px] shadow-xl hover:bg-amber-400 active:scale-95 transition-all"
+                    className="w-full bg-amber-500 text-cerulean-900 font-bold py-4 text-sm tracking-widest uppercase flex items-center justify-center gap-2 rounded-[4px] shadow-xl hover:bg-amber-400 active:scale-95 transition-all"
                   >
-                    <Icon icon="mdi:heart" className="text-2xl" />
+                    <Icon icon="mdi:heart" className="text-base" />
                     MAKE A DONATION
                   </Link>
                 </div>

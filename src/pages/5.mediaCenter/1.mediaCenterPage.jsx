@@ -1,113 +1,85 @@
-import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Icon } from '@iconify/react'
+import { Link } from 'react-router-dom'
 import MediaCenterHero from './2.mediaCenterHero'
 
-const news = [
+const hubCategories = [
   {
-    title: 'FFOU Launches New ABAVUBI App Features for Market Access',
-    date: 'March 2024',
-    category: 'Technology',
-    excerpt: 'The latest update brings real-time pricing data from 40 new landing sites across Lakes Victoria and Albert.',
+    title: 'Visual Gallery',
+    desc: 'Browse through our high-resolution photo archives capturing the vibrant life, fieldwork, and events of the fishing communities we serve.',
+    route: '/media-center/gallery',
+    icon: 'mdi:image-multiple-outline',
+    bg: 'bg-marine-50',
+    color: 'text-marine-600',
+    border: 'border-marine-100',
+    actionText: 'View Gallery'
   },
   {
-    title: '131 Member Associations Participate in Annual Federation Conference',
-    date: 'February 2024',
-    category: 'Events',
-    excerpt: 'The 2024 annual conference brought together leaders from Uganda\'s five great lake regions to align on strategic priorities.',
-  },
-  {
-    title: 'FFOU Partners with FAO on Sustainable Aquaculture Initiative',
-    date: 'January 2024',
-    category: 'Partnerships',
-    excerpt: 'A new three-year collaboration will expand cage fish farming training across Lake Victoria and Lake Albert.',
-  },
-  {
-    title: 'Fisheries Regulation Training Reaches 5,000 Community Members',
-    date: 'December 2023',
-    category: 'Programs',
-    excerpt: 'FFOU\'s advocacy program surpassed its annual training target, covering fishing zones, licensing, and legal rights.',
-  },
-  {
-    title: 'Women Fishers Leadership Program Expands Across Three Lakes',
-    date: 'November 2023',
-    category: 'Community',
-    excerpt: 'Over 800 women in fishing communities have graduated from FFOU\'s financial literacy and leadership workshops.',
-  },
-  {
-    title: 'FFOU Submits Recommendations to National Fisheries Policy Review',
-    date: 'October 2023',
-    category: 'Advocacy',
-    excerpt: 'The federation presented a consolidated position paper representing views from all 131 member associations.',
-  },
+    title: 'Publications & Reports',
+    desc: 'Access our official policy documents, annual reports, strategic plans, and fact sheets documenting our systematic interventions.',
+    route: '/media-center/publications',
+    icon: 'mdi:file-document-outline',
+    bg: 'bg-cerulean-50',
+    color: 'text-cerulean-600',
+    border: 'border-cerulean-100',
+    actionText: 'Read Publications'
+  }
 ]
 
-const categoryColors = {
-  Technology: { bg: 'var(--color-zurich-50)', color: 'var(--color-zurich-600)' },
-  Events: { bg: '#f5f3ff', color: '#7c3aed' },
-  Partnerships: { bg: 'var(--color-militant-100)', color: 'var(--color-militant-500)' },
-  Programs: { bg: '#fef3c7', color: '#d97706' },
-  Community: { bg: '#fce7f3', color: '#db2777' },
-  Advocacy: { bg: '#ecfdf5', color: '#059669' },
-}
-
-function NewsSection() {
+function HubSection() {
   return (
-    <section className="py-24" style={{ background: 'var(--surface-a)' }}>
-      <div className="layout-spine">
-        <div className="flex flex-col md:flex-row gap-16 md:gap-24 mb-16 items-end">
-          <div className="max-w-xl">
-            <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-zurich-500 mb-4 block">Latest Intelligence</span>
-            <h2 className="font-header text-4xl md:text-5xl" style={{ color: 'var(--text-main)' }}>
-              News & Updates
+    <section className="py-24 bg-white border-b border-slate-100">
+      <div className="max-w-[1240px] mx-auto px-6">
+        <div className="flex flex-col md:flex-row gap-12 md:gap-24 items-start md:items-end justify-between mb-16">
+          <div className="max-w-2xl">
+            <span className="text-[10px] font-bold tracking-[0.35em] uppercase text-marine-500 mb-4 block">
+              Official Resources
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 leading-[1.1] tracking-tight">
+              Browse our <span className="text-cerulean-600 block mt-1">media collections</span>
             </h2>
           </div>
-          <div className="flex-1">
-             <p className="text-slate-500 text-sm leading-relaxed max-w-lg">
-                Stay informed with the latest developments, conference updates, and strategic announcements from the Federation.
-             </p>
-          </div>
+          <p className="text-slate-500 max-w-sm text-base leading-relaxed md:text-right">
+            Navigate through our expertly curated hubs to learn about the federation's advocacy, interventions, and visual milestones.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-5">
-          {news.map((item, i) => {
-            const tc = categoryColors[item.category] || categoryColors.Programs
-            return (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.07 }}
-                className="flex gap-4 p-6 rounded-2xl group hover:shadow-md transition-shadow cursor-pointer"
-                style={{ background: 'var(--surface-b)', border: '1px solid var(--nav-stroke)' }}
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-10">
+          {hubCategories.map((item, i) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.15, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <Link
+                to={item.route}
+                className={`flex flex-col p-10 h-full rounded-[4px] border ${item.border} ${item.bg} group hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-500 relative overflow-hidden`}
               >
-                <div className="flex-1">
-                  <span
-                    className="text-xs font-semibold px-2 py-1 rounded-full inline-block mb-3"
-                    style={{ background: tc.bg, color: tc.color }}
-                  >
-                    {item.category}
+                {/* Decorative blob */}
+                <div className={`absolute -right-12 -top-12 w-48 h-48 rounded-full blur-[40px] opacity-20 bg-current ${item.color} group-hover:opacity-40 transition-opacity duration-700`} />
+                
+                <div className={`w-16 h-16 rounded-[4px] bg-white border ${item.border} flex items-center justify-center mb-8 relative z-10 shadow-sm group-hover:scale-110 transition-transform duration-500`}>
+                  <Icon icon={item.icon} className={`text-3xl ${item.color}`} />
+                </div>
+                
+                <h3 className="text-2xl font-bold text-slate-800 mb-4 relative z-10">{item.title}</h3>
+                <p className="text-slate-600 text-base leading-relaxed relative z-10 mb-10 flex-grow">
+                  {item.desc}
+                </p>
+
+                <div className="mt-auto relative z-10 pt-6 border-t border-slate-200/50 flex items-center justify-between">
+                  <span className={`text-sm font-bold uppercase tracking-wider ${item.color}`}>
+                    {item.actionText}
                   </span>
-                  <h3
-                    className="font-heading text-lg mb-2 group-hover:text-zurich-500 transition-colors leading-snug"
-                    style={{ color: 'var(--text-main)' }}
-                  >
-                    {item.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed mb-3" style={{ color: 'var(--text-muted)' }}>
-                    {item.excerpt}
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs" style={{ color: 'var(--text-muted)' }}>{item.date}</span>
-                    <span className="text-xs font-semibold text-zurich-500 flex items-center gap-1">
-                      Read more <Icon icon="mdi:arrow-right-thick" className="text-xs" />
-                    </span>
+                  <div className={`w-10 h-10 rounded-[4px] flex items-center justify-center bg-white border ${item.border} group-hover:bg-current group-hover:text-white transition-all duration-300`}>
+                    <Icon icon="mdi:arrow-right" className="text-lg text-slate-400 group-hover:text-inherit" />
                   </div>
                 </div>
-              </motion.div>
-            )
-          })}
+              </Link>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
@@ -118,8 +90,7 @@ export default function MediaCenterPage() {
   return (
     <main>
       <MediaCenterHero />
-      <NewsSection />
-      {/* Publications and Gallery are now handled in their own dedicated dynamic routes */}
+      <HubSection />
     </main>
   )
 }
