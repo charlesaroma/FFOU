@@ -31,9 +31,8 @@ export default function DonationCTA() {
             transition={{ duration: 0.7 }}
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-[2px] bg-amber-400" />
-              <span className="text-amber-400 text-[11px] font-bold uppercase tracking-[0.35em]">
-                Make a Difference
+              <span className="text-amber-400 text-[10px] font-bold uppercase tracking-[0.35em]">
+                Join the Movement
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6 tracking-tight">

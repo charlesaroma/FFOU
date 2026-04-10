@@ -37,7 +37,6 @@ export default function AboutUs() {
               transition={{ duration: 0.7 }}
             >
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-8 h-[2px] bg-marine-500" />
                 <span className="text-marine-600 text-[10px] font-bold uppercase tracking-[0.35em]">
                   Identity & Origins
                 </span>
@@ -176,38 +175,52 @@ export default function AboutUs() {
       </section>
 
       {/* SECTION 4: Core Values */}
-      <section className="py-28 bg-marine-900 relative overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}
-        />
-        <div className="max-w-[1240px] mx-auto px-6 relative z-10">
-          <div className="mb-16">
-            <span className="text-amber-400 text-[10px] font-bold uppercase tracking-[0.4em] mb-4 block">Our DNA</span>
-            <h2 className="text-4xl md:text-[48px] font-bold text-white leading-tight tracking-tight">
+      <section className="py-32 bg-marine-900 relative overflow-hidden">
+        {/* Abstract Glows */}
+        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-amber-500/10 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-cerulean-500/10 blur-[130px] rounded-full pointer-events-none" />
+        
+        <div className="max-w-[1240px] w-full mx-auto px-6 relative z-10">
+          <div className="text-center mb-20 max-w-2xl mx-auto">
+            <span className="text-amber-400 text-[10px] font-bold uppercase tracking-[0.4em] mb-4 block">
+              Our DNA
+            </span>
+            <h2 className="text-4xl md:text-[52px] font-bold text-white leading-tight tracking-tight">
               The Principles We Live By
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 w-full">
             {values.map((v, i) => (
               <motion.div
                 key={v.label}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="flex flex-col group cursor-default"
+                transition={{ delay: i * 0.1, duration: 0.6 }}
+                className={`group relative overflow-hidden rounded-[4px] border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] p-10 md:p-12 transition-all duration-500 ${
+                  i < 3 ? 'md:col-span-4' : 'md:col-span-6'
+                }`}
               >
-                <div className="w-14 h-14 rounded-[4px] border border-white/15 flex items-center justify-center mb-6 group-hover:bg-amber-400 group-hover:border-amber-400 transition-all duration-300">
-                  <Icon icon={v.icon} className="text-white text-2xl" />
+                {/* Large Background Number */}
+                <div className="absolute -right-4 -bottom-6 text-[140px] font-black text-white/5 group-hover:text-amber-400/5 transition-colors duration-500 select-none pointer-events-none leading-none">
+                  0{i + 1}
                 </div>
-                <h4 className="text-white font-bold text-lg mb-3 group-hover:text-amber-400 transition-colors uppercase tracking-tight">
-                  {v.label}
-                </h4>
-                <p className="text-marine-300 text-sm leading-relaxed group-hover:text-white transition-colors">
-                  {v.desc}
-                </p>
+                
+                <div className="relative z-10">
+                  <div className="w-16 h-16 rounded-[4px] bg-marine-800/50 border border-white/10 flex items-center justify-center mb-8 group-hover:bg-amber-400 group-hover:border-amber-400 transition-all duration-500">
+                    <Icon icon={v.icon} className="text-white text-3xl group-hover:text-marine-900 transition-colors" />
+                  </div>
+                  <h4 className="text-white font-bold text-2xl mb-4 tracking-tight">
+                    {v.label}
+                  </h4>
+                  <p className="text-marine-200 text-base leading-relaxed max-w-sm">
+                    {v.desc}
+                  </p>
+                </div>
+                
+                {/* Hover line accent */}
+                <div className="absolute top-0 left-0 w-0 h-1 bg-amber-400 group-hover:w-full transition-all duration-700 ease-out" />
               </motion.div>
             ))}
           </div>

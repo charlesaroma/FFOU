@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion'
-import { Icon } from '@iconify/react'
 
 const partners = [
-  { name: 'Ministry of Agriculture, Animal Industry & Fisheries', short: 'MAAIF', icon: 'ph:building-columns-bold', type: 'Government' },
-  { name: 'National Fisheries Resources Research Institute', short: 'NaFIRRI', icon: 'ph:flask-bold', type: 'Research' },
-  { name: 'Food & Agriculture Organization', short: 'FAO Uganda', icon: 'ph:tree-evergreen-bold', type: 'UN Agency' },
-  { name: 'European Union Delegation', short: 'EU Delegation', icon: 'ph:globe-hemisphere-west-bold', type: 'Donor' },
-  { name: 'World Fish Center', short: 'WorldFish', icon: 'ph:fish-bold', type: 'International' },
-  { name: 'Uganda Fish Processors & Exporters Assoc.', short: 'UFPEA', icon: 'ph:factory-bold', type: 'Industry' },
+  { name: 'Ministry of Agriculture, Animal Industry & Fisheries', short: 'MAAIF', logo: '/MAAIF-LOGO.png', type: 'Government' },
+  { name: 'National Fisheries Resources Research Institute', short: 'NaFIRRI', logo: '/NAFIRRI-LOGO.png', type: 'Research' },
+  { name: 'Lake Victoria Fisheries Organization', short: 'LVFO', logo: '/LVFO-LOGO.png', type: 'Regional' },
+  { name: 'East African Community', short: 'EAC', logo: '/EAC.png', type: 'Regional' },
+  { name: 'GIZ', short: 'GIZ', logo: '/giz.jpg', type: 'Development Partner' },
+  { name: 'Sustainable Development Goals', short: 'SDG', logo: '/SDG.jpg', type: 'Global Framework' },
+  { name: 'Uganda Network of AIDS Service Organisations', short: 'UNASO', logo: '/unaso.jpg', type: 'NGO' },
+  { name: 'National Information Technology Authority', short: 'NITA-U', logo: '/NITA-LOGO.png', type: 'Government' },
 ]
 
 export default function HomePartners() {
@@ -31,7 +32,7 @@ export default function HomePartners() {
         </motion.div>
 
         {/* Partner cards */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
           {partners.map((p, i) => (
             <motion.div
               key={p.name}
@@ -39,13 +40,15 @@ export default function HomePartners() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.07 }}
-              className="bg-white border border-slate-100 rounded-[4px] p-5 text-center hover:border-marine-200 hover:shadow-md transition-all group cursor-default"
+              className="bg-white border border-slate-100 rounded-[4px] p-4 text-center hover:border-marine-200 hover:shadow-md transition-all group cursor-default flex flex-col justify-between"
             >
-              <div className="w-12 h-12 rounded-[4px] bg-marine-500/08 border border-marine-100 flex items-center justify-center mx-auto mb-3 group-hover:bg-marine-500/15 transition-colors">
-                <Icon icon={p.icon} className="text-marine-600 text-xl" />
+              <div className="w-16 h-16 rounded-[4px] flex items-center justify-center mx-auto mb-3 overflow-hidden">
+                <img src={p.logo} alt={p.short} className="max-w-full max-h-full object-contain grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" />
               </div>
-              <div className="text-sm font-bold text-slate-800 mb-1">{p.short}</div>
-              <div className="text-[10px] text-slate-400 font-medium uppercase tracking-wider">{p.type}</div>
+              <div>
+                <div className="text-sm font-bold text-slate-800 mb-1">{p.short}</div>
+                <div className="text-[9px] text-slate-400 font-medium uppercase tracking-wider">{p.type}</div>
+              </div>
             </motion.div>
           ))}
         </div>

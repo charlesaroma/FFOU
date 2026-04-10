@@ -62,7 +62,6 @@ export default function HomeHero() {
               transition={{ duration: 0.6 }}
               className="flex items-center gap-3 mb-8"
             >
-              <div className="w-8 h-[2px] bg-amber-400" />
               <span className="text-amber-400 text-[11px] font-bold uppercase tracking-[0.35em]">
                 Federation of Fisheries Organisations Uganda
               </span>
