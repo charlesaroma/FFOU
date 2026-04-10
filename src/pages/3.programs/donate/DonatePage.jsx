@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Icon } from '@iconify/react'
+import { useState } from 'react'
 import DonateHero from './sections/DonateHero'
 
 const bankAccounts = [
@@ -11,7 +12,6 @@ const bankAccounts = [
     swift: 'CITIGB21',
     iban: 'GB59CITI18500811117874',
     branch: 'Impala House, Kimathi Avenue, Kampala',
-    color: 'var(--color-marine-500)',
   },
   {
     bank: 'DFCU Bank',
@@ -21,7 +21,6 @@ const bankAccounts = [
     swift: null,
     iban: null,
     branch: 'Impala Branch',
-    color: 'var(--color-cerulean-500)',
   },
   {
     bank: 'Bank of Africa',
@@ -31,166 +30,230 @@ const bankAccounts = [
     swift: null,
     iban: null,
     branch: 'Kampala Road',
-    color: 'var(--color-amber-500)',
   },
 ]
 
-function DonationContent() {
+const impacts = [
+  {
+    icon: 'ph:graduation-cap-bold',
+    title: 'Training & Education',
+    desc: 'Fund capacity building programs for fishers on sustainable practices, legal rights, and modern techniques.',
+    color: 'text-cerulean-600',
+    bg: 'bg-cerulean-50',
+    border: 'border-cerulean-100',
+  },
+  {
+    icon: 'ph:device-mobile-bold',
+    title: 'Digital Tools',
+    desc: 'Support the ABAVUBI App development — connecting fishing communities to real-time market data and safety alerts.',
+    color: 'text-marine-600',
+    bg: 'bg-marine-50',
+    border: 'border-marine-100',
+  },
+  {
+    icon: 'ph:first-aid-kit-bold',
+    title: 'Health Services',
+    desc: 'Enable community health outreach covering HIV/AIDS awareness, malaria prevention, and maternal health.',
+    color: 'text-militant-600',
+    bg: 'bg-militant-100',
+    border: 'border-militant-100',
+  },
+]
+
+function CopyButton({ text }) {
+  const [copied, setCopied] = useState(false)
+  const handleCopy = () => {
+    navigator.clipboard.writeText(text)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
   return (
-    <div id="donate-details" className="py-24" style={{ background: 'var(--surface-a)' }}>
-      <div className="layout-spine">
-        <div className="text-center mb-16">
-          <span className="text-xs font-semibold tracking-widest uppercase text-amber-600">
-            Ways to Help
-          </span>
-          <h2 className="font-header text-4xl mt-3" style={{ color: 'var(--text-main)' }}>
-            Financial Contributions
-          </h2>
-          <p className="mt-4 text-base max-w-2xl mx-auto" style={{ color: 'var(--text-muted)' }}>
-            Your financial gifts directly support FFOU educational programs, health campaigns, 
-            and structural infrastructure projects across Uganda's landing sites.
-          </p>
-        </div>
-
-        {/* Impact Cards */}
-        <div className="grid lg:grid-cols-3 gap-6 mb-20">
-          {[
-            {
-              icon: 'ph:graduation-cap-bold',
-              title: 'Training & Education',
-              desc: 'Fund capacity building programs for fishers on sustainable practices.',
-              color: 'var(--color-marine-500)',
-            },
-            {
-              icon: 'ph:device-mobile-bold',
-              title: 'Digital Tools',
-              desc: 'Support the ABAVUBI app development for market access.',
-              color: 'var(--color-cerulean-500)',
-            },
-            {
-              icon: 'ph:first-aid-kit-bold',
-              title: 'Health Services',
-              desc: 'Enable health outreach for fishing communities.',
-              color: 'var(--color-amber-500)',
-            },
-          ].map((impact, i) => (
-            <motion.div
-              key={impact.title}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="p-8 rounded-2xl"
-              style={{ background: 'var(--surface-b)', border: '1px solid var(--nav-stroke)', boxShadow: 'var(--shadow-sm)' }}
-            >
-              <div
-                className="w-14 h-14 rounded-xl flex items-center justify-center mb-6"
-                style={{ background: `${impact.color}15` }}
-              >
-                <Icon icon={impact.icon} className="text-2xl" style={{ color: impact.color }} />
-              </div>
-              <h3 className="font-header text-lg mb-2" style={{ color: 'var(--text-main)' }}>
-                {impact.title}
-              </h3>
-              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-                {impact.desc}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Bank Details Area */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="rounded-3xl p-8 md:p-12 shadow-2xl overflow-hidden relative"
-          style={{ background: 'var(--color-marine-900)' }}
-        >
-          {/* Decorative background for the box */}
-          <div className="absolute top-0 right-0 p-12 opacity-5">
-             <Icon icon="ph:bank-bold" className="text-[200px] text-white" />
-          </div>
-
-          <div className="relative z-10">
-            <div className="flex items-center gap-4 mb-10">
-              <div className="w-12 h-12 rounded-full bg-amber-500 flex items-center justify-center">
-                 <Icon icon="ph:currency-circle-dollar-bold" className="text-2xl text-white" />
-              </div>
-              <div>
-                <h3 className="font-header text-2xl text-white">
-                  Direct Bank Transfer
-                </h3>
-                <p className="text-marine-300 text-sm">Please use the details below for SECURE transactions</p>
-              </div>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              {bankAccounts.map((account, i) => (
-                <div
-                  key={account.accountNumber}
-                  className="p-6 rounded-2xl group transition-all"
-                  style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
-                >
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="text-[10px] font-bold tracking-widest uppercase text-marine-400">Recipient Bank</span>
-                    <span 
-                      className="text-[10px] px-3 py-1 rounded-full font-bold"
-                      style={{ background: 'rgba(255,255,255,0.1)', color: 'var(--color-amber-400)' }}
-                    >
-                      {account.currency}
-                    </span>
-                  </div>
-
-                  <div className="space-y-5">
-                    <div>
-                        <h4 className="text-white font-bold text-lg mb-1">{account.bank}</h4>
-                        <p className="text-xs text-marine-300 italic">Branch: {account.branch}</p>
-                    </div>
-
-                    <div className="p-4 rounded-xl relative" style={{ background: 'rgba(0,0,0,0.2)' }}>
-                      <span className="block text-[10px] font-bold text-marine-400 mb-2 uppercase">Account Number</span>
-                      <p className="text-white font-mono text-base tracking-wider break-all">{account.accountNumber}</p>
-                      <button 
-                        onClick={() => navigator.clipboard.writeText(account.accountNumber)}
-                        className="absolute top-4 right-4 text-marine-500 hover:text-white transition-colors"
-                      >
-                         <Icon icon="ph:copy-bold" />
-                      </button>
-                    </div>
-
-                    {account.swift && (
-                      <div className="flex items-center justify-between px-2">
-                        <span className="text-xs text-marine-400">SWIFT / BIC</span>
-                        <span className="text-sm text-white font-mono">{account.swift}</span>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-10 p-5 rounded-2xl flex items-start gap-4" style={{ background: 'rgba(255,255,255,0.04)', border: '1px border-dashed rgba(255,255,255,0.1)' }}>
-              <Icon icon="ph:shield-check-bold" className="text-2xl text-cerulean-400 shrink-0 mt-1" />
-              <div>
-                 <p className="text-sm font-medium text-white mb-1">Official Federation Accounts</p>
-                 <p className="text-xs leading-relaxed text-marine-300">
-                  Payments are only processed through these official accounts. Ensure the Account Name is "Federation of Fisheries Organizations Uganda" before confirming. For international transfers, use the DFCU EUR account (SWIFT: CITIGB21).
-                 </p>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      </div>
-    </div>
+    <button
+      onClick={handleCopy}
+      className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-[4px] text-marine-400 hover:text-white hover:bg-white/10 transition-all cursor-pointer"
+      title="Copy to clipboard"
+    >
+      <Icon icon={copied ? 'ph:check-bold' : 'ph:copy-bold'} className="text-sm" />
+    </button>
   )
 }
 
 export default function Donate() {
   return (
-    <main>
+    <main className="bg-surface-500">
       <DonateHero />
-      <DonationContent />
+
+      {/* Impact Section */}
+      <section className="py-24 bg-white border-b border-slate-100">
+        <div className="max-w-[1240px] mx-auto px-6">
+          <div className="flex flex-col md:flex-row gap-12 md:gap-24 items-start md:items-end justify-between mb-16">
+            <div className="max-w-xl">
+              <span className="text-[10px] font-bold tracking-[0.35em] text-amber-600 uppercase mb-4 block">
+                Where Your Money Goes
+              </span>
+              <h2 className="text-4xl font-bold text-slate-800 leading-tight tracking-tight">
+                Every donation creates{' '}
+                <span className="text-marine-600">measurable impact</span>
+              </h2>
+            </div>
+            <p className="text-slate-500 max-w-sm text-sm leading-relaxed">
+              Your financial contributions go directly to programs that reach over 2 million fisherfolk across Uganda's five great lakes.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {impacts.map((item, i) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className={`p-8 rounded-[4px] border ${item.border} ${item.bg} group hover:shadow-lg transition-all`}
+              >
+                <div className={`w-12 h-12 rounded-[4px] bg-white border ${item.border} flex items-center justify-center mb-6`}>
+                  <Icon icon={item.icon} className={`text-xl ${item.color}`} />
+                </div>
+                <h3 className="text-lg font-bold text-slate-800 mb-3">{item.title}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Bank Transfer Section */}
+      <section className="py-24 bg-marine-900 relative overflow-hidden">
+        {/* Decorative grid */}
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage: 'linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)',
+            backgroundSize: '50px 50px',
+          }}
+        />
+
+        <div className="relative z-10 max-w-[1240px] mx-auto px-6">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-14"
+          >
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-12 h-12 rounded-[4px] bg-amber-400/15 border border-amber-400/20 flex items-center justify-center">
+                <Icon icon="ph:bank-bold" className="text-amber-400 text-xl" />
+              </div>
+              <div>
+                <span className="text-amber-400 text-[10px] font-bold uppercase tracking-[0.35em] block mb-1">
+                  Secure Transfer
+                </span>
+                <h2 className="text-3xl font-bold text-white leading-tight">Direct Bank Transfer</h2>
+              </div>
+            </div>
+            <p className="text-marine-300 text-sm max-w-xl leading-relaxed">
+              Please use the official accounts below. Always verify the account name before confirming.
+              For international transfers, use the EUR account with SWIFT code.
+            </p>
+          </motion.div>
+
+          {/* Bank Cards */}
+          <div className="grid md:grid-cols-3 gap-5 mb-10">
+            {bankAccounts.map((account, i) => (
+              <motion.div
+                key={account.accountNumber}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="rounded-[4px] border border-white/10 bg-white/5 p-7 flex flex-col gap-5"
+              >
+                {/* Top row */}
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-marine-400">
+                    Recipient Bank
+                  </span>
+                  <span className="text-[10px] px-3 py-1 rounded-[4px] font-bold bg-amber-400/15 text-amber-400 border border-amber-400/20">
+                    {account.currency}
+                  </span>
+                </div>
+
+                {/* Bank name */}
+                <div>
+                  <h4 className="text-white font-bold text-lg leading-tight">{account.bank}</h4>
+                  <p className="text-marine-300 text-xs mt-1">{account.branch}</p>
+                </div>
+
+                {/* Account number */}
+                <div className="relative bg-black/20 rounded-[4px] p-4">
+                  <span className="block text-[10px] font-bold text-marine-400 uppercase mb-2">Account Number</span>
+                  <p className="text-white font-mono text-base tracking-widest pr-8 break-all">
+                    {account.accountNumber}
+                  </p>
+                  <CopyButton text={account.accountNumber} />
+                </div>
+
+                {/* SWIFT / IBAN if present */}
+                {account.swift && (
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between py-2 border-t border-white/10">
+                      <span className="text-xs text-marine-400">SWIFT / BIC</span>
+                      <span className="text-sm text-white font-mono">{account.swift}</span>
+                    </div>
+                    {account.iban && (
+                      <div className="flex items-center justify-between py-2 border-t border-white/10">
+                        <span className="text-xs text-marine-400">IBAN</span>
+                        <span className="text-xs text-white font-mono break-all text-right ml-4">{account.iban}</span>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* Account name */}
+                <div className="pt-2 border-t border-white/10">
+                  <span className="text-[10px] text-marine-400 uppercase font-bold tracking-wider block mb-1">Account Name</span>
+                  <span className="text-white text-xs leading-relaxed">{account.accountName}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Security notice */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="flex items-start gap-4 p-6 rounded-[4px] border border-cerulean-400/20 bg-cerulean-500/10"
+          >
+            <Icon icon="ph:shield-check-bold" className="text-cerulean-400 text-2xl shrink-0 mt-0.5" />
+            <div>
+              <p className="text-sm font-bold text-white mb-1">Official Federation Accounts Only</p>
+              <p className="text-xs leading-relaxed text-marine-300">
+                Payments are only processed through these official accounts. Always verify that the Account Name
+                reads exactly <em>"Federation of Fisheries Organizations Uganda"</em> before confirming any transfer.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Contact prompt */}
+      <section className="py-16 bg-surface-600 border-t border-slate-100">
+        <div className="max-w-[1240px] mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <h3 className="text-xl font-bold text-slate-800 mb-1">Have questions about donating?</h3>
+            <p className="text-slate-500 text-sm">Our secretariat is happy to assist with any financial queries.</p>
+          </div>
+          <a
+            href="tel:+256417336800"
+            className="inline-flex items-center gap-2 bg-marine-700 text-white font-bold px-8 py-4 text-[12px] uppercase tracking-widest hover:bg-marine-800 transition-all rounded-[4px] shrink-0"
+          >
+            <Icon icon="ph:phone-bold" />
+            Contact Secretariat
+          </a>
+        </div>
+      </section>
     </main>
   )
 }

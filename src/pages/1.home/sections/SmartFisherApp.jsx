@@ -1,66 +1,116 @@
 import { motion } from 'framer-motion'
 import { Icon } from '@iconify/react'
+import { Link } from 'react-router-dom'
 
-export default function ActionAreas() {
+const features = [
+  {
+    icon: 'ph:map-pin-area-bold',
+    title: 'Market Linkages',
+    text: 'Real-time pricing from 40+ landing sites across all five lakes.',
+  },
+  {
+    icon: 'ph:bell-ringing-bold',
+    title: 'Safety Alerts',
+    text: 'Instant storm and weather notifications for lake-going fishers.',
+  },
+  {
+    icon: 'ph:microphone-bold',
+    title: 'Voice Guidance',
+    text: 'Local language audio instructions for low-literacy users.',
+  },
+  {
+    icon: 'ph:certificate-bold',
+    title: 'Digital Licensing',
+    text: 'Streamlined fishing permit applications through the app.',
+  },
+]
+
+export default function SmartFisherSection() {
   return (
-    <section className="py-24 bg-surface-500">
+    <section className="py-28 bg-white overflow-hidden">
       <div className="max-w-[1240px] mx-auto px-6">
-        {/* Intro Block Group */}
-        <div className="flex flex-col md:flex-row gap-16 mb-20">
-          {/* Header Area */}
-          <div className="max-w-xl">
-            <span className="bg-amber-100 text-amber-700 text-[10px] font-bold px-3 py-1 uppercase rounded-sm mb-6 inline-block tracking-[0.2em]">
-              OUR COMMITMENT
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-8 leading-tight tracking-tighter">
-              Strategic Action <br />& Impact
-            </h2>
-          </div>
-          {/* Description Area */}
-          <div className="flex-1">
-            <p className="text-slate-600 leading-relaxed mb-6 font-medium">
-              We leverage data-driven strategies and community-led initiatives to address the most pressing challenges in Uganda's fisheries sub-sector. Our work is centered on three core pillars of transformation.
-            </p>
-            <p className="text-slate-600 leading-relaxed font-medium">
-              From digitizing the value chain to ensuring policy compliance, we aim to build a resilient ecosystem for over 2 million lake users.
-            </p>
-          </div>
-        </div>
+        <div className="grid lg:grid-cols-2 gap-16 xl:gap-24 items-center">
 
-        {/* Action Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[
-            { 
-              title: 'Digital Inclusion', 
-              desc: 'Pioneering ICT solutions like the ABAVUBI App to provide market linkages and real-time safety information for fishing communities.', 
-              icon: 'ph:device-mobile-bold' 
-            },
-            { 
-              title: 'Policy Advocacy', 
-              desc: 'Bridging the gap between government regulations and community rights, ensuring fair representation for non-state actors.', 
-              icon: 'ph:scales-bold' 
-            },
-            { 
-              title: 'Livelihood Dev', 
-              desc: 'Empowering women and youth through technical training, microfinance, and sustainable aquaculture development.', 
-              icon: 'ph:users-three-bold' 
-            }
-          ].map((item, i) => (
-            <motion.div 
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="bg-white p-12 shadow-sm border border-slate-100 flex flex-col group hover:border-amber-400 transition-colors rounded-2xl"
+          {/* Left — Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <span className="text-[10px] font-bold tracking-[0.35em] text-cerulean-500 uppercase mb-5 block">
+              Digital Innovation
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6 leading-tight tracking-tight">
+              The ABAVUBI App —
+              <br />
+              <span className="text-cerulean-600">fishing, reimagined</span>
+            </h2>
+            <p className="text-slate-600 text-lg leading-relaxed mb-10">
+              Developed in partnership with FFOU, the ABAVUBI App brings the power of digital technology directly to fishing communities — cutting out middlemen, improving safety, and empowering livelihoods at the water's edge.
+            </p>
+
+            {/* Feature rows */}
+            <div className="space-y-4 mb-10">
+              {features.map((f, i) => (
+                <motion.div
+                  key={f.title}
+                  initial={{ opacity: 0, x: -16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                  className="flex items-start gap-4 p-4 rounded-[4px] border border-slate-100 hover:border-cerulean-200 hover:bg-cerulean-50/40 transition-all group"
+                >
+                  <div className="w-10 h-10 rounded-[4px] bg-cerulean-600 flex items-center justify-center shrink-0">
+                    <Icon icon={f.icon} className="text-white text-base" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-bold text-slate-800 mb-1">{f.title}</div>
+                    <div className="text-xs text-slate-500 leading-relaxed">{f.text}</div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <Link
+              to="/programs/ict-integration-and-innovation"
+              className="inline-flex items-center gap-2 bg-cerulean-600 text-white font-bold px-8 py-4 text-[12px] uppercase tracking-widest hover:bg-cerulean-700 transition-all rounded-[4px]"
             >
-              <div className="w-16 h-16 rounded-full bg-slate-50 flex items-center justify-center mb-8 group-hover:bg-amber-50 transition-colors">
-                <Icon icon={item.icon} className="text-3xl text-slate-400 group-hover:text-amber-500" />
-              </div>
-              <h4 className="text-xl font-bold text-slate-800 mb-4 tracking-tight">{item.title}</h4>
-              <p className="text-sm text-slate-500 leading-relaxed font-medium">{item.desc}</p>
-            </motion.div>
-          ))}
+              Explore Digital Programs
+              <Icon icon="ph:arrow-right-bold" />
+            </Link>
+          </motion.div>
+
+          {/* Right — Visual */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="relative"
+          >
+            <div className="relative aspect-4/5 rounded-[4px] overflow-hidden">
+              <img
+                src="https://ik.imagekit.io/sbgenu6wj/FFOU/programs%20page/program-list/ictIntegration.png?updatedAt=1775579971114"
+                alt="ABAVUBI App in action"
+                className="w-full h-full object-cover"
+                onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800' }}
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-marine-900/50 via-transparent to-transparent" />
+            </div>
+
+            {/* Floating stat card */}
+            <div className="absolute -bottom-6 -left-4 md:-left-8 bg-white rounded-[4px] border border-slate-100 shadow-2xl p-5 w-44">
+              <div className="text-3xl font-bold text-cerulean-600 mb-1">40+</div>
+              <div className="text-xs text-slate-500 leading-snug">Landing sites connected across all lakes</div>
+            </div>
+
+            {/* Decorative block */}
+            <div className="absolute -top-6 -right-4 md:-right-6 w-20 h-20 bg-cerulean-600 rounded-[4px] flex items-center justify-center shadow-xl">
+              <Icon icon="ph:device-mobile-bold" className="text-white text-3xl" />
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </section>

@@ -1,52 +1,49 @@
 import { motion } from 'framer-motion'
 import { Icon } from '@iconify/react'
 
-export default function AboutHero({ 
-  title = "Our Story", 
-  subtitle = "Empowering fishing communities across Uganda's great lakes since 2017.",
-  badgeText = "About Us" 
-}) {
+export default function AboutHero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <img 
-        src="https://ik.imagekit.io/sbgenu6wj/FFOU/about%20page/aboutHero.png?updatedAt=1775579643146" 
-        alt="About FFOU" 
+    <section className="relative min-h-[70vh] flex items-end overflow-hidden">
+      {/* Background */}
+      <img
+        src="https://ik.imagekit.io/sbgenu6wj/FFOU/programs%20page/programsHero.png?updatedAt=1775579643146"
+        alt="About FFOU"
         className="absolute inset-0 w-full h-full object-cover"
-        onError={(e) => {
-          e.target.src = "https://ik.imagekit.io/sbgenu6wj/FFOU/programs%20page/programsHero.png?updatedAt=1775579643146";
-        }}
       />
-      <div className="absolute inset-0 bg-marine-900/60" />
+      <div className="absolute inset-0 bg-marine-900/75" />
+      <div className="absolute inset-0 bg-linear-to-r from-marine-900/90 via-marine-900/50 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-t from-marine-900/80 via-transparent to-transparent" />
 
-      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
+      {/* Content */}
+      <div className="relative z-10 w-full max-w-[1240px] mx-auto px-6 pb-20 pt-40">
         <motion.div
-           initial={{ opacity: 0, y: 20 }}
-           animate={{ opacity: 1, y: 0 }}
-           transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="max-w-2xl"
         >
-          <span className="bg-amber-100 text-amber-700 text-[10px] font-bold px-3 py-1 uppercase rounded-sm mb-6 inline-block tracking-[0.2em]">
-            {badgeText.toUpperCase()}
-          </span>
-          <h1 className="text-white text-5xl md:text-7xl lg:text-8xl font-bold mb-8 tracking-tighter leading-tight">
-            {title}
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-8 h-[2px] bg-amber-400" />
+            <span className="text-amber-400 text-[11px] font-bold uppercase tracking-[0.35em]">
+              Federation of Fisheries Organisations Uganda
+            </span>
+          </div>
+          <h1 className="text-white text-4xl md:text-5xl lg:text-[54px] font-bold leading-tight mb-6 tracking-tight">
+            Who We Are
           </h1>
-          <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-medium mb-12">
-            {subtitle}
+          <p className="text-white/70 text-lg leading-relaxed max-w-xl">
+            The national umbrella body uniting 131 fisheries associations to advocate, empower, and transform Uganda's fisheries sub-sector.
           </p>
 
-          {/* Minimalist Stats Row */}
-          <div className="flex flex-wrap justify-center gap-10 md:gap-16 border-t border-white/10 pt-10">
-            {[
-              { val: '2017', label: 'ESTABLISHED' },
-              { val: '131+', label: 'ASSOCIATIONS' },
-              { val: '12+', label: 'ACTIVE PROGRAMS' },
-              { val: '2.1M+', label: 'LAKE USERS' },
-            ].map(s => (
-              <div key={s.label} className="text-center group">
-                <div className="text-white text-2xl md:text-3xl font-bold mb-1 transition-transform group-hover:scale-110">{s.val}</div>
-                <div className="text-amber-400 text-[9px] font-bold uppercase tracking-widest">{s.label}</div>
-              </div>
+          {/* Quick nav breadcrumb pills */}
+          <div className="flex flex-wrap gap-3 mt-10">
+            {['About Us', 'The Team', 'Our Partners'].map((item) => (
+              <span
+                key={item}
+                className="px-4 py-2 rounded-[4px] border border-white/20 text-white/70 text-[11px] font-bold uppercase tracking-widest"
+              >
+                {item}
+              </span>
             ))}
           </div>
         </motion.div>

@@ -15,7 +15,7 @@ const dropdownItems = {
     { label: "Donate", to: "/programs/donate" },
   ],
   "Media Centre": [
-    { label: "News & Updates", to: "/media-center" },
+    { label: "Media Centre", to: "/media-center" },
     { label: "Publications", to: "/media-center/publications" },
     { label: "Gallery", to: "/media-center/gallery" },
   ],

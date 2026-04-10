@@ -2,162 +2,194 @@ import { motion } from 'framer-motion'
 import { Icon } from '@iconify/react'
 
 const values = [
-  { icon: 'ph:shield-check-bold', label: 'Integrity', desc: 'Upholding ethical standards in all our operations.' },
+  { icon: 'ph:shield-check-bold', label: 'Integrity', desc: 'Upholding ethical standards in all our operations and partnerships.' },
   { icon: 'ph:lightning-bold', label: 'Efficiency', desc: 'Delivering maximum impact with available resources.' },
-  { icon: 'ph:scales-bold', label: 'Accountability', desc: 'Transparent governance and reporting to our members.' },
-  { icon: 'ph:graduation-cap-bold', label: 'Professionalism', desc: 'Maintaining high standards of conduct and expertise.' },
+  { icon: 'ph:scales-bold', label: 'Accountability', desc: 'Transparent governance and reporting to all members.' },
+  { icon: 'ph:graduation-cap-bold', label: 'Professionalism', desc: 'Maintaining high standards of expertise and conduct.' },
   { icon: 'ph:arrows-clockwise-bold', label: 'Continuity', desc: 'Building lasting systems for generational impact.' },
 ]
 
 const strategicAreas = [
-  'Policy & Human Rights',
-  'HIV/AIDS Services',
-  'ICT Integration',
-  'Climate Action',
-  'Youth & Women',
-  'Aquaculture Dev',
-  'Girl Child Education',
-  'Vocational Training',
+  { label: 'Policy & Human Rights', icon: 'ph:scales-bold' },
+  { label: 'HIV/AIDS Services', icon: 'ph:first-aid-kit-bold' },
+  { label: 'ICT Integration', icon: 'ph:device-mobile-bold' },
+  { label: 'Climate Action', icon: 'ph:leaf-bold' },
+  { label: 'Youth & Women', icon: 'ph:users-three-bold' },
+  { label: 'Aquaculture Dev', icon: 'ph:fish-bold' },
+  { label: 'Girl-Child Education', icon: 'ph:book-open-bold' },
+  { label: 'Vocational Training', icon: 'ph:wrench-bold' },
 ]
 
 export default function AboutUs() {
   return (
-    <div style={{ background: 'var(--surface-a)' }}>
-      {/* SECTION 1: Who We Are (Intro Block Group Pattern) */}
-      <section className="py-32 border-b border-slate-100/50">
+    <div className="bg-surface-500">
+
+      {/* SECTION 1: Who We Are */}
+      <section className="py-28 border-b border-slate-100">
         <div className="max-w-[1240px] mx-auto px-6">
-          <div className="flex flex-col lg:flex-row gap-16 lg:gap-32">
-            {/* Header Area */}
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
+          <div className="grid lg:grid-cols-2 gap-16 xl:gap-24 items-center">
+
+            {/* Left — Text */}
+            <motion.div
+              initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="max-w-xl lg:w-[45%]"
+              transition={{ duration: 0.7 }}
             >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-0.5 bg-amber-400" />
-                <span className="text-marine-600 text-[10px] font-bold uppercase tracking-[0.3em]">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-8 h-[2px] bg-marine-500" />
+                <span className="text-marine-600 text-[10px] font-bold uppercase tracking-[0.35em]">
                   Identity & Origins
                 </span>
               </div>
-              <h2 className="font-header text-5xl md:text-6xl text-slate-800 mb-8 leading-[1.1]">
-                An Umbrella for<br />
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6 leading-tight tracking-tight">
+                An Umbrella for{' '}
                 <span className="text-marine-600">Non-State Actors</span>
               </h2>
-            </motion.div>
-
-            {/* Description Area */}
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="flex-1 lg:pt-10"
-            >
-              <p className="text-slate-600 text-xl leading-relaxed mb-8 font-medium">
-                The <strong className="text-slate-800">Federation of Fisheries Organisations Uganda (FFOU)</strong> is a national umbrella body for all non-state actors in the Fisheries Sub-sector, currently working with <strong className="text-marine-600">131 member Associations</strong> across Uganda's five great lakes.
+              <p className="text-slate-600 text-lg leading-relaxed mb-5">
+                The <strong className="text-slate-800">Federation of Fisheries Organisations Uganda (FFOU)</strong> is the national umbrella body representing all non-state actors in the Fisheries Sub-sector, currently coordinating{' '}
+                <strong className="text-marine-600">131 member Associations</strong> across Uganda's five great lakes.
               </p>
-              <p className="text-slate-500 leading-relaxed text-lg italic border-l-4 border-amber-400 pl-8">
+              <p className="text-slate-500 leading-relaxed text-base italic border-l-4 border-amber-400 pl-6 py-1">
                 Conceived in 2011 to address issues affecting marginalized groups, FFOU has evolved into a strategic force aligning with National Development Programs (NDP III) and Sustainable Development Goals.
               </p>
             </motion.div>
+
+            {/* Right — Image + floating card */}
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.15 }}
+              className="relative"
+            >
+              <div className="aspect-4/5 rounded-[4px] overflow-hidden shadow-2xl">
+                <img
+                  src="https://ik.imagekit.io/sbgenu6wj/FFOU/programs%20page/program-list/legislation-policies.png?updatedAt=1775579979750"
+                  alt="FFOU advocacy"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-marine-900/40 to-transparent" />
+              </div>
+              <div className="absolute -bottom-6 -left-4 md:-left-8 bg-marine-800 rounded-[4px] p-5 shadow-2xl w-52">
+                <div className="text-amber-400 text-2xl font-bold mb-1">Est. 2002</div>
+                <div className="text-white/70 text-xs leading-relaxed">Over two decades serving Uganda's fishing communities.</div>
+              </div>
+            </motion.div>
+
           </div>
         </div>
       </section>
 
-      {/* SECTION 2: Vision & Mission (High-Fidelity Cards) */}
-      <section className="py-32 bg-[#f8fafc]">
+      {/* SECTION 2: Vision & Mission */}
+      <section className="py-28 bg-white border-b border-slate-100">
         <div className="max-w-[1240px] mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="text-center mb-14">
+            <span className="text-[10px] font-bold tracking-[0.35em] text-amber-600 uppercase mb-3 block">
+              Our Direction
+            </span>
+            <h2 className="text-4xl font-bold text-slate-800 tracking-tight">
+              Vision & Mission
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
             {[
               {
-                icon: 'ph:eye-fill',
+                icon: 'ph:eye-bold',
+                label: 'AMBITION',
                 title: 'Our Vision',
                 text: 'To be the leading national Fisheries Federation in coordinating sustainable and ethical fishing practices in Uganda.',
-                color: 'text-marine-600',
-                bg: 'bg-marine-50',
-                tag: 'AMBITION'
+                accent: 'border-marine-500',
+                iconBg: 'bg-marine-50',
+                iconColor: 'text-marine-600',
               },
               {
-                icon: 'ph:target-fill',
+                icon: 'ph:target-bold',
+                label: 'EXECUTION',
                 title: 'Our Mission',
                 text: 'To promote ethical fishing practices and sustainable development for improved livelihood and alleviation of poverty.',
-                color: 'text-cerulean-600',
-                bg: 'bg-cerulean-50',
-                tag: 'EXECUTION'
+                accent: 'border-cerulean-500',
+                iconBg: 'bg-cerulean-50',
+                iconColor: 'text-cerulean-600',
               },
             ].map((item, i) => (
               <motion.div
                 key={item.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-white p-16 rounded-2xl shadow-sm border border-slate-100 relative group overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-500"
+                transition={{ delay: i * 0.1, duration: 0.6 }}
+                className={`bg-surface-500 p-10 rounded-[4px] border-l-4 ${item.accent} border border-slate-100 group hover:shadow-xl transition-all duration-400 cursor-default`}
               >
-                <div className={`absolute top-0 right-0 p-12 opacity-5 scale-150 group-hover:scale-[1.7] group-hover:opacity-10 transition-all duration-700 ${item.color}`}>
-                   <Icon icon={item.icon} className="text-[140px]" />
+                <div className={`w-12 h-12 ${item.iconBg} rounded-[4px] flex items-center justify-center mb-6`}>
+                  <Icon icon={item.icon} className={`text-xl ${item.iconColor}`} />
                 </div>
-                
-                <div className={`w-14 h-14 ${item.bg} rounded-xl flex items-center justify-center mb-10 transition-colors group-hover:bg-amber-400 group-hover:text-white`}>
-                  <Icon icon={item.icon} className={`text-2xl ${item.color} group-hover:text-white`} />
-                </div>
-
-                <span className={`text-[10px] font-bold uppercase tracking-[0.2em] mb-4 block ${item.color}`}>{item.tag}</span>
-                <h3 className="font-header text-4xl mb-8 text-slate-800">{item.title}</h3>
-                <p className="text-slate-500 text-lg leading-relaxed max-w-sm font-medium">{item.text}</p>
-                
-                <div className="mt-10 h-1 w-0 bg-amber-400 group-hover:w-20 transition-all duration-500" />
+                <span className={`text-[10px] font-bold uppercase tracking-[0.25em] mb-3 block ${item.iconColor}`}>
+                  {item.label}
+                </span>
+                <h3 className="text-2xl font-bold text-slate-800 mb-4">{item.title}</h3>
+                <p className="text-slate-500 leading-relaxed">{item.text}</p>
+                <div className="mt-8 h-0.5 w-0 bg-amber-400 group-hover:w-16 transition-all duration-500" />
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SECTION 3: Strategic Focus (Minimalist Grid) */}
-      <section className="py-32">
+      {/* SECTION 3: Strategic Areas */}
+      <section className="py-28 border-b border-slate-100">
         <div className="max-w-[1240px] mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-end justify-between mb-20 gap-8">
+          <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8 mb-14">
             <div className="max-w-xl">
-              <span className="text-amber-500 text-[10px] font-bold uppercase tracking-[0.3em] mb-4 block">Strategic Alignment</span>
-              <h2 className="font-header text-5xl text-slate-800 leading-tight">Key Areas of<br />Implementation</h2>
+              <span className="text-[10px] font-bold tracking-[0.35em] text-amber-600 uppercase mb-4 block">
+                Strategic Alignment
+              </span>
+              <h2 className="text-4xl font-bold text-slate-800 leading-tight tracking-tight">
+                Key Areas of Implementation
+              </h2>
             </div>
-            <p className="max-w-md text-slate-500 text-sm leading-relaxed mb-1">
-              Our interventions are designed to align with the Sustainable Development Goals (SDGs) while promoting inclusivity across all lake regions.
+            <p className="max-w-sm text-slate-500 text-sm leading-relaxed">
+              Our interventions align with the Sustainable Development Goals (SDGs) while promoting inclusivity across all lake regions.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-1">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {strategicAreas.map((area, i) => (
               <motion.div
-                key={area}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+                key={area.label}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="p-10 bg-white border border-slate-50 text-center hover:bg-slate-50 hover:shadow-inner transition-all group cursor-default"
+                transition={{ delay: i * 0.06 }}
+                className="flex items-center gap-3 p-5 bg-white border border-slate-100 rounded-[4px] hover:border-marine-200 hover:shadow-md transition-all group cursor-default"
               >
-                <span className="text-xs font-bold text-slate-400 group-hover:text-marine-600 uppercase tracking-widest transition-colors">{area}</span>
+                <div className="w-9 h-9 rounded-[4px] bg-marine-50 flex items-center justify-center shrink-0 group-hover:bg-marine-500 transition-colors">
+                  <Icon icon={area.icon} className="text-marine-600 group-hover:text-white text-base transition-colors" />
+                </div>
+                <span className="text-xs font-bold text-slate-700 group-hover:text-marine-600 transition-colors leading-snug">
+                  {area.label}
+                </span>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SECTION 4: Core Values (Elite Row) */}
-      <section className="py-32 bg-marine-900 overflow-hidden relative">
-        {/* Subtle Pattern */}
-        <div className="absolute inset-0 opacity-[0.03]" 
-             style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
-        
+      {/* SECTION 4: Core Values */}
+      <section className="py-28 bg-marine-900 relative overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}
+        />
         <div className="max-w-[1240px] mx-auto px-6 relative z-10">
-          <div className="max-w-xl mb-24 text-white">
-             <span className="text-amber-400 text-[10px] font-bold uppercase tracking-[0.4em] mb-4 block">Our DNA</span>
-             <h2 className="font-header text-5xl mb-8 lg:text-6xl tracking-tighter">The Principles<br />We Live By</h2>
-             <p className="text-marine-200 text-lg max-w-sm font-medium">Fundamental principles that guide our internal conduct and our relationship with the world.</p>
+          <div className="mb-16">
+            <span className="text-amber-400 text-[10px] font-bold uppercase tracking-[0.4em] mb-4 block">Our DNA</span>
+            <h2 className="text-4xl md:text-[48px] font-bold text-white leading-tight tracking-tight">
+              The Principles We Live By
+            </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
             {values.map((v, i) => (
               <motion.div
                 key={v.label}
@@ -167,11 +199,15 @@ export default function AboutUs() {
                 transition={{ delay: i * 0.1 }}
                 className="flex flex-col group cursor-default"
               >
-                <div className="w-16 h-16 rounded-2xl border border-white/10 flex items-center justify-center mb-8 text-white group-hover:bg-amber-400 group-hover:border-amber-400 transition-all duration-300">
-                  <Icon icon={v.icon} className="text-3xl" />
+                <div className="w-14 h-14 rounded-[4px] border border-white/15 flex items-center justify-center mb-6 group-hover:bg-amber-400 group-hover:border-amber-400 transition-all duration-300">
+                  <Icon icon={v.icon} className="text-white text-2xl" />
                 </div>
-                <h4 className="text-white font-bold text-xl mb-4 tracking-tight group-hover:text-amber-400 transition-colors uppercase">{v.label}</h4>
-                <p className="text-marine-300 text-sm leading-relaxed font-medium transition-colors group-hover:text-white">{v.desc}</p>
+                <h4 className="text-white font-bold text-lg mb-3 group-hover:text-amber-400 transition-colors uppercase tracking-tight">
+                  {v.label}
+                </h4>
+                <p className="text-marine-300 text-sm leading-relaxed group-hover:text-white transition-colors">
+                  {v.desc}
+                </p>
               </motion.div>
             ))}
           </div>
