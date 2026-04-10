@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const programs = [
   {
-    icon: 'ph:device-mobile-bold',
+    icon: 'mdi:cellphone',
     tag: 'DIGITAL',
     title: 'ICT Integration & Innovation',
     text: 'The ABAVUBI App connects fishers to real-time market prices, safety alerts, and voice-guided information in local languages — digitizing the entire value chain.',
@@ -14,7 +14,7 @@ const programs = [
     tagColor: 'text-cerulean-400',
   },
   {
-    icon: 'ph:scales-bold',
+    icon: 'mdi:scale-balance',
     tag: 'POLICY',
     title: 'Legislation, Policies & Rights',
     text: "We bridge the gap between government policy and community practice — advocating for fishers' legal rights, licensing, and fair representation in national frameworks.",
@@ -24,7 +24,7 @@ const programs = [
     tagColor: 'text-amber-400',
   },
   {
-    icon: 'ph:users-three-bold',
+    icon: 'mdi:account-group',
     tag: 'COMMUNITY',
     title: 'Capacity Building',
     text: 'Through leadership training, financial literacy workshops, and technical skills programs, we empower women and youth fishing communities to lead and thrive.',
@@ -98,7 +98,7 @@ export default function ProgramAreas() {
                   to={prog.to}
                   className="inline-flex items-center gap-2 text-marine-600 text-[11px] font-bold uppercase tracking-widest hover:text-marine-800 transition-colors"
                 >
-                  Learn More <Icon icon="ph:arrow-right-bold" />
+                  Learn More <Icon icon="mdi:arrow-right-thick" />
                 </Link>
               </div>
             </motion.div>
@@ -117,7 +117,7 @@ export default function ProgramAreas() {
             to="/programs"
             className="inline-flex items-center gap-2 border border-slate-200 bg-white text-slate-700 font-bold px-8 py-4 text-[12px] uppercase tracking-widest hover:border-marine-500 hover:text-marine-600 transition-all rounded-[4px]"
           >
-            View All Programs <Icon icon="ph:arrow-right-bold" />
+            View All Programs <Icon icon="mdi:arrow-right-thick" />
           </Link>
         </motion.div>
 

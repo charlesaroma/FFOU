@@ -35,7 +35,7 @@ const bankAccounts = [
 
 const impacts = [
   {
-    icon: 'ph:graduation-cap-bold',
+    icon: 'mdi:graduation-cap',
     title: 'Training & Education',
     desc: 'Fund capacity building programs for fishers on sustainable practices, legal rights, and modern techniques.',
     color: 'text-cerulean-600',
@@ -43,7 +43,7 @@ const impacts = [
     border: 'border-cerulean-100',
   },
   {
-    icon: 'ph:device-mobile-bold',
+    icon: 'mdi:cellphone',
     title: 'Digital Tools',
     desc: 'Support the ABAVUBI App development — connecting fishing communities to real-time market data and safety alerts.',
     color: 'text-marine-600',
@@ -51,7 +51,7 @@ const impacts = [
     border: 'border-marine-100',
   },
   {
-    icon: 'ph:first-aid-kit-bold',
+    icon: 'mdi:medical-bag',
     title: 'Health Services',
     desc: 'Enable community health outreach covering HIV/AIDS awareness, malaria prevention, and maternal health.',
     color: 'text-militant-600',
@@ -73,7 +73,7 @@ function CopyButton({ text }) {
       className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-[4px] text-marine-400 hover:text-white hover:bg-white/10 transition-all cursor-pointer"
       title="Copy to clipboard"
     >
-      <Icon icon={copied ? 'ph:check-bold' : 'ph:copy-bold'} className="text-sm" />
+      <Icon icon={copied ? 'mdi:check-bold' : 'mdi:copy'} className="text-sm" />
     </button>
   )
 }
@@ -143,7 +143,7 @@ export default function Donate() {
           >
             <div className="flex items-center gap-4 mb-6">
               <div className="w-12 h-12 rounded-[4px] bg-amber-400/15 border border-amber-400/20 flex items-center justify-center">
-                <Icon icon="ph:bank-bold" className="text-amber-400 text-xl" />
+                <Icon icon="mdi:bank" className="text-amber-400 text-xl" />
               </div>
               <div>
                 <span className="text-amber-400 text-[10px] font-bold uppercase tracking-[0.35em] block mb-1">
@@ -226,7 +226,7 @@ export default function Donate() {
             viewport={{ once: true }}
             className="flex items-start gap-4 p-6 rounded-[4px] border border-cerulean-400/20 bg-cerulean-500/10"
           >
-            <Icon icon="ph:shield-check-bold" className="text-cerulean-400 text-2xl shrink-0 mt-0.5" />
+            <Icon icon="mdi:shield-check" className="text-cerulean-400 text-2xl shrink-0 mt-0.5" />
             <div>
               <p className="text-sm font-bold text-white mb-1">Official Federation Accounts Only</p>
               <p className="text-xs leading-relaxed text-marine-300">
@@ -249,7 +249,7 @@ export default function Donate() {
             href="tel:+256417336800"
             className="inline-flex items-center gap-2 bg-marine-700 text-white font-bold px-8 py-4 text-[12px] uppercase tracking-widest hover:bg-marine-800 transition-all rounded-[4px] shrink-0"
           >
-            <Icon icon="ph:phone-bold" />
+            <Icon icon="mdi:phone" />
             Contact Secretariat
           </a>
         </div>

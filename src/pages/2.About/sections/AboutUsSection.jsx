@@ -2,22 +2,22 @@ import { motion } from 'framer-motion'
 import { Icon } from '@iconify/react'
 
 const values = [
-  { icon: 'ph:shield-check-bold', label: 'Integrity', desc: 'Upholding ethical standards in all our operations and partnerships.' },
-  { icon: 'ph:lightning-bold', label: 'Efficiency', desc: 'Delivering maximum impact with available resources.' },
-  { icon: 'ph:scales-bold', label: 'Accountability', desc: 'Transparent governance and reporting to all members.' },
-  { icon: 'ph:graduation-cap-bold', label: 'Professionalism', desc: 'Maintaining high standards of expertise and conduct.' },
-  { icon: 'ph:arrows-clockwise-bold', label: 'Continuity', desc: 'Building lasting systems for generational impact.' },
+  { icon: 'mdi:shield-check', label: 'Integrity', desc: 'Upholding ethical standards in all our operations and partnerships.' },
+  { icon: 'mdi:lightning', label: 'Efficiency', desc: 'Delivering maximum impact with available resources.' },
+  { icon: 'mdi:scale-balance', label: 'Accountability', desc: 'Transparent governance and reporting to all members.' },
+  { icon: 'mdi:graduation-cap', label: 'Professionalism', desc: 'Maintaining high standards of expertise and conduct.' },
+  { icon: 'mdi:refresh', label: 'Continuity', desc: 'Building lasting systems for generational impact.' },
 ]
 
 const strategicAreas = [
-  { label: 'Policy & Human Rights', icon: 'ph:scales-bold' },
-  { label: 'HIV/AIDS Services', icon: 'ph:first-aid-kit-bold' },
-  { label: 'ICT Integration', icon: 'ph:device-mobile-bold' },
-  { label: 'Climate Action', icon: 'ph:leaf-bold' },
-  { label: 'Youth & Women', icon: 'ph:users-three-bold' },
-  { label: 'Aquaculture Dev', icon: 'ph:fish-bold' },
-  { label: 'Girl-Child Education', icon: 'ph:book-open-bold' },
-  { label: 'Vocational Training', icon: 'ph:wrench-bold' },
+  { label: 'Policy & Human Rights', icon: 'mdi:scale-balance' },
+  { label: 'HIV/AIDS Services', icon: 'mdi:medical-bag' },
+  { label: 'ICT Integration', icon: 'mdi:cellphone' },
+  { label: 'Climate Action', icon: 'mdi:leaf' },
+  { label: 'Youth & Women', icon: 'mdi:account-group' },
+  { label: 'Aquaculture Dev', icon: 'mdi:fish' },
+  { label: 'Girl-Child Education', icon: 'mdi:book-open' },
+  { label: 'Vocational Training', icon: 'mdi:wrench' },
 ]
 
 export default function AboutUs() {
@@ -94,7 +94,7 @@ export default function AboutUs() {
           <div className="grid md:grid-cols-2 gap-6">
             {[
               {
-                icon: 'ph:eye-bold',
+                icon: 'mdi:eye',
                 label: 'AMBITION',
                 title: 'Our Vision',
                 text: 'To be the leading national Fisheries Federation in coordinating sustainable and ethical fishing practices in Uganda.',
@@ -103,7 +103,7 @@ export default function AboutUs() {
                 iconColor: 'text-marine-600',
               },
               {
-                icon: 'ph:target-bold',
+                icon: 'mdi:target',
                 label: 'EXECUTION',
                 title: 'Our Mission',
                 text: 'To promote ethical fishing practices and sustainable development for improved livelihood and alleviation of poverty.',

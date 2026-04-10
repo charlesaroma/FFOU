@@ -22,23 +22,23 @@ const initialValues = {
 
 const contactDetails = [
   {
-    icon: 'ph:map-pin-bold',
+    icon: 'mdi:map-marker',
     title: 'Office Address',
     content: 'P.O. BOX 130763\nWabyona Building, 2nd floor\nNamboole – Bweyogerere, Jinja Road',
   },
   {
-    icon: 'ph:envelope-bold',
+    icon: 'mdi:email',
     title: 'Email',
     content: 'info@ffou.org',
     link: 'mailto:info@ffou.org',
   },
   {
-    icon: 'ph:phone-bold',
+    icon: 'mdi:phone',
     title: 'Phone Numbers',
     content: 'Reception: +256 414 583 081\nAg. Executive Director: +256 414 583 081\nPresident: +256 414 673 910',
   },
   {
-    icon: 'ph:globe-bold',
+    icon: 'mdi:earth',
     title: 'Website & Toll Free',
     content: 'www.ffou.org\nToll Free: 0800 100261',
   },
@@ -112,7 +112,7 @@ function ContactHero() {
         animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
         transition={{ duration: 6, repeat: Infinity }}
       >
-        <Icon icon="ph:envelope-simple-bold" className="text-8xl text-marine-400" />
+        <Icon icon="mdi:email" className="text-8xl text-marine-400" />
       </motion.div>
 
       <div className="max-w-[1440px] mx-auto px-6 md:px-8 xl:px-12 relative z-10 text-center" style={{ opacity }}>
@@ -130,7 +130,7 @@ function ContactHero() {
             }}
           >
             <span className="inline-flex items-center gap-2">
-              <Icon icon="ph:chat-circle-bold" className="text-sm" />
+              <Icon icon="mdi:message-circle" className="text-sm" />
               Get in Touch
             </span>
           </span>
@@ -170,7 +170,7 @@ function ContactHero() {
               border: '1px solid rgba(0, 102, 204, 0.3)',
             }}
           >
-            <Icon icon="ph:clock-bold" className="text-cerulean-400 text-lg" />
+            <Icon icon="mdi:clock" className="text-cerulean-400 text-lg" />
             <span className="text-sm text-marine-200">We typically respond within 24 hours</span>
           </div>
         </motion.div>
@@ -303,9 +303,9 @@ function ContactForm() {
 
             <div className="space-y-4">
               {[
-                { icon: 'ph:shield-check-bold', title: 'Registered Organization', desc: 'FFOU is registered with NGO Bureau', color: 'var(--color-cerulean-500)', bg: 'var(--color-cerulean-50)' },
-                { icon: 'ph:users-three-bold', title: '131+ Member Associations', desc: 'Representing fishers across Uganda', color: 'var(--color-marine-500)', bg: 'var(--color-marine-50)' },
-                { icon: 'ph:headset-bold', title: 'Toll Free Line', desc: '0800 100261', color: 'var(--color-amber-500)', bg: 'var(--color-amber-50)' },
+                { icon: 'mdi:shield-check', title: 'Registered Organization', desc: 'FFOU is registered with NGO Bureau', color: 'var(--color-cerulean-500)', bg: 'var(--color-cerulean-50)' },
+                { icon: 'mdi:account-group', title: '131+ Member Associations', desc: 'Representing fishers across Uganda', color: 'var(--color-marine-500)', bg: 'var(--color-marine-50)' },
+                { icon: 'mdi:headset', title: 'Toll Free Line', desc: '0800 100261', color: 'var(--color-amber-500)', bg: 'var(--color-amber-50)' },
               ].map((item, i) => (
                 <motion.div 
                   key={item.title}
@@ -353,7 +353,7 @@ function ContactForm() {
                   className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center" 
                   style={{ background: 'var(--color-cerulean-100)' }}
                 >
-                  <Icon icon="ph:check-circle-bold" className="text-5xl text-cerulean-500" />
+                  <Icon icon="mdi:check-circle" className="text-5xl text-cerulean-500" />
                 </motion.div>
                 <h3 className="font-header text-3xl mb-4" style={{ color: 'var(--text-main)' }}>
                   Message Sent!
@@ -398,7 +398,7 @@ function ContactForm() {
                           onBlur={() => setFocusedField(null)}
                         />
                         <ErrorMessage name="name">
-                          {msg => <p className={errorStyles}><Icon icon="ph:warning-circle-bold" /> {msg}</p>}
+                          {msg => <p className={errorStyles}><Icon icon="mdi:alert-circle" /> {msg}</p>}
                         </ErrorMessage>
                       </div>
                       <div>
@@ -416,7 +416,7 @@ function ContactForm() {
                           onBlur={() => setFocusedField(null)}
                         />
                         <ErrorMessage name="email">
-                          {msg => <p className={errorStyles}><Icon icon="ph:warning-circle-bold" /> {msg}</p>}
+                          {msg => <p className={errorStyles}><Icon icon="mdi:alert-circle" /> {msg}</p>}
                         </ErrorMessage>
                       </div>
                     </div>
@@ -452,7 +452,7 @@ function ContactForm() {
                           onBlur={() => setFocusedField(null)}
                         />
                         <ErrorMessage name="subject">
-                          {msg => <p className={errorStyles}><Icon icon="ph:warning-circle-bold" /> {msg}</p>}
+                          {msg => <p className={errorStyles}><Icon icon="mdi:alert-circle" /> {msg}</p>}
                         </ErrorMessage>
                       </div>
                     </div>
@@ -473,7 +473,7 @@ function ContactForm() {
                         onBlur={() => setFocusedField(null)}
                       />
                       <ErrorMessage name="message">
-                        {msg => <p className={errorStyles}><Icon icon="ph:warning-circle-bold" /> {msg}</p>}
+                        {msg => <p className={errorStyles}><Icon icon="mdi:alert-circle" /> {msg}</p>}
                       </ErrorMessage>
                     </div>
 
@@ -500,7 +500,7 @@ function ContactForm() {
                         </>
                       ) : (
                         <>
-                          <Icon icon="ph:paper-plane-tilt-bold" className="text-lg" />
+                          <Icon icon="mdi:send" className="text-lg" />
                           Send Message
                         </>
                       )}

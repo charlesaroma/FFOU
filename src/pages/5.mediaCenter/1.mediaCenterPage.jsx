@@ -101,7 +101,7 @@ function NewsSection() {
                   <div className="flex items-center justify-between">
                     <span className="text-xs" style={{ color: 'var(--text-muted)' }}>{item.date}</span>
                     <span className="text-xs font-semibold text-zurich-500 flex items-center gap-1">
-                      Read more <Icon icon="ph:arrow-right-bold" className="text-xs" />
+                      Read more <Icon icon="mdi:arrow-right-thick" className="text-xs" />
                     </span>
                   </div>
                 </div>

@@ -8,7 +8,7 @@ const tiers = [
     price: 'UGX 200,000',
     subscription: 'UGX 100,000/year',
     description: 'For organizations directly involved in fisheries activities — associations, cooperative unions, and community-based groups.',
-    icon: 'ph:users-three-bold',
+    icon: 'mdi:account-group',
     color: 'var(--color-zurich-500)',
     bg: 'var(--color-zurich-50)',
     popular: true,
@@ -30,7 +30,7 @@ const tiers = [
     price: 'UGX 500,000',
     subscription: 'UGX 200,000/year',
     description: 'For organizations involved in promoting the objectives of the Federation — suppliers, exporters, research institutions.',
-    icon: 'ph:briefcase-bold',
+    icon: 'mdi:briefcase',
     color: 'var(--color-militant-500)',
     bg: 'var(--color-militant-100)',
     popular: false,
@@ -51,7 +51,7 @@ const tiers = [
     price: 'Free',
     subscription: 'Voluntary contribution',
     description: 'Granted to individuals and organizations that have contributed or rendered distinguished services to the Federation.',
-    icon: 'ph:award-bold',
+    icon: 'mdi:award',
     color: 'var(--color-amber-500)',
     bg: 'var(--color-amber-50)',
     popular: false,
@@ -77,7 +77,7 @@ function MembershipRights() {
           >
             <div className="flex items-center gap-3 mb-5">
               <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'var(--color-zurich-50)' }}>
-                <Icon icon="ph:shield-check-bold" className="text-xl text-zurich-600" />
+                <Icon icon="mdi:shield-check" className="text-xl text-zurich-600" />
               </div>
               <h3 className="font-heading text-xl" style={{ color: 'var(--text-main)' }}>
                 Membership Rights
@@ -92,7 +92,7 @@ function MembershipRights() {
                 'Withdraw membership freely',
               ].map((right) => (
                 <li key={right} className="flex items-start gap-2 text-sm" style={{ color: 'var(--text-muted)' }}>
-                  <Icon icon="ph:check-circle-fill" className="text-zurich-500 text-base flex-shrink-0 mt-0.5" />
+                  <Icon icon="mdi:check-circle" className="text-zurich-500 text-base flex-shrink-0 mt-0.5" />
                   {right}
                 </li>
               ))}
@@ -106,7 +106,7 @@ function MembershipRights() {
           >
             <div className="flex items-center gap-3 mb-5">
               <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'var(--color-militant-100)' }}>
-                <Icon icon="ph:list-checks-bold" className="text-xl text-militant-500" />
+                <Icon icon="mdi:format-list-checks" className="text-xl text-militant-500" />
               </div>
               <h3 className="font-heading text-xl" style={{ color: 'var(--text-main)' }}>
                 Membership Obligations
@@ -121,7 +121,7 @@ function MembershipRights() {
                 'Contribute to Federation objectives',
               ].map((obligation) => (
                 <li key={obligation} className="flex items-start gap-2 text-sm" style={{ color: 'var(--text-muted)' }}>
-                  <Icon icon="ph:arrow-right-bold" className="text-militant-500 text-base flex-shrink-0 mt-0.5" />
+                  <Icon icon="mdi:arrow-right-thick" className="text-militant-500 text-base flex-shrink-0 mt-0.5" />
                   {obligation}
                 </li>
               ))}
@@ -207,7 +207,7 @@ export default function MembershipTiers() {
                   {tier.benefits.map((benefit) => (
                     <li key={benefit} className="flex items-start gap-2 text-xs" style={{ color: 'var(--text-muted)' }}>
                       <Icon
-                        icon="ph:check-bold"
+                        icon="mdi:check-bold"
                         className="text-base flex-shrink-0 mt-0.5"
                         style={{ color: tier.color }}
                       />

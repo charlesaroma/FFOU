@@ -8,7 +8,7 @@ export default function AboutUsPage() {
         title="Our Story" 
         subtitle="The Federation of Fisheries Organisations Uganda (FFOU) is a national umbrella body for all non-state actors in the fisheries sub-sector, working with 131 member associations across Uganda's five great lakes."
         badgeText="About Us"
-        badgeIcon="ph:info-bold"
+        badgeIcon="mdi:info"
       />
       <AboutUs />
     </main>

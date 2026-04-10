@@ -24,6 +24,7 @@ const dropdownItems = {
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [openSection, setOpenSection] = useState(null);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const dropdownRef = useRef(null);
@@ -152,7 +153,7 @@ export default function Navbar() {
                   className="lg:hidden text-white text-3xl p-2 hover:bg-white/10 rounded-full transition-colors"
                   onClick={() => setMenuOpen(!menuOpen)}
                 >
-                  <Icon icon={menuOpen ? "ph:x-bold" : "ph:list-bold"} />
+                  <Icon icon={menuOpen ? "mdi:close-thick" : "mdi:menu"} />
                 </button>
               </div>
             </div>
@@ -176,54 +177,78 @@ export default function Navbar() {
                 className="text-white text-4xl p-2 hover:bg-white/10 rounded-full"
                 onClick={() => setMenuOpen(false)}
               >
-                <Icon icon="ph:x-bold" />
+                <Icon icon="mdi:close-thick" />
               </button>
             </div>
 
-            <div className="flex-1 overflow-y-auto px-8 py-12">
-              <div className="flex flex-col gap-10">
+            <div className="flex-1 overflow-y-auto px-6 py-8">
+              <div className="flex flex-col">
                 <Link
                   to="/"
                   onClick={() => setMenuOpen(false)}
-                  className="text-white font-bold text-3xl tracking-tight"
+                  className="flex items-center justify-between text-white font-bold text-2xl py-6 border-b border-white/10 active:bg-white/5 transition-colors px-2 rounded-[4px]"
                 >
                   HOME
+                  <Icon icon="mdi:chevron-right" className="text-white/30 text-xl" />
                 </Link>
 
                 {Object.entries(dropdownItems).map(([key, items]) => (
-                  <div key={key} className="space-y-6">
-                    <span className="text-amber-400 text-[10px] font-bold uppercase tracking-[0.3em]">
-                      {key}
-                    </span>
-                    <div className="flex flex-col gap-5 pl-4 border-l border-white/10">
-                      {items.map((link) => (
-                        <Link
-                          key={link.to}
-                          to={link.to}
-                          onClick={() => setMenuOpen(false)}
-                          className="text-white font-bold text-xl hover:text-amber-300 transition-colors"
+                  <div key={key} className="border-b border-white/10">
+                    <button
+                      onClick={() => setOpenSection(openSection === key ? null : key)}
+                      className="w-full flex items-center justify-between text-white font-bold text-2xl py-6 cursor-pointer active:bg-white/5 transition-colors px-2 rounded-[4px]"
+                    >
+                      <span className="uppercase">{key}</span>
+                      <div className="w-10 h-10 bg-white/10 rounded-[4px] flex items-center justify-center">
+                        <Icon 
+                          icon={openSection === key ? "mdi:minus-thick" : "mdi:plus-thick"} 
+                          className={`text-2xl transition-transform ${openSection === key ? 'text-amber-400' : 'text-white'}`} 
+                        />
+                      </div>
+                    </button>
+                    <AnimatePresence>
+                      {openSection === key && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          className="overflow-hidden"
                         >
-                          {link.label}
-                        </Link>
-                      ))}
-                    </div>
+                          <div className="flex flex-col pb-4 mb-2">
+                            {items.map((link) => (
+                              <Link
+                                key={link.to}
+                                to={link.to}
+                                onClick={() => setMenuOpen(false)}
+                                className="text-white/90 font-semibold text-lg py-5 px-6 border-l-2 border-amber-400/50 bg-white/5 mb-1 flex items-center justify-between hover:bg-white/10 active:bg-white/20 transition-colors ml-2 mr-2 rounded-r-[4px]"
+                              >
+                                {link.label}
+                                <Icon icon="mdi:arrow-right-thin" className="text-amber-400" />
+                              </Link>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 ))}
 
                 <Link
                   to="/membership"
                   onClick={() => setMenuOpen(false)}
-                  className="text-white font-bold text-3xl tracking-tight"
+                  className="flex items-center justify-between text-white font-bold text-2xl py-6 border-b border-white/10 active:bg-white/5 transition-colors px-2 rounded-[4px]"
                 >
                   MEMBERSHIP
+                  <Icon icon="mdi:chevron-right" className="text-white/30 text-xl" />
                 </Link>
 
-                <div className="mt-8 pt-8 border-t border-white/10">
+                <div className="mt-12">
                   <Link
                     to="/programs/donate"
                     onClick={() => setMenuOpen(false)}
-                    className="w-full bg-amber-500 text-white font-bold py-5 text-lg uppercase flex items-center justify-center rounded-[4px] shadow-xl"
+                    className="w-full bg-amber-500 text-cerulean-900 font-bold py-6 text-xl uppercase flex items-center justify-center gap-3 rounded-[4px] shadow-xl hover:bg-amber-400 active:scale-95 transition-all"
                   >
+                    <Icon icon="mdi:heart" className="text-2xl" />
                     MAKE A DONATION
                   </Link>
                 </div>

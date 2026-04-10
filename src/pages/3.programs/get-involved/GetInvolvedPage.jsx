@@ -34,17 +34,17 @@ const actionCards = [
   {
     title: "Financial Contributions",
     desc: "Your financial gifts directly support FFOU educational programs, health campaigns, and structural infrastructure projects across Uganda's landing sites.",
-    icon: "ph:file-text-light"
+    icon: "mdi:file-document"
   },
   {
     title: "Skills & Field Volunteering",
     desc: "Offer your expertise! We engage IT specialists, community educators, and legal advocates to run workshops and mentor individuals within our focal regions.",
-    icon: "ph:file-text-light"
+    icon: "mdi:file-document"
   },
   {
     title: "Advocacy & Digital Adoption",
     desc: "Partner with us to amplify the ABAVUBI FISHER app usage across landing sites. Share our stories, or back our advocacy campaigns to secure favorable fisheries policies.",
-    icon: "ph:file-text-light"
+    icon: "mdi:file-document"
   }
 ];
 

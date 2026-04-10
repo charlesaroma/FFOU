@@ -23,7 +23,7 @@ export default function PublicationSidebar() {
             }
           >
             <span>All Publications</span>
-            <Icon icon="ph:caret-right-bold" className="text-xs opacity-40" />
+            <Icon icon="mdi:chevron-right" className="text-xs opacity-40" />
           </NavLink>
 
           {publicationsData.map((category) => (
@@ -37,7 +37,7 @@ export default function PublicationSidebar() {
               }
             >
               <span>{category.category}</span>
-              <Icon icon="ph:caret-right-bold" className="text-xs opacity-40" />
+              <Icon icon="mdi:chevron-right" className="text-xs opacity-40" />
             </NavLink>
           ))}
         </nav>

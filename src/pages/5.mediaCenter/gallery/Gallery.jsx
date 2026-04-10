@@ -53,7 +53,7 @@ export default function Gallery() {
                 ))}
               </select>
               <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
-                <Icon icon="ph:caret-down-fill" className="text-marine-600 text-xs" />
+                <Icon icon="mdi:menu-down" className="text-marine-600 text-xs" />
               </div>
             </div>
           </div>

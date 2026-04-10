@@ -3,10 +3,10 @@ import { Icon } from '@iconify/react'
 import { useRef, useState, useEffect } from 'react'
 
 const stats = [
-  { val: '2,102,491', label: 'Fisherfolks Represented', icon: 'ph:users-three-bold', suffix: '' },
-  { val: '131', label: 'Member Associations', icon: 'ph:buildings-bold', suffix: '+' },
-  { val: '5', label: 'Great Lake Regions', icon: 'ph:waves-bold', suffix: '' },
-  { val: '12', label: 'Active Programs', icon: 'ph:chart-line-up-bold', suffix: '+' },
+  { val: '2,102,491', label: 'Fisherfolks Represented', icon: 'mdi:account-group', suffix: '' },
+  { val: '131', label: 'Member Associations', icon: 'mdi:office-building', suffix: '+' },
+  { val: '5', label: 'Great Lake Regions', icon: 'mdi:waves', suffix: '' },
+  { val: '12', label: 'Active Programs', icon: 'mdi:chart-line', suffix: '+' },
 ]
 
 function useCountUp(target, duration = 2000, start = false) {

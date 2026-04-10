@@ -36,10 +36,10 @@ export default function Membership() {
                </p>
                <div className="grid grid-cols-2 gap-4">
                   {[
-                    { icon: 'ph:scales-bold', label: 'Policy Advocacy' },
-                    { icon: 'ph:shield-check-bold', label: 'Legal Support' },
-                    { icon: 'ph:trend-up-bold', label: 'Market Access' },
-                    { icon: 'ph:users-bold', label: 'Networking' },
+                    { icon: 'mdi:scale-balance', label: 'Policy Advocacy' },
+                    { icon: 'mdi:shield-check', label: 'Legal Support' },
+                    { icon: 'mdi:trending-up', label: 'Market Access' },
+                    { icon: 'mdi:account-group', label: 'Networking' },
                   ].map((benefit) => (
                     <div key={benefit.label} className="flex items-center gap-3">
                        <Icon icon={benefit.icon} className="text-marine-500" />
@@ -65,19 +65,19 @@ export default function Membership() {
                 title: 'Landing Site level', 
                 price: 'UGX 100,000', 
                 desc: 'For local landing site associations and community groups.',
-                icon: 'ph:house-line-bold'
+                icon: 'mdi:home'
               },
               { 
                 title: 'District/Lake level', 
                 price: 'UGX 300,000', 
                 desc: 'For regional clusters and multi-site cooperatives.',
-                icon: 'ph:map-trifold-bold'
+                icon: 'mdi:map'
               },
               { 
                 title: 'National level', 
                 price: 'UGX 500,000', 
                 desc: 'For apex bodies and industrial scale processing associations.',
-                icon: 'ph:crown-bold'
+                icon: 'mdi:crown'
               },
             ].map((tier, i) => (
               <motion.div
@@ -100,7 +100,7 @@ export default function Membership() {
 
           <div className="mt-16 bg-marine-900 rounded-sm p-12 text-center text-white relative overflow-hidden">
              <div className="absolute top-0 right-0 opacity-10">
-                <Icon icon="ph:paper-plane-tilt-bold" className="text-[200px]" />
+                <Icon icon="mdi:send" className="text-[200px]" />
              </div>
              <div className="relative z-10">
                 <h3 className="text-2xl font-header mb-4">Start Your Registration</h3>

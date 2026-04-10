@@ -56,7 +56,7 @@ export default function GetInvolvedForm() {
                     <option>Policy Advocate & Communications</option>
                     <option>Research & Data Analyst</option>
                   </select>
-                  <Icon icon="ph:caret-down-bold" className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400" />
+                  <Icon icon="mdi:chevron-down" className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400" />
                 </div>
               </div>
 
@@ -70,7 +70,7 @@ export default function GetInvolvedForm() {
                     <option>Capacity Building</option>
                     <option>Aquaculture</option>
                   </select>
-                  <Icon icon="ph:caret-down-bold" className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400" />
+                  <Icon icon="mdi:chevron-down" className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400" />
                 </div>
               </div>
 
@@ -115,7 +115,7 @@ export default function GetInvolvedForm() {
                     <option>Website</option>
                     <option>Friend/Word of Mouth</option>
                   </select>
-                  <Icon icon="ph:caret-down-bold" className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400" />
+                  <Icon icon="mdi:chevron-down" className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400" />
                 </div>
               </div>
 

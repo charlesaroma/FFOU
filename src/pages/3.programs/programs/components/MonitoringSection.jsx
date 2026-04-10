@@ -36,17 +36,17 @@ export default function MonitoringSection() {
             { 
               title: 'Quarterly Audits', 
               desc: 'This process takes a deep dive assessment of the strategy performance, ensuring that all our programs are reaching our defined operational strategy.', 
-              icon: 'ph:clipboard-text-bold' 
+              icon: 'mdi:clipboard-text' 
             },
             { 
               title: 'Monthly Reporting', 
               desc: 'Communication is paramount, our process of routine monthly reporting ensures our partners are updated on our achievements and milestones.', 
-              icon: 'ph:file-text-bold' 
+              icon: 'mdi:file-document' 
             },
             { 
               title: 'Annual Reviews', 
               desc: 'Reflective and mandatory we find it extremely useful to gauge our impact and adjustment for our National Strategic Plan based on the causes of our project.', 
-              icon: 'ph:calendar-check-bold' 
+              icon: 'mdi:calendar-check' 
             }
           ].map((item, i) => (
             <div key={i} className="bg-surface-600 p-10 rounded-sm text-center flex flex-col items-center">

@@ -4,22 +4,22 @@ import { Link } from 'react-router-dom'
 
 const features = [
   {
-    icon: 'ph:map-pin-area-bold',
+    icon: 'mdi:map-marker-radius',
     title: 'Market Linkages',
     text: 'Real-time pricing from 40+ landing sites across all five lakes.',
   },
   {
-    icon: 'ph:bell-ringing-bold',
+    icon: 'mdi:bell-ring',
     title: 'Safety Alerts',
     text: 'Instant storm and weather notifications for lake-going fishers.',
   },
   {
-    icon: 'ph:microphone-bold',
+    icon: 'mdi:microphone',
     title: 'Voice Guidance',
     text: 'Local language audio instructions for low-literacy users.',
   },
   {
-    icon: 'ph:certificate-bold',
+    icon: 'mdi:certificate',
     title: 'Digital Licensing',
     text: 'Streamlined fishing permit applications through the app.',
   },
@@ -77,7 +77,7 @@ export default function SmartFisherSection() {
               className="inline-flex items-center gap-2 bg-cerulean-600 text-white font-bold px-8 py-4 text-[12px] uppercase tracking-widest hover:bg-cerulean-700 transition-all rounded-[4px]"
             >
               Explore Digital Programs
-              <Icon icon="ph:arrow-right-bold" />
+              <Icon icon="mdi:arrow-right-thick" />
             </Link>
           </motion.div>
 
@@ -107,7 +107,7 @@ export default function SmartFisherSection() {
 
             {/* Decorative block */}
             <div className="absolute -top-6 -right-4 md:-right-6 w-20 h-20 bg-cerulean-600 rounded-[4px] flex items-center justify-center shadow-xl">
-              <Icon icon="ph:device-mobile-bold" className="text-white text-3xl" />
+              <Icon icon="mdi:cellphone" className="text-white text-3xl" />
             </div>
           </motion.div>
 

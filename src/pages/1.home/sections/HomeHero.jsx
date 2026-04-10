@@ -102,7 +102,7 @@ export default function HomeHero() {
                 className="bg-amber-400 text-marine-900 font-bold px-8 py-4 text-[12px] uppercase tracking-widest hover:bg-amber-300 transition-all rounded-[4px] flex items-center gap-2"
               >
                 Learn Our Story
-                <Icon icon="ph:arrow-right-bold" />
+                <Icon icon="mdi:arrow-right-thick" />
               </Link>
               <Link
                 to="/programs/get-involved"
@@ -125,10 +125,10 @@ export default function HomeHero() {
             className="grid grid-cols-2 md:grid-cols-4"
           >
             {[
-              { val: '2.1M', label: 'Fisherfolks Represented', icon: 'ph:users-three-bold' },
-              { val: '131', label: 'Member Associations', icon: 'ph:buildings-bold' },
-              { val: '5', label: 'Major Lake Regions', icon: 'ph:waves-bold' },
-              { val: '12+', label: 'Active Programs', icon: 'ph:chart-line-up-bold' },
+              { val: '2.1M', label: 'Fisherfolks Represented', icon: 'mdi:account-group' },
+              { val: '131', label: 'Member Associations', icon: 'mdi:office-building' },
+              { val: '5', label: 'Major Lake Regions', icon: 'mdi:waves' },
+              { val: '12+', label: 'Active Programs', icon: 'mdi:chart-line' },
             ].map((stat, i) => (
               <div
                 key={stat.label}

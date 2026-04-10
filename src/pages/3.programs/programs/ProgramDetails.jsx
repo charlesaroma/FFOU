@@ -60,7 +60,7 @@ export default function ProgramDetails() {
                       className={`flex items-center justify-between p-5 text-sm font-medium transition-colors hover:bg-slate-50 ${isActive ? 'text-cerulean-600 bg-slate-50' : 'text-slate-500 hover:text-slate-700'}`}
                     >
                       <span>{p.cardTitle}</span>
-                      <Icon icon="ph:arrow-up-right-bold" className={isActive ? "text-cerulean-500" : "text-slate-300"} />
+                      <Icon icon="mdi:arrow-top-right-thick" className={isActive ? "text-cerulean-500" : "text-slate-300"} />
                     </Link>
                   );
                 })}
@@ -121,7 +121,7 @@ export default function ProgramDetails() {
                         {item.title}
                       </span>
                       <div className="w-7 h-7 rounded-full flex items-center justify-center bg-gold-400 text-white shrink-0">
-                        <Icon icon={activeAccordion === index ? 'ph:caret-up-bold' : 'ph:caret-down-bold'} className="text-[12px]" />
+                        <Icon icon={activeAccordion === index ? 'mdi:chevron-up' : 'mdi:chevron-down'} className="text-[12px]" />
                       </div>
                     </button>
                     <AnimatePresence>

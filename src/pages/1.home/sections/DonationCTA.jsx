@@ -47,7 +47,7 @@ export default function DonationCTA() {
             {/* Trust badge */}
             <div className="flex items-center gap-3 mt-8">
               <div className="w-10 h-10 rounded-[4px] bg-amber-400/15 border border-amber-400/20 flex items-center justify-center">
-                <Icon icon="ph:shield-check-bold" className="text-amber-400 text-lg" />
+                <Icon icon="mdi:shield-check" className="text-amber-400 text-lg" />
               </div>
               <span className="text-white/60 text-sm">100% of donations go directly to community programs</span>
             </div>
@@ -63,21 +63,21 @@ export default function DonationCTA() {
           >
             {[
               {
-                icon: 'ph:heart-bold',
+                icon: 'mdi:heart',
                 title: 'Donate to FFOU',
                 text: 'Fund programs that empower over 2 million fisherfolks.',
                 to: '/programs/donate',
                 primary: true,
               },
               {
-                icon: 'ph:handshake-bold',
+                icon: 'mdi:handshake',
                 title: 'Become a Partner',
                 text: 'Strategic partnerships that extend our reach across Uganda.',
                 to: '/programs/get-involved',
                 primary: false,
               },
               {
-                icon: 'ph:users-bold',
+                icon: 'mdi:account-group',
                 title: 'Join the Federation',
                 text: 'Access advocacy, training, and collective bargaining power.',
                 to: '/membership',
@@ -99,7 +99,7 @@ export default function DonationCTA() {
                   <div className={`font-bold text-sm mb-0.5 ${cta.primary ? 'text-marine-900' : 'text-white'}`}>{cta.title}</div>
                   <div className={`text-xs leading-relaxed ${cta.primary ? 'text-marine-800/70' : 'text-white/50'}`}>{cta.text}</div>
                 </div>
-                <Icon icon="ph:arrow-right-bold" className={`shrink-0 ${cta.primary ? 'text-marine-900' : 'text-white/50 group-hover:text-white'} transition-colors`} />
+                <Icon icon="mdi:arrow-right-thick" className={`shrink-0 ${cta.primary ? 'text-marine-900' : 'text-white/50 group-hover:text-white'} transition-colors`} />
               </Link>
             ))}
           </motion.div>

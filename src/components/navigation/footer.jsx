@@ -103,10 +103,10 @@ export default function Footer() {
               </h4>
               <div className="flex gap-4">
                 {[
-                  { icon: "ph:instagram-logo-bold", url: "https://www.instagram.com/ffo.uganda/" },
-                  { icon: "ph:x-logo-bold", url: "https://x.com/FFOU353277" },
-                  { icon: "ph:linkedin-logo-bold", url: "https://www.linkedin.com/in/federation-of-fisheries-organisations-uganda-1457732b5/" },
-                  { icon: "ph:youtube-logo-bold", url: "https://www.youtube.com/@ffo.uganda" },
+                  { icon: "mdi:instagram", url: "https://www.instagram.com/ffo.uganda/" },
+                  { icon: "mdi:twitter", url: "https://x.com/FFOU353277" },
+                  { icon: "mdi:linkedin", url: "https://www.linkedin.com/in/federation-of-fisheries-organisations-uganda-1457732b5/" },
+                  { icon: "mdi:youtube", url: "https://www.youtube.com/@ffo.uganda" },
                 ].map((social, i) => (
                   <a
                     key={i}
@@ -133,7 +133,7 @@ export default function Footer() {
             <div className="lg:col-span-2 flex items-center gap-4">
               <div className="w-14 h-14 rounded-full bg-surface-500 flex items-center justify-center shadow-sm">
                 <Icon
-                  icon="ph:envelope-simple-light"
+                  icon="mdi:email-outline"
                   className="text-2xl text-marine-600"
                 />
               </div>
@@ -151,7 +151,7 @@ export default function Footer() {
             <div className="lg:col-span-1 flex items-center gap-4">
               <div className="w-14 h-14 rounded-full bg-surface-500 flex items-center justify-center shadow-sm">
                 <Icon
-                  icon="ph:phone-light"
+                  icon="mdi:phone-outline"
                   className="text-2xl text-marine-600"
                 />
               </div>
@@ -169,7 +169,7 @@ export default function Footer() {
             <div className="lg:col-span-1 flex items-center gap-4">
               <div className="w-14 h-14 rounded-full bg-surface-500 flex items-center justify-center shadow-sm">
                 <Icon
-                  icon="ph:device-mobile-light"
+                  icon="mdi:cellphone-outline"
                   className="text-2xl text-marine-600"
                 />
               </div>

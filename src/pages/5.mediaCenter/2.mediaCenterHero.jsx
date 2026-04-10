@@ -53,7 +53,7 @@ export default function MediaCenterHero() {
         animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
         transition={{ duration: 6, repeat: Infinity }}
       >
-        <Icon icon="ph:newspaper-bold" className="text-8xl text-zurich-400" />
+        <Icon icon="mdi:newspaper" className="text-8xl text-zurich-400" />
       </motion.div>
 
       <div className="layout-spine relative z-10 text-center" style={{ opacity }}>
@@ -71,7 +71,7 @@ export default function MediaCenterHero() {
             }}
           >
             <span className="inline-flex items-center gap-2">
-              <Icon icon="ph:broadcast-bold" className="text-sm" />
+              <Icon icon="mdi:broadcast" className="text-sm" />
               Media Center
             </span>
           </span>

@@ -10,7 +10,7 @@ export default function OurPartnersPage() {
         title="Our Partners"
         subtitle="Organizations and donor bodies we collaborate with to drive sustainable impact in Uganda's fisheries sub-sector."
         badgeText="Collaboration"
-        badgeIcon="ph:handshake-bold"
+        badgeIcon="mdi:handshake"
       />
       <AboutOurPartners />
     </main>

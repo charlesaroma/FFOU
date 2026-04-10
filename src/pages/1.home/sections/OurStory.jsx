@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 import { Icon } from '@iconify/react'
 
 const pillars = [
-  { icon: 'ph:scales-bold', label: 'Policy Advocacy' },
-  { icon: 'ph:device-mobile-bold', label: 'ICT Innovation' },
-  { icon: 'ph:users-three-bold', label: 'Capacity Building' },
-  { icon: 'ph:leaf-bold', label: 'Lake Conservation' },
+  { icon: 'mdi:scale-balance', label: 'Policy Advocacy' },
+  { icon: 'mdi:cellphone', label: 'ICT Innovation' },
+  { icon: 'mdi:account-group', label: 'Capacity Building' },
+  { icon: 'mdi:leaf', label: 'Lake Conservation' },
 ]
 
 export default function OurStory() {
@@ -80,7 +80,7 @@ export default function OurStory() {
               className="inline-flex items-center gap-2 bg-marine-700 text-white font-bold px-8 py-4 text-[12px] uppercase tracking-widest hover:bg-marine-800 transition-all rounded-[4px]"
             >
               Discover Our Full Story
-              <Icon icon="ph:arrow-right-bold" />
+              <Icon icon="mdi:arrow-right-thick" />
             </Link>
           </motion.div>
 

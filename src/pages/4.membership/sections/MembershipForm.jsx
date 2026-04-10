@@ -66,7 +66,7 @@ function SuccessMessage() {
       className="text-center py-12 px-6"
     >
       <div className="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center" style={{ background: 'var(--color-cerulean-100)' }}>
-        <Icon icon="ph:check-circle-bold" className="text-4xl text-cerulean-500" />
+        <Icon icon="mdi:check-circle" className="text-4xl text-cerulean-500" />
       </div>
       <h3 className="font-header text-2xl mb-3" style={{ color: 'var(--text-main)' }}>
         Application Submitted!
@@ -222,7 +222,7 @@ export default function MembershipForm() {
                     </>
                   ) : (
                     <>
-                      <Icon icon="ph:paper-plane-tilt-bold" />
+                      <Icon icon="mdi:send" />
                       Submit Application
                     </>
                   )}
