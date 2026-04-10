@@ -54,19 +54,13 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-100 transition-all duration-500 ${
-          scrolled ? "py-0" : "py-4"
-        }`}
+        className="fixed top-0 left-0 right-0 z-100 transition-all duration-500 py-4"
       >
         <div
-          className={`mx-auto max-w-[1380px] transition-all duration-500 ${
-            scrolled ? "px-0" : "px-4 md:px-8"
-          }`}
+          className="mx-auto max-w-[1380px] transition-all duration-500 px-4 md:px-8"
         >
           <div
-            className={`w-full bg-cerulean-500 shadow-2xl transition-all duration-500 overflow-visible ${
-              scrolled ? "rounded-none h-[65px]" : "rounded-2xl h-[85px]"
-            }`}
+            className="w-full bg-cerulean-500 shadow-2xl transition-all duration-500 overflow-visible rounded-[4px] h-[85px]"
           >
             <div className="w-full px-6 lg:px-12 h-full flex items-center justify-between">
               {/* Logo */}
@@ -74,9 +68,7 @@ export default function Navbar() {
                 <img
                   src="/logo.png"
                   alt="FFOU Logo"
-                  className={`object-contain block transition-all duration-500 ${
-                    scrolled ? "w-[90px] h-[40px]" : "w-[110px] h-[60px]"
-                  }`}
+                  className="object-contain block transition-all duration-500 w-[110px] h-[60px]"
                 />
               </Link>
 
@@ -121,7 +113,7 @@ export default function Navbar() {
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 10 }}
-                          className="absolute top-full left-0 mt-0 w-60 bg-cerulean-500 shadow-2xl rounded-b-2xl overflow-hidden border-t-2 border-amber-400 z-200"
+                          className="absolute top-full left-0 mt-0 w-60 bg-cerulean-600 shadow-2xl rounded-b-[4px] overflow-hidden border-t-2 border-amber-400 z-200"
                         >
                           {dropdownItems[item].map((link) => (
                             <Link
@@ -152,7 +144,7 @@ export default function Navbar() {
               <div className="flex items-center h-full gap-4">
                 <Link
                   to="/programs/donate"
-                  className="bg-amber-500 text-white font-bold px-7 py-3 text-[11px] uppercase hover:bg-amber-600 transition-all rounded-xl hidden lg:flex items-center shadow-lg"
+                  className="bg-amber-500 text-white font-bold px-7 py-3 text-[11px] uppercase hover:bg-amber-600 transition-all rounded-[4px] hidden lg:flex items-center shadow-lg"
                 >
                   DONATE
                 </Link>
@@ -230,7 +222,7 @@ export default function Navbar() {
                   <Link
                     to="/programs/donate"
                     onClick={() => setMenuOpen(false)}
-                    className="w-full bg-amber-500 text-white font-bold py-5 text-lg uppercase flex items-center justify-center rounded-sm shadow-xl"
+                    className="w-full bg-amber-500 text-white font-bold py-5 text-lg uppercase flex items-center justify-center rounded-[4px] shadow-xl"
                   >
                     MAKE A DONATION
                   </Link>
