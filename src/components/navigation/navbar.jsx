@@ -114,6 +114,7 @@ export default function Navbar() {
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 10 }}
+                          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                           className="absolute top-full left-0 mt-0 w-60 bg-cerulean-600 shadow-2xl rounded-b-[4px] overflow-hidden border-t-2 border-amber-400 z-200"
                         >
                           {dropdownItems[item].map((link) => (
@@ -165,10 +166,10 @@ export default function Navbar() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="fixed inset-0 z-110 bg-cerulean-500 lg:hidden flex flex-col"
           >
             <div className="flex items-center justify-between p-8 border-b border-white/10">
@@ -212,6 +213,7 @@ export default function Navbar() {
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                           className="overflow-hidden"
                         >
                           <div className="flex flex-col pb-4 mb-2">

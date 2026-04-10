@@ -57,9 +57,9 @@ export default function HomeHero() {
           <div className="max-w-3xl flex flex-col items-center md:items-start text-center md:text-left mt-8 md:mt-0">
             {/* Eyebrow */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
               className="flex items-center gap-3 mb-6 md:mb-8"
             >
               <span className="text-amber-400 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.35em]">
@@ -69,9 +69,9 @@ export default function HomeHero() {
 
             {/* Headline */}
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
+              transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
               className="text-white text-4xl md:text-5xl lg:text-[52px] font-bold leading-[1.1] mb-8 tracking-tight"
             >
               The Voice of{' '}
@@ -82,9 +82,9 @@ export default function HomeHero() {
 
             {/* Sub-headline */}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.25 }}
+              transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="text-white/75 text-lg md:text-xl mb-10 max-w-xl leading-relaxed"
             >
               Uganda's national umbrella body representing 131 fisheries associations across five great lakes — advocating for sustainable livelihoods, policy, and innovation.
@@ -92,9 +92,9 @@ export default function HomeHero() {
 
             {/* CTA Buttons */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.9, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col sm:flex-row flex-wrap items-center justify-center md:justify-start gap-4 w-full sm:w-auto"
             >
               <Link
@@ -119,9 +119,9 @@ export default function HomeHero() {
       <div className="relative z-10 w-full border-t border-white/10">
         <div className="max-w-[1240px] mx-auto px-6">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={{ duration: 1.2, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
             className="grid grid-cols-2 md:grid-cols-4"
           >
             {[

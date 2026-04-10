@@ -87,17 +87,17 @@ export default function Donate() {
       <section className="py-24 bg-white border-b border-slate-100">
         <div className="max-w-[1240px] mx-auto px-6">
           <div className="flex flex-col md:flex-row gap-12 md:gap-24 items-start md:items-end justify-between mb-16">
-            <div className="max-w-xl">
-              <span className="text-[10px] font-bold tracking-[0.35em] text-amber-600 uppercase mb-4 block">
+            <div className="max-w-2xl">
+              <span className="text-[10px] font-bold tracking-[0.35em] text-marine-500 uppercase mb-4 block">
                 Where Your Money Goes
               </span>
-              <h2 className="text-4xl font-bold text-slate-800 leading-tight tracking-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-800 leading-[1.1] tracking-tight">
                 Every donation creates{' '}
-                <span className="text-marine-600">measurable impact</span>
+                <span className="text-cerulean-600 block mt-1">measurable impact</span>
               </h2>
             </div>
-            <p className="text-slate-500 max-w-sm text-sm leading-relaxed">
-              Your financial contributions go directly to programs that reach over 2 million fisherfolk across Uganda's five great lakes.
+            <p className="text-slate-500 max-w-sm text-base leading-relaxed md:text-right">
+              Your financial contributions go directly to grassroots programs that empower over 2 million fisherfolk across Uganda's five great lakes.
             </p>
           </div>
 
@@ -108,14 +108,15 @@ export default function Donate() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className={`p-8 rounded-[4px] border ${item.border} ${item.bg} group hover:shadow-lg transition-all`}
+                transition={{ delay: i * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className={`p-10 rounded-[4px] border ${item.border} ${item.bg} group hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1 transition-all duration-500 relative overflow-hidden`}
               >
-                <div className={`w-12 h-12 rounded-[4px] bg-white border ${item.border} flex items-center justify-center mb-6`}>
-                  <Icon icon={item.icon} className={`text-xl ${item.color}`} />
+                <div className={`absolute -right-10 -top-10 w-40 h-40 rounded-full blur-3xl opacity-20 bg-current ${item.color}`} />
+                <div className={`w-14 h-14 rounded-[4px] bg-white border ${item.border} flex items-center justify-center mb-8 relative z-10 shadow-sm group-hover:scale-110 transition-transform duration-500`}>
+                  <Icon icon={item.icon} className={`text-2xl ${item.color}`} />
                 </div>
-                <h3 className="text-lg font-bold text-slate-800 mb-3">{item.title}</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">{item.desc}</p>
+                <h3 className="text-xl font-bold text-slate-800 mb-4 relative z-10">{item.title}</h3>
+                <p className="text-slate-600 leading-relaxed relative z-10">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -123,97 +124,93 @@ export default function Donate() {
       </section>
 
       {/* Bank Transfer Section */}
-      <section className="py-24 bg-marine-900 relative overflow-hidden">
-        {/* Decorative grid */}
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage: 'linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)',
-            backgroundSize: '50px 50px',
-          }}
-        />
+      <section className="py-32 bg-marine-800 relative overflow-hidden">
+        {/* Deep architectural gradients */}
+        <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-marine-800 via-marine-700 to-transparent opacity-80" />
+        <div className="absolute -top-[300px] -right-[300px] w-[800px] h-[800px] bg-cerulean-600/10 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="relative z-10 max-w-[1240px] mx-auto px-6">
           {/* Header */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-14"
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="mb-20 text-center max-w-3xl mx-auto"
           >
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-12 h-12 rounded-[4px] bg-amber-400/15 border border-amber-400/20 flex items-center justify-center">
-                <Icon icon="mdi:bank" className="text-amber-400 text-xl" />
-              </div>
-              <div>
-                <span className="text-amber-400 text-[10px] font-bold uppercase tracking-[0.35em] block mb-1">
-                  Secure Transfer
-                </span>
-                <h2 className="text-3xl font-bold text-white leading-tight">Direct Bank Transfer</h2>
-              </div>
+            <div className="w-16 h-16 rounded-[4px] bg-amber-400/10 border border-amber-400/20 flex items-center justify-center mx-auto mb-6 shadow-[0_0_40px_rgba(251,191,36,0.15)]">
+              <Icon icon="mdi:bank" className="text-amber-400 text-3xl" />
             </div>
-            <p className="text-marine-300 text-sm max-w-xl leading-relaxed">
-              Please use the official accounts below. Always verify the account name before confirming.
-              For international transfers, use the EUR account with SWIFT code.
+            <span className="text-amber-400 text-[10px] font-bold uppercase tracking-[0.4em] block mb-4">
+              Secure Institutional Transfer
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">Offical Bank Accounts</h2>
+            <p className="text-marine-300 text-base max-w-2xl mx-auto leading-relaxed">
+              Please route funds directly to the official FFOU treasury accounts provided below. <br className="hidden md:block"/> Verify the exact account name before authorizing your transaction.
             </p>
           </motion.div>
 
-          {/* Bank Cards */}
-          <div className="grid md:grid-cols-3 gap-5 mb-10">
+          {/* Premium Ticket Cards */}
+          <div className="grid lg:grid-cols-3 gap-8 mb-16">
             {bankAccounts.map((account, i) => (
               <motion.div
                 key={account.accountNumber}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="rounded-[4px] border border-white/10 bg-white/5 p-7 flex flex-col gap-5"
+                transition={{ delay: i * 0.15, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                className="group relative"
               >
-                {/* Top row */}
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-marine-400">
-                    Recipient Bank
-                  </span>
-                  <span className="text-[10px] px-3 py-1 rounded-[4px] font-bold bg-amber-400/15 text-amber-400 border border-amber-400/20">
+                {/* Glow behind card */}
+                <div className="absolute inset-0 bg-amber-400/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                
+                {/* Card Container */}
+                <div className="relative h-full rounded-[4px] border border-white/10 bg-white/5 backdrop-blur-md overflow-hidden flex flex-col hover:border-amber-400/30 transition-colors duration-500">
+                  {/* Currency Tag */}
+                  <div className="absolute top-0 right-8 px-4 py-2 bg-amber-400 text-marine-800 text-[10px] font-bold uppercase tracking-widest rounded-b-[4px] shadow-lg">
                     {account.currency}
-                  </span>
-                </div>
+                  </div>
 
-                {/* Bank name */}
-                <div>
-                  <h4 className="text-white font-bold text-lg leading-tight">{account.bank}</h4>
-                  <p className="text-marine-300 text-xs mt-1">{account.branch}</p>
-                </div>
+                  <div className="p-8 pb-6 border-b border-dashed border-white/10">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-marine-400 block mb-2">
+                      Recipient Bank
+                    </span>
+                    <h4 className="text-white font-bold text-2xl leading-tight mb-1 group-hover:text-amber-200 transition-colors">{account.bank}</h4>
+                    <p className="text-marine-300 text-xs">{account.branch}</p>
+                  </div>
 
-                {/* Account number */}
-                <div className="relative bg-black/20 rounded-[4px] p-4">
-                  <span className="block text-[10px] font-bold text-marine-400 uppercase mb-2">Account Number</span>
-                  <p className="text-white font-mono text-base tracking-widest pr-8 break-all">
-                    {account.accountNumber}
-                  </p>
-                  <CopyButton text={account.accountNumber} />
-                </div>
-
-                {/* SWIFT / IBAN if present */}
-                {account.swift && (
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between py-2 border-t border-white/10">
-                      <span className="text-xs text-marine-400">SWIFT / BIC</span>
-                      <span className="text-sm text-white font-mono">{account.swift}</span>
+                  <div className="p-8 grow flex flex-col">
+                    {/* Account number */}
+                    <div className="relative bg-black/30 rounded-[4px] p-5 mb-6 border border-white/5">
+                      <span className="block text-[10px] font-bold text-marine-400 uppercase mb-2 tracking-wider">Account Number</span>
+                      <p className="text-amber-400 font-mono text-xl tracking-widest pr-8 break-all font-bold">
+                        {account.accountNumber}
+                      </p>
+                      <CopyButton text={account.accountNumber} />
                     </div>
-                    {account.iban && (
-                      <div className="flex items-center justify-between py-2 border-t border-white/10">
-                        <span className="text-xs text-marine-400">IBAN</span>
-                        <span className="text-xs text-white font-mono break-all text-right ml-4">{account.iban}</span>
+
+                    {/* SWIFT / IBAN if present */}
+                    {account.swift && (
+                      <div className="space-y-3 mb-6 bg-white/5 rounded-[4px] p-5 border border-white/5">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[10px] tracking-wider uppercase font-bold text-marine-400">SWIFT / BIC</span>
+                          <span className="text-sm text-white font-mono font-bold tracking-widest">{account.swift}</span>
+                        </div>
+                        {account.iban && (
+                          <div className="flex items-center justify-between pt-3 border-t border-white/5">
+                            <span className="text-[10px] tracking-wider uppercase font-bold text-marine-400">IBAN</span>
+                            <span className="text-[11px] text-white font-mono font-bold break-all text-right ml-4 tracking-widest">{account.iban}</span>
+                          </div>
+                        )}
                       </div>
                     )}
-                  </div>
-                )}
 
-                {/* Account name */}
-                <div className="pt-2 border-t border-white/10">
-                  <span className="text-[10px] text-marine-400 uppercase font-bold tracking-wider block mb-1">Account Name</span>
-                  <span className="text-white text-xs leading-relaxed">{account.accountName}</span>
+                    {/* Account name */}
+                    <div className="mt-auto pt-5 border-t border-white/10">
+                      <span className="text-[9px] text-marine-400 uppercase font-bold tracking-widest block mb-1">Beneficiary Name</span>
+                      <span className="text-white text-sm font-semibold tracking-wide leading-relaxed">{account.accountName}</span>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -221,17 +218,19 @@ export default function Donate() {
 
           {/* Security notice */}
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex items-start gap-4 p-6 rounded-[4px] border border-cerulean-400/20 bg-cerulean-500/10"
+            transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col sm:flex-row items-start sm:items-center gap-5 p-6 rounded-[4px] border border-cerulean-400/20 bg-cerulean-500/10 max-w-4xl mx-auto backdrop-blur-sm"
           >
-            <Icon icon="mdi:shield-check" className="text-cerulean-400 text-2xl shrink-0 mt-0.5" />
+            <div className="w-12 h-12 rounded-full bg-cerulean-400/20 flex items-center justify-center shrink-0">
+              <Icon icon="mdi:shield-check" className="text-cerulean-400 text-2xl" />
+            </div>
             <div>
-              <p className="text-sm font-bold text-white mb-1">Official Federation Accounts Only</p>
+              <p className="text-sm font-bold text-white mb-1 tracking-wide">Federation Fraud Department Advisory</p>
               <p className="text-xs leading-relaxed text-marine-300">
-                Payments are only processed through these official accounts. Always verify that the Account Name
-                reads exactly <em>"Federation of Fisheries Organizations Uganda"</em> before confirming any transfer.
+                Official donations are strictly accepted through these recorded SWIFT/IBAN paths. Non-designated external portals or private mobile money requests claiming to represent FFOU are fraudulent. Check the beneficiary name prior exactly to transfer.
               </p>
             </div>
           </motion.div>
